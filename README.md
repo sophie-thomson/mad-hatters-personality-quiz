@@ -1,4 +1,4 @@
-# Mat Hatter's Personality Quiz
+# Mad Hatter's Personality Quiz
 
 A fun character quiz to see which character from Alice in Wonderland you are most similar to.
 
