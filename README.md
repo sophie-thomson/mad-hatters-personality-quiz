@@ -129,6 +129,18 @@ A fun character quiz to see which character from Alice in Wonderland you are mos
 
 ![Screenshot of character result page on mobile]()
 
+***Description***
+
+- A brief descrpition of the characteristics that make you like your character.
+
+***Repeat Quiz Button***
+
+- A button inviting the user to take the quiz again and see who they get next time.
+
+***Share Results Button????***
+
+
+
 ### 404 Error Page (404.html)
 
 - Branded 404 error page with logo and button so the user can easily navigate back to the home page.
@@ -143,9 +155,8 @@ A fun character quiz to see which character from Alice in Wonderland you are mos
 
 ### Additional Features to Implement
 To expand on this site, there are a number of features that could be added to provide additional information and functionality:
-- 
-- 
-- 
+- A button inviting the user to share their quiz results on their social media profile.
+- The option to download a recipe for an item to take to the Mad Hatter's Tea Party relating to their character.
  
 ## Design
 
@@ -155,14 +166,14 @@ To expand on this site, there are a number of features that could be added to pr
 
 - A visual mindmap to map out the different elements needed to create the initial structure of the site.
 
-![Placeholder for image of Initial Mindmap]()
+![PScreenshot of initial planning Mindmap](docs/readme-images/mindmap.png)
 
 ***Psuedo Code***
 
 - An initial flow diagram was created to show a simplified sequence of steps that the site will follow in response to user actions.
 - Each of the inital steps is then broken down into a subset of smaller psuedo code blocks which can then be translated into JavaScript syntax.
 
-![Placeholder for image of Psuedo Code inital structure]()
+![Image of Psuedo Code inital structure flow diagram](docs/readme-images/psuedo-code-initial-structure.png)
 ![Placeholder for image of Psuedo Code subsets]()
 ![Placeholder for image of JavaScript syntax]()
 
@@ -174,7 +185,7 @@ To expand on this site, there are a number of features that could be added to pr
 - Each answer option was assigned a character value for one of 6 Alice in Wonderland characters: Alice; White Rabbit; Mad Hatter; Cheshire Cat; Blue Caterpillar; Queen of Hearts.
 - 
 
-![Placeholder for screenshot of spreadsheet]()
+![Screenshot of spreadsheet showing questions and answers data](docs/readme-images/questions-and-answers.png)
 
 ### Responsive Layout
 
