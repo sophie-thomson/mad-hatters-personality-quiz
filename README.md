@@ -143,7 +143,7 @@ A fun character quiz to see which character from Alice in Wonderland you are mos
 
 ### 404 Error Page (404.html)
 
-- Branded 404 error page with logo and button so the user can easily navigate back to the home page.
+- Branded 404 error page with button so the user can easily navigate back to the welcome page.
 - Same site-wide styling as other pages to improve user experience and consistency.
 
 ![Screenshot of 404 error page]()
@@ -164,7 +164,7 @@ To expand on this site, there are a number of features that could be added to pr
 
 ***Mind Mapping***
 
-- A visual mindmap to map out the different elements needed to create the initial structure of the site.
+- A visual mindmap was used to map out the different elements needed to create the initial structure of the site.
 
 ![PScreenshot of initial planning Mindmap](docs/readme-images/mindmap.png)
 
