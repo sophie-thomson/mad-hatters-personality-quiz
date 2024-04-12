@@ -1,8 +1,10 @@
 # Mad Hatter's Personality Quiz
 
-A fun character quiz to see which character from Alice in Wonderland you are most similar to.
+The Mad Hatter's Personality Quiz is a fun way to see which character from Alice in Wonderland you are most similar to.
 
+The adventures of Alice in Wonderland are well known and loved around the World. The larger than life characters and bizarre situations have inspired movies and songs, and influenced pop culture for almost 160 years. 
 
+This quiz will take the user on their own personal journey through Wonderland and will compare their own personality traits with 6 of the best known characters that Lewis Carrol first created in 1865.
 
 ![Multi-device mockup showing responsiveness]()
 
