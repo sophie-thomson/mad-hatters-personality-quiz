@@ -11,7 +11,7 @@ A fun character quiz to see which character from Alice in Wonderland you are mos
 ### Site Wide
 
 ***Favicon***
-- A favicon of the famous Cheshire Cat grin so it is easily identifiable among multiple tabs.
+- A favicon of the recognisable hat of the Mad Hatter so it is easily identifiable among multiple tabs.
 
 ![Screenshot of favicon image on a tab]()
 
