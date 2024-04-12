@@ -183,9 +183,14 @@ To expand on this site, there are a number of features that could be added to pr
 ***Questions and Answers***
 
 - A spreadsheet was created to list 10 personality related questions.
-- Each question was given 6 possible answer options.
-- Each answer option was assigned a character value for one of 6 Alice in Wonderland characters: Alice; White Rabbit; Mad Hatter; Cheshire Cat; Blue Caterpillar; Queen of Hearts.
-- 
+- Each question was given 6 possible answer options which relate to the characters created in the book.
+- Each answer option was assigned a character value for one of 6 Alice in Wonderland characters: 
+    - Alice
+    - White Rabbit
+    - Mad Hatter
+    - Cheshire Cat
+    - Blue Caterpillar
+    - Queen of Hearts
 
 ![Screenshot of spreadsheet showing questions and answers data](docs/readme-images/questions-and-answers.png)
 
