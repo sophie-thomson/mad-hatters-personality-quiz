@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Seymour+One&display=swap');
+
+/* Asterisk wildcard selector to override default styles added by the browser */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    background-color:#fefcfc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    /* Generic project styles */
+    color: #5e5d5d;
+    font-family: 'Courier Prime', georgia, serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-family: 'Seymour One', georgia, serif;
+    font-weight: 700;
+    /* text-transform: uppercase; */
+    letter-spacing: 2px;
+    color: #205a49;
+    text-shadow: 0 2px 2px #787878;
+}
+
+/* Header */
+
+header {
+    padding: 0 1rem;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    box-shadow: 0 1px 1px #787878;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: #fefff5;
+}
