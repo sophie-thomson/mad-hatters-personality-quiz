@@ -51,3 +51,17 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+const questions = [
+    {
+        question: "Question 1",
+        answers: [
+            { text: "Answer 1", value: character},
+            { text: "Answer 2", value: character},
+            { text: "Answer 3", value: character},
+            { text: "Answer 4", value: character},
+            { text: "Answer 5", value: character},
+            { text: "Answer 6", value: character},
+        ]
+    }
+]
