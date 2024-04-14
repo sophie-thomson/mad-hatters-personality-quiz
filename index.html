@@ -30,15 +30,34 @@
     </header>
     <!-- Main -->
     <main>
-    <div id="game-box">
+    <div id="quiz-box">
         <!-- welcome-image downloaded as preview image from adobe stock: https://as2.ftcdn.net/v2/jpg/07/51/11/37/1000_F_751113710_k4fU8JfZ9kyx6tBJmCIkayu2hmbB8c11.jpg -->
         <img id="welcome-image" src="assets/images/welcome-image-adobe-751113710.webp" alt="Table laden with brightly coloured teacups and tea pots for Mad Hatter's Tea Party">
         <h2>You have been invited to a Mad Hatter's Tea Party, but which character should you go as?</h2>
         <p>Take this quiz to find out which Alice in Wonderland character you are most like so you can start planning your costume!</p>
-        <p><strong>Instructions:</strong> You will be asked 10 questions. Simply click on the answer that best fits your own personality and preferences.</p>
-        <p>When you have answered all the questions, we will reveal which character (or characters) you are most similar to.</p>
-    </main>
+
+        <!-- Pop-up modal used for instructions to reduce amount of text on screen -->
+
+        <!-- button to trigger the modal to open -->
+        <button id="instructionsButton" class="button">How to Play</button>
+
+        <div id="instructionsModal" class="modal">
+            <div class="instructions-modal">
+                <!-- Creates a 'x' which can be clicked on to close the modal -->
+                <span class="close">&times;</span>
+                <!-- Content to be shown on the modal -->
+                <h2>How to Play</h2>
+                <p>You will be asked 10 questions.</p>
+                <p>Simply click on the answer that best fits your own personality & preferences.</p>
+                <p>When you have answered all the questions, we will reveal which character you are most similar to.</p>
+                <p>Click on the hat logo at any time to go back to the start.</p>
+            </div>
+        </div>
+        <div id="quiz-start">
+            <button id="quiz-start-button" class="button">Click here to enter the rabbit hole...<br><i class="fa-solid fa-person-falling"></i></button>
+        </div>
     </div>
+    </main>
 
     <!-- Footer -->
 

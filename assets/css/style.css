@@ -46,9 +46,62 @@ a {
     text-decoration: none;
     color: inherit;
 }
+/* Styling for all buttons using class "button" */
+.button {
+    color:#5e5d5d;
+    text-align: center;
+    background-color: #fcfcfc;
+    border: solid 2px #a4e9b3;
+    border-radius: 5px;
+    font-family: 'Courier Prime', georgia, serif;
+    font-weight: 700;
+    padding: 5px;
+    box-shadow: 4px 4px 4px #787878;
+    
+}
 
-#game-box {
-    /* background-position: center center; */
+.button:hover {
+    background-color:#fdd0d8;
+    border-color: #AB63E0;
+}
+
+/* Styling for all modals using class "modal" */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height:100%;
+    overflow: auto;
+    background-color: rgba(114, 88, 107, 0.4)
+}
+
+/* Styling for the 'x' close trigger on a modal */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Main content */
+main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    }
+
+/* quiz-box styling for the main box to be used on all pages */
+#quiz-box {
     background-color: #708d74;
     width: 90vw;
     max-width: 700px;
@@ -56,22 +109,13 @@ a {
     box-shadow: 0 2px 2px #787878;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     text-align: center;
     border-radius: 15px;
     align-items: flex-start;
 }
 
-/* Main content */
-main {
-    /* Expand main element so it takes up surplus space and pushes footer down to bottom*/
-        flex: 1 0 auto;
-        display: flex;
-        flex-direction: column;
-    }
-
-/* game-box styling */
-#game-box img {    
+/* quiz-box hero image styling */
+#quiz-box img {    
     width: 90vw;
     max-width: 700px;
     border-top-left-radius: 15px;
@@ -79,27 +123,62 @@ main {
     margin-top: 0;
     margin-bottom: 15px;
 }
-
-#game-box h2 {
+/* Used for the questions and any sub-headings inside the box */
+#quiz-box h2 {
     font-size: 125%;
     padding: 0 10px 15px 10px;
 }
 
-#game-box p {
+#quiz-box p {
     padding: 0 10px 15px 10px;
 }
 
+/* Styling for the instructions modal on welcome page */
+.instructions-modal {
+    color: #5e5d5d;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+#instructionsButton {
+    align-self: center;
+    margin-bottom: 20px;
+  }
+
+  /* styling for quiz-start div and start button */
+#quiz-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+  #quiz-start-button {
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  #quiz-start-button i {
+    font-size: 175%;
+    margin-top: 5px;
+  }
+
 /* Footer styling */
 footer {
+    color: #5e5d5d;
     font-size: 14px;
     font-weight: 500;
 }
-
+/* Asjusts the size and colour of the social media icons */
 footer i {
     font-size: 175%;
     color: #7ea183;
 }
-
+/* Displays the social media icons side by side */
 footer li {
     display: inline-block;
     margin: 5px 10px;
