@@ -180,7 +180,7 @@ main {
     row-gap: 10px;
     /* justify-content: space-between; */
     /* align-items:; */
-    margin: auto;
+    margin: 0 auto 20px;
   }
 
   #answers .button {
@@ -197,9 +197,19 @@ main {
   }
 
   #next-button {
+    background: #4f0585;
+    border-color: #AB63E0;
+    color: #fcfcfc;
+    font-size: 16px;
+    font-weight: 500;
     padding: 10px;
     margin-bottom: 20px;
     margin-top: 10px;
+    display: none;
+  }
+
+  #next-button i {
+    font-size: 125%;
   }
 
 /* Footer styling */
