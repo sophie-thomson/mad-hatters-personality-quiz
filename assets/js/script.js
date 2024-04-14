@@ -52,6 +52,7 @@ window.onclick = function(event) {
   }
 }
 
+// Basic format for question & answers structure inspired by tutorial How to Make Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8)
 const questions = [
     {
         question: "Question 1",
