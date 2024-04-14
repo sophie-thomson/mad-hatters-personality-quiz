@@ -54,7 +54,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 - A button at the bottom of the page inviting the user to 'Enter the Rabbit Hole...' and start their quiz.
 - This button will navigate to the Question One page and initialise the data for the first question.
 
-### Question Pages Q1-Q9 (q1.html, q2.html, q3.html, q4.html, q5.html, q6.html, q7.html, q8.html, q9.html)
+### Questions Page (questions.html)
 
 ***Image***
 
@@ -68,7 +68,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 
 ***Question***
 
-- Heading 1 level styling used to make the question stand out as the most important thing on the page and follow assessibility guidelines.
+- Heading 2 level styling used to make the question stand out at the top of the page and follow assessibility guidelines.
 
 ![Screenshot of Gallery page with responsive layout on tablet]()
 
@@ -283,6 +283,9 @@ The live link can be found here
 ## Credits
 
 ### Content
+
+***JavaScript***
+- Code from [StackOverflow] (https://stackoverflow.com/questions/69743873/continuous-rainbow-color-cycling-effect-in-js) was adapted to create colour changing effect on main heading element.
 
 - 
 

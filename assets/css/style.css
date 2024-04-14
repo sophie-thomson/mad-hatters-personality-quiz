@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* Asterisk wildcard selector to override default styles added by the browser */
 * {
@@ -9,10 +9,13 @@
 
 /* General styles */
 body {
-    background-color:#fefcfc;
+    /* background-color:#ec8484; */
+    background-color: #fcfcfc;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 
     /* Generic project styles */
     color: #5e5d5d;
@@ -20,25 +23,65 @@ body {
     font-weight: 400;
 }
 
-h1 {
-    font-family: 'Seymour One', georgia, serif;
-    font-weight: 700;
-    /* text-transform: uppercase; */
-    letter-spacing: 2px;
-    color: #205a49;
-    text-shadow: 0 2px 2px #787878;
+#logo {
+    width: 100px;
+    margin-top: 40px;
 }
 
-/* Header */
+h1 {
+    font-family: 'Acme', georgia, serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: #AB63E0;
+}
 
-header {
-    padding: 0 1rem;
-    position: fixed;
-    z-index: 99;
-    width: 100%;
-    box-shadow: 0 1px 1px #787878;
+/* repeat code to be used for any hidden element */
+.hidden {
+    display: none;
+}
+
+/* Remove underline and default colour for links*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#game-box {
+    background-position: center center;
+    background-color: #7ea183;
+    width: 90vw;
+    min-height:80vw;
+    margin: auto;
+    box-shadow: 0 2px 2px #787878;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    background-color: #fefff5;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+}
+
+/* Main content */
+main {
+    /* Expand main element so it takes up surplus space and pushes footer down to bottom*/
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+        margin-top: 80px;
+    }
+
+/* Footer styling */
+footer {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+footer i {
+    font-size: 175%;
+    color: #7ea183;
+}
+
+footer li {
+    display: inline-block;
+    margin: 5px 10px;
 }
