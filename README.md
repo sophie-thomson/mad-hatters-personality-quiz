@@ -290,7 +290,7 @@ The live link can be found here
 - 
 
 ### Media
-
+- Welcome Page Hero Image downloaded from [Adobe Stock](https://stock.adobe.com/images/mad-hatter-s-tea-party-whimsical-wonderland-table/751113710)
 - 
 
 ## Code & Technology
