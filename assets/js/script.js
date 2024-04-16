@@ -38,31 +38,145 @@ let span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
-}
+};
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
-// Basic format for question & answers structure inspired by tutorial How to Make Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8)
-const questions = [
-    {
-        question: "Question 1",
+// Basic format for question & answers structure adapted from tutorial How to Make Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8)
+const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
+    // Question 1 (index [0])
+    { 
+        question: "Question 1 text",
         answers: [
-            { text: "Answer 1", value: character},
-            { text: "Answer 2", value: character},
-            { text: "Answer 3", value: character},
-            { text: "Answer 4", value: character},
-            { text: "Answer 5", value: character},
-            { text: "Answer 6", value: character},
+            { text: "Answer 1 text", value: "characterValue"},
+            { text: "Answer 2 text", value: "characterValue"},
+            { text: "Answer 3 text", value: "characterValue"},
+            { text: "Answer 4 text", value: "characterValue"},
+            { text: "Answer 5 text", value: "characterValue"},
+            { text: "Answer 6 text", value: "characterValue"},
         ]
-    }
-]
+    },
+    // Question 2 (index [1])
+    { 
+      question: "Question 2 text",
+      answers: [
+          { text: "Answer 1 text", value: "characterValue"},
+          { text: "Answer 2 text", value: "characterValue"},
+          { text: "Answer 3 text", value: "characterValue"},
+          { text: "Answer 4 text", value: "characterValue"},
+          { text: "Answer 5 text", value: "characterValue"},
+          { text: "Answer 6 text", value: "characterValue"},
+      ]
+    },
+    // Question 3 (index [2])
+    { 
+    question: "Question 3 text",
+    answers: [
+        { text: "Answer 1 text", value: "characterValue"},
+        { text: "Answer 2 text", value: "characterValue"},
+        { text: "Answer 3 text", value: "characterValue"},
+        { text: "Answer 4 text", value: "characterValue"},
+        { text: "Answer 5 text", value: "characterValue"},
+        { text: "Answer 6 text", value: "characterValue"},
+    ]
+  },
+  // Question 4 (index [3])
+  { 
+  question: "Question 4 text",
+  answers: [
+      { text: "Answer 1 text", value: "characterValue"},
+      { text: "Answer 2 text", value: "characterValue"},
+      { text: "Answer 3 text", value: "characterValue"},
+      { text: "Answer 4 text", value: "characterValue"},
+      { text: "Answer 5 text", value: "characterValue"},
+      { text: "Answer 6 text", value: "characterValue"},
+  ]
+  },
+  // Question 5 (index [4])
+  { 
+  question: "Question 5 text",
+  answers: [
+      { text: "Answer 1 text", value: "characterValue"},
+      { text: "Answer 2 text", value: "characterValue"},
+      { text: "Answer 3 text", value: "characterValue"},
+      { text: "Answer 4 text", value: "characterValue"},
+      { text: "Answer 5 text", value: "characterValue"},
+      { text: "Answer 6 text", value: "characterValue"},
+  ]
+  },
+  // Question 6 (index [5])
+  { 
+  question: "Question 6 text",
+  answers: [
+      { text: "Answer 1 text", value: "characterValue"},
+      { text: "Answer 2 text", value: "characterValue"},
+      { text: "Answer 3 text", value: "characterValue"},
+      { text: "Answer 4 text", value: "characterValue"},
+      { text: "Answer 5 text", value: "characterValue"},
+      { text: "Answer 6 text", value: "characterValue"},
+  ]
+  },
+  // Question 7 (index [6])
+  { 
+  question: "Question 7 text",
+  answers: [
+      { text: "Answer 1 text", value: "characterValue"},
+      { text: "Answer 2 text", value: "characterValue"},
+      { text: "Answer 3 text", value: "characterValue"},
+      { text: "Answer 4 text", value: "characterValue"},
+      { text: "Answer 5 text", value: "characterValue"},
+      { text: "Answer 6 text", value: "characterValue"},
+  ]
+  },
+  // Question 8 (index [7])
+  { 
+  question: "Question 8 text",
+  answers: [
+      { text: "Answer 1 text", value: "characterValue"},
+      { text: "Answer 2 text", value: "characterValue"},
+      { text: "Answer 3 text", value: "characterValue"},
+      { text: "Answer 4 text", value: "characterValue"},
+      { text: "Answer 5 text", value: "characterValue"},
+      { text: "Answer 6 text", value: "characterValue"},
+  ]
+  },
+  // Question 9 (index [8])
+  { 
+  question: "Question 9 text",
+  answers: [
+      { text: "Answer 1 text", value: "characterValue"},
+      { text: "Answer 2 text", value: "characterValue"},
+      { text: "Answer 3 text", value: "characterValue"},
+      { text: "Answer 4 text", value: "characterValue"},
+      { text: "Answer 5 text", value: "characterValue"},
+      { text: "Answer 6 text", value: "characterValue"},
+  ]
+  },
+  // Question 10 (index [9])
+  { 
+  question: "Question 10 text",
+  answers: [
+      { text: "Answer 1 text", value: "characterValue"},
+      { text: "Answer 2 text", value: "characterValue"},
+      { text: "Answer 3 text", value: "characterValue"},
+      { text: "Answer 4 text", value: "characterValue"},
+      { text: "Answer 5 text", value: "characterValue"},
+      { text: "Answer 6 text", value: "characterValue"},
+  ]
+  }
+];
+
+// Get the question elements from the DOM by Id "question" and "answers" and "next button"
+let questionData = document.getElementById("question");
+let answersData = document.getElementById("answers");
+let nextButton = document.getElementById("next-button");
