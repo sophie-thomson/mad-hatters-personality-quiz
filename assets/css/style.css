@@ -57,7 +57,7 @@ a {
     font-weight: 700;
     padding: 5px;
     box-shadow: 4px 4px 4px #787878;
-    
+    margin:15px auto;
 }
 
 .button:hover {
