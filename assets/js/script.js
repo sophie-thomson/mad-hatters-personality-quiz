@@ -215,8 +215,19 @@ function displayQuestion() {
 //   }
 // }
 
-function selectAnswer(e) {
-  const chosenAnswer = 
-}
+function selectAnswer(x) {
+  const chosenAnswer = x.target;
+  chosenAnswer.classList.add("chosen-answer");
+  Array.from(answerData.children).forEach(button => {
+      button.disabled = true;
+  });
+  nextButton.style.display = "block";
+  nextButton.classList.add("button");
+  nextButton.style.innerHTML = "Next Question";
+
+};
+  
+  
+
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData

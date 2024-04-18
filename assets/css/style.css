@@ -166,12 +166,22 @@ main {
     align-self: center;
   }
 
+  #answer-buttons {
+    margin-bottom: 20px;
+  }
+
   #answer-buttons .button {
     margin: 0 auto 10px;
     width: 80vw;
     max-width: 615px;
     padding: 15px;
     box-shadow: none;
+  }
+
+  .chosen-answer {
+    background-color: #4f0585;
+    color:#fcfcfc;
+    border-color: darkmagenta;
   }
 
   #next {
