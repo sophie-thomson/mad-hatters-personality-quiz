@@ -182,12 +182,12 @@ let nextButton = document.getElementById("next-button");
 
 let currentQuestionIndex = 0;
 // Scores for all characters need to be set at 0 for the start of the quiz
-let scores = 0 [0, 0, 0, 0, 0, 0]; //????????????????????????????????
+let answerScores = [0, 0, 0, 0, 0, 0];
 
 // function to start the quiz takes the index of 0 and sets the content of the 'next button'
 function startQuiz() {
   currentQuestionIndex = 0;
-  scores = 0;
+  answerScores = 0;
   nextButton.innerText = "Next Question";
   displayQuestion(); // calling function to to display the question text
 };
@@ -204,7 +204,19 @@ function displayQuestion() {
     button.innerText = answer.text; //displays the 'text' from the answers for that question
     button.classList.add("button"); //adds the class "button" to the button for CSS
     answerData.appendChild(button); // Adds another button for each answer in sequence
+    button.addEventListener("click", selectAnswer);
   })
+}
+
+// function resetState() {
+//   nextButton.style.display = "none";
+//   while(answerData.firstChild) {
+//     answerData.removeChild(answerData.firstChild);
+//   }
+// }
+
+function selectAnswer(e) {
+  const chosenAnswer = 
 }
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData

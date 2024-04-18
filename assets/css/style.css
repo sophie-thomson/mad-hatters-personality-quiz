@@ -9,12 +9,8 @@
 
 /* General styles */
 body {
-    /* background-color:#ec8484; */
     background-color: #fcfcfc;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
 
     /* Generic project styles */
@@ -107,11 +103,7 @@ main {
     max-width: 700px;
     margin: 15px auto;
     box-shadow: 0 2px 2px #787878;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
     border-radius: 15px;
-    align-items: flex-start;
 }
 
 /* quiz-box hero image styling */
@@ -170,31 +162,22 @@ main {
 
   /* Questions Page styling */
 
-  #question-section {
+  #question {
     align-self: center;
   }
 
-  #answers {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    /* justify-content: space-between; */
-    /* align-items:; */
-    margin: 0 auto 20px;
-  }
-
   #answer-buttons .button {
-    margin-bottom: 10px;
-    margin: auto;
+    margin: 0 auto 10px;
     width: 80vw;
     max-width: 615px;
+    padding: 15px;
+    box-shadow: none;
   }
 
   #next {
     display: flex;
     flex-direction: row;
     margin: auto;
-
   }
 
   #next-button {
