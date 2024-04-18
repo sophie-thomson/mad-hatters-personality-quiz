@@ -20,26 +20,27 @@ const scheme = document.querySelector("h1");
 
   //  Code adapted using W3schools tutorial to create a basic modal https://www.w3schools.com/howto/howto_css_modals.asp
 
-let modal = document.getElementById("instructionsModal");
-let instructionsButton = document.getElementById("instructions-button");
-let span = document.getElementsByClassName("close")[0];
+// let instructionsModal = document.getElementById("instructions-modal");
+// let instructionsButton = document.getElementById("instructions-button");
+// let span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-instructionsButton.onclick = function() {
-  modal.style.display = "block";
-};
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-};
+// // When the user clicks the button, display the modal 
+// instructionsButton.onclick = function displayModal() {
+//   instructionsModal.style.display = "block";
+// };
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function(_close) {
+//   instructionsModal.style.display = "none";
+// };
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == instructionsModal) {
+//     instructionsModal.style.display = "none";
+//   }
+// };
 
 // QUESTIONS AND ANSWERS
 
@@ -187,7 +188,7 @@ let scores = 0 [0, 0, 0, 0, 0, 0]; //????????????????????????????????
 function startQuiz() {
   currentQuestionIndex = 0;
   scores = 0;
-  nextButton.innerHTML = "Next Question";
+  nextButton.innerText = "Next Question";
   displayQuestion(); // calling function to to display the question text
 };
 
@@ -195,12 +196,12 @@ function displayQuestion() {
   let currentQuestion = questions[currentQuestionIndex]; //declares the current question as the question at most recent index used
   let questionNumber = currentQuestionIndex + 1; //gets the question number for the current question and adds 1 because want 'Q1' to show not 'Q0' which is the index
   // Tells html to display question number in front of question text then a "." and then the question text 
-  questionData.innerHTML = questionNumber + ". " + currentQuestion.question;
+  questionData.innerText = questionNumber + ". " + currentQuestion.question;
 
   //gets 'answers' for the currentQuestion from the answerData 
   currentQuestion.answers.forEach(answer => { //forEach runs the script for each answer in the answersData for that question
     const button = document.createElement("button"); //creates an answerButton for each answer in the answerData
-    button.innerHTML = answer.text; //displays the 'text' from the answers for that question
+    button.innerText = answer.text; //displays the 'text' from the answers for that question
     button.classList.add("button"); //adds the class "button" to the button for CSS
     answerData.appendChild(button); // Adds another button for each answer in sequence
   })

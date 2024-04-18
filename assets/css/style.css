@@ -134,7 +134,7 @@ main {
 }
 
 /* Styling for the instructions modal on welcome page */
-.instructions-modal {
+#instructions-modal-content {
     color: #5e5d5d;
     background-color: #fefefe;
     margin: auto;
@@ -183,7 +183,7 @@ main {
     margin: 0 auto 20px;
   }
 
-  #answers .button {
+  #answer-buttons .button {
     margin-bottom: 10px;
     margin: auto;
     width: 80vw;
