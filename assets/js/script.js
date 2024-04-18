@@ -1,4 +1,5 @@
-// Code from StackOverflow (https://stackoverflow.com/questions/69743873/continuous-rainbow-color-cycling-effect-in-js) was adapted to create this colour changing effect on main heading element.
+// Code from StackOverflow (https://stackoverflow.com/questions/69743873/continuous-rainbow-color-cycling-effect-in-js) 
+// Adapted to create colour changing effect on main heading element on all pages.
 const scheme = document.querySelector("h1");
   const rainbow = [
     "#AB63E0",
@@ -27,7 +28,7 @@ const scheme = document.querySelector("h1");
     if (currentColor == rainbow.length-1) {
     currentColor = 0;
     }
-  }, 1000);
+  }, 200);
 
 //  Code adapted using W3schools tutorial to create a basic modal https://www.w3schools.com/howto/howto_css_modals.asp
 
