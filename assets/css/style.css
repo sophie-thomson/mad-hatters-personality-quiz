@@ -206,6 +206,14 @@ main {
     font-size: 125%;
   }
 
+  #change-answer-button {
+    background: #3b4b3d ;
+    border-color: #a4e9b3;
+    color: #fcfcfc;
+    font-weight: 400;
+    display: none;  
+  }
+
 /* Footer styling */
 footer {
     color: #5e5d5d;

@@ -176,6 +176,7 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
 const questionData = document.getElementById("question"); //Gets data from the DOM in the 
 const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
 let nextButton = document.getElementById("next-button");
+let changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
 
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
 // always starts from q1 (index 0)
@@ -189,6 +190,7 @@ function startQuiz() {
   currentQuestionIndex = 0;
   answerScores = 0;
   nextButton.innerText = "Next Question";
+  changeAnswerButton.innerText = "Change Answer";
   displayQuestion(); // calling function to to display the question text
 };
 
@@ -208,12 +210,12 @@ function displayQuestion() {
   })
 }
 
-// function resetState() {
-//   nextButton.style.display = "none";
-//   while(answerData.firstChild) {
-//     answerData.removeChild(answerData.firstChild);
-//   }
-// }
+function resetState() {
+  nextButton.style.display = "none";
+  while(answerData.firstChild) {
+    answerData.removeChild(answerData.firstChild);
+  }
+}
 
 function selectAnswer(x) {
   const chosenAnswer = x.target;
@@ -225,7 +227,21 @@ function selectAnswer(x) {
   nextButton.classList.add("button");
   nextButton.style.innerHTML = "Next Question";
 
+  changeAnswerButton.style.display = "block";
+  changeAnswerButton.classList.add("button");
+  changeAnswerButton.style.innerHTML = "Change Answer";
+  changeAnswerButton.addEventListener("click", changeAnswer);
 };
+
+function changeAnswer() {
+  Array.from(answerData.children).forEach(button => {
+    button.disabled = false;
+  })
+  resetState();
+  displayQuestion();
+}
+  
+
   
   
 
