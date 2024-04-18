@@ -177,7 +177,29 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
 ];
 
 // Get the question elements from the DOM by Id "question" and "answers" and "next button"
-let questionData = document.getElementById("question");
-let answersData = document.getElementById("answers");
+// const used as these elements 
+const questionData = document.getElementById("question");
+const answersData = document.getElementById("answers");
 let nextButton = document.getElementById("next-button");
 
+// Create index structure for identifying the current question and enabling changes to the next question in sequence
+// always starts from q1 (index 0)
+
+let currentQuestionIndex = 0;
+// Scores for all characters need to be set at 0 for the start of the quiz
+let characterScores = 0 [al, mh, cc, wr, qh, bc]; //????????????????????????????????
+
+// function to start the quiz takes the index of 0 and sets the content of the 'next button'
+function startQuiz() {
+  currentQuestionIndex = 0;
+  characterScores = 0;
+  nextButton.innerHTML = "Next Question";
+  displayQuestion(); // calling function to to display the question text
+};
+
+function displayQuestion() {
+  let currentQuestion = questions[currentQuestionIndex]; //declares the current question as the question at most recent index used
+  let questionNumber = currentQuestionIndex + 1; //gets the question number for the current question and adds 1 because want 'Q1' to show not 'Q0' which is the index
+  // Tells html to display question number in front of question text then a "." and then the question text 
+  questionData.innerHTML = questionNumber + "." + currentQuestion.question;
+}
