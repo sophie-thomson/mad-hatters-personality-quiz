@@ -17,20 +17,23 @@ This quiz will take the user on their own personal journey through Wonderland an
 
 ![Screenshot of favicon image on a tab]()
 
-***Navigation Menu***
-- Makes it easy for the user to move back to the welcome page and start the quiz again if they wish. 
+***Logo and Mad Hatter's Personality Quiz Heading***
+- Logo and h1 text for Mad Hatter's Personality Quiz visible on every page of the site.
+- JS used to continually change the colour of the heading reflecting the Mad Hatter personality. 
+- Link to index.html from h1 and logo makes it easy for the user to move back to the welcome page and re-start the quiz if they wish. 
 - Responsive design to work across devices of different sizes.
 
-![Screenshot of navigation menu on Galaxy Fold]()
-![Screenshot of navigation menu on tablet and up]()
+![Screenshot of logo and heading on Galaxy Fold]()
+![Screenshot of logo and heading on tablet and up]()
 
 
 ***Footer***
 
-- Contains links to Github and LinkedIn profiles for the quiz creator; Sophie Thomson.
+- Information on the creator of the quiz; Sophie Thomson.
+- Contains links to Github and LinkedIn profiles for Sophie Thomson.
+- Uses Fontawesome icons for GitHub and LinkedIn.
 - These links open in a new tab and include accessibillity conventions such as aria labels.
 
-![Screenshot of footer on Galaxy Fold]()
 ![Screenshot of footer on tablet and up]()
 
 ### Welcome Page (index.html)
@@ -49,12 +52,22 @@ This quiz will take the user on their own personal journey through Wonderland an
 - Introduction to the quiz, setting the scene and transporting user into the world of Alice in Wonderland
 - Clear concise instructions on how to complete the quiz and what you can expect at the end.
 
+***How to Play Button***
+- Button for user to click on and see a set of clear and concise instructions on how the quiz will work.
+- JS used to trigger a pop-up modal with the instructions and a 'x' to close the modal.
+- Clicking anywhere on the screen outside of the modal also closes the modal.
+
 ***Start Quiz Button***
 
 - A button at the bottom of the page inviting the user to 'Enter the Rabbit Hole...' and start their quiz.
-- This button will navigate to the Question One page and initialise the data for the first question.
+- This button navigates to the Question One page and initialises the data for the first question.
 
-### Questions Page (questions.html)
+***Wireframes***
+
+![Wireframe of index.html on mobile](docs/readme-images/welcome-page-wireframe-mobile.png)
+![Wireframe of index.html on tablet and up](docs/readme-images/welcome-page-wireframe-desktop.png)
+
+### Questions Page (Q1-9) (questions.html)
 
 ***Image***
 
@@ -87,7 +100,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 - A button at the bottom of the page inviting the user to progress to the next question in the quiz.
 - This button will navigate to the next question page in the sequence.  
 
-### Question 10 Page (q10.html)
+### Final Question Layout and Functions
 
 ***Image***
 
@@ -121,7 +134,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 - This button will have an event listener to trigger a set of functions to see which character has the highest score
 - Each character has a results page
 
-### Character Result Pages (mad-hatter.html, alice.html, cheshire-cat.html, white-rabbit.html, queen-of-hearts.html, blue-caterpillar.html)
+### Character Result Page (results.html)
 
 ***Image***
 
@@ -174,17 +187,20 @@ To expand on this site, there are a number of features that could be added to pr
 
 - An initial flow diagram was created to show a simplified sequence of steps that the site will follow in response to user actions.
 - Each of the inital steps is then broken down into a subset of smaller psuedo code blocks which can then be translated into JavaScript syntax.
+- Wireframe for each page used to break down main features and psuedo code for the HTML/CSS/JS functions for each feature. 
 
 ![Image of Psuedo Code inital structure flow diagram](docs/readme-images/psuedo-code-initial-structure.png)
-![Placeholder for image of Psuedo Code subsets]()
-![Placeholder for image of JavaScript syntax]()
+![Image of Welcome Page psuedo code planning](docs/readme-images/welcome-page-wireframe-notes.png)
+![Image of Questions Page psuedo code planning](docs/readme-images/questions-page-wireframe-notes.png)
+![Image of Final Question Page psuedo code planning](docs/readme-images/final-question-page-wireframe-notes.png)
+![Image of Results Page psuedo code planning](docs/readme-images/results-page-wireframe-notes.png)
 
 
 ***Questions and Answers***
 
 - A spreadsheet was created to list 10 personality related questions.
 - Each question was given 6 possible answer options which relate to the characters created in the book.
-- Each answer option was assigned a character value for one of 6 Alice in Wonderland characters: 
+- Each answer option was assigned a score of 3 points, 2 points, or 1 point for the most relevant Alice in Wonderland characters from the below list: 
     - Alice
     - White Rabbit
     - Mad Hatter
