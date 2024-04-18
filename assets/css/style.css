@@ -185,6 +185,7 @@ main {
 
   #answers .button {
     margin-bottom: 10px;
+    margin: auto;
     width: 80vw;
     max-width: 615px;
   }
