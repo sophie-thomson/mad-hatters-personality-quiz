@@ -239,6 +239,7 @@ function changeAnswer() {
   })
   resetState();
   displayQuestion();
+  changeAnswerButton.style.display = "none";
 }
   
 
