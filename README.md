@@ -57,6 +57,9 @@ This quiz will take the user on their own personal journey through Wonderland an
 - JS used to trigger a pop-up modal with the instructions and a 'x' to close the modal.
 - Clicking anywhere on the screen outside of the modal also closes the modal.
 
+![Screenshot of modal Galaxy Fold]()
+![Screenshot of modal image on tablet and up]()
+
 ***Start Quiz Button***
 
 - A button at the bottom of the page inviting the user to 'Enter the Rabbit Hole...' and start their quiz.
@@ -111,8 +114,8 @@ This quiz will take the user on their own personal journey through Wonderland an
 
 ***Question Page Wireframes***
 
-![Wireframe of question page on mobile](docs/readme-images/welcome-page-wireframe-mobile.png)
-![Wireframe of question page on tablet and up](docs/readme-images/welcome-page-wireframe-desktop.png)
+![Wireframe of question page on mobile](docs/readme-images/questions-page-wireframe-mobile.png)
+![Wireframe of question page on tablet and up](docs/readme-images/questions-page-wireframe-desktop.png)
 
 ### Final Question (Q.10)
 
