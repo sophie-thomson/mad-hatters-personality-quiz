@@ -34,7 +34,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 - Uses Fontawesome icons for GitHub and LinkedIn.
 - These links open in a new tab and include accessibillity conventions such as aria labels.
 
-![Screenshot of footer on tablet and up]()
+![Screenshot of footer on Galaxy Fold](docs/readme-images/footer-screenshot-mobile.png)
 
 ### Welcome Page (index.html)
 
