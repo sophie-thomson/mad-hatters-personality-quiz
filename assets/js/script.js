@@ -151,7 +151,7 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
       answers: [
         { text: "I can't go back to yesterday because I was a different person then.", answerScore: [3, 1, 0, 0, 2, 0]},
         { text: "If everybody minded their own business, the world would go around a great deal faster than it does.", answerScore: [2, 0, 3, 0, 1, 0]},
-        { text: "Cat: We're all mad here. I'm mad. You're mad.n\Alice: How do you know I'm mad?\nCat: You must be, or you wouldn't have come here.", answerScore: [0, 2, 0, 3, 0, 1]}, 
+        { text: "Cat: We're all mad here. I'm mad. You're mad.\nAlice: How do you know I'm mad?\nCat: You must be, or you wouldn't have come here.", answerScore: [0, 2, 0, 3, 0, 1]}, 
         { text: "If you drink much from a bottle marked 'poison' it is certain to disagree with you sooner or later.", answerScore: [0, 0, 0, 2, 3, 1]},
         { text: "I'm afraid so. You're mad, bonkers, completely off your head. But I'll tell you a secret. All the best people are.", answerScore: [0, 3, 1, 2, 0, 0]},
         { text: "It takes all the running you can do, to keep in the same place. If you want to get somewhere else, you must run at least twice as fast as that!", answerScore: [1, 0, 2, 0, 0, 3]},
@@ -175,7 +175,7 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
 // const used as these elements won't change 
 const questionData = document.getElementById("question"); //Gets data from the DOM in the 
 const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
-let nextButton = document.getElementById("next-button");
+const nextButton = document.getElementById("next-button");
 let changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
 
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
@@ -188,7 +188,7 @@ let scoreBoard = [0, 0, 0, 0, 0, 0];
 /*Function to start the quiz takes the index of 0 and sets the content of the 'next button'*/
 function startQuiz() {
   currentQuestionIndex = 0;
-  scoreBoard = [0, 0, 0, 0, 0, 0];
+  characterScores = [0, 0, 0, 0, 0, 0];
   nextButton.innerText = "Next Question";
   changeAnswerButton.innerText = "Change Answer";
   displayQuestion(); // calling function to to display the question text
@@ -196,6 +196,7 @@ function startQuiz() {
 
 /*Displays the questionData and answerData for the current question*/
 function displayQuestion() {
+  resetState();
   let currentQuestion = questions[currentQuestionIndex]; //declares the current question as the question at most recent index used
   let questionNumber = currentQuestionIndex + 1; //gets the question number for the current question and adds 1 because want 'Q1' to show not 'Q0' which is the index
   // Tells html to display question number in front of question text then a "." and then the question text 
@@ -230,7 +231,6 @@ function selectAnswer(e) {
       const chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
       let currentScore = document.getElementById("chosen-answer-score");
       currentScore.innerHTML = chosenAnswerScore;
-      console.log(chosenAnswerScore);
     }
   })
   
@@ -238,12 +238,12 @@ function selectAnswer(e) {
       button.disabled = true; 
   });
   Array.from(answerData.children).forEach(button => {
-    button.classList.add("nohvr");
-    chosenAnswer.classList.remove("nohvr");
+    button.classList.add("nohvr"); //Nohvr class added to each button so that hover effect is invisible to user
+    chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
   });
 
-  nextButton.style.display = "block";
-  nextButton.classList.add("button");
+  nextButton.style.display = "block"; //displays nex button when an answer is selected
+  nextButton.classList.add("button"); //
   nextButton.style.innerHTML = "Next Question";
 
   changeAnswerButton.style.display = "block";
@@ -260,27 +260,53 @@ function changeAnswer() {
   resetState(); // resets the questions ready for them to choose a different answer
   displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
   changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
-} 
-
-// function addScore() {
-//   console.log(chosenAnswerScore);
-// }
-// addScore();
-startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+}
 
 // /*Adds the scores from the selected answer to the scoreBoard*/
-// function addScore() {
-//   let chosenAnswer = document.getElementsByClassName("chosen-answer");
-//   let chosenAnswerScore = chosenAnswer.answerScore;  
-//   console.log("chosenAnswerScore");
+function addScore() {
+  // let currentScore = parseInt(document.getElementById("chosen-answer-score").innerHTML);
+  // let characterScores = parseInt(document.getElementById("scoreboard").innerHTML);
+  
+  var characterScores = [1, 2, 3, 5, 7, 8];
+  var currentScore = [0, 1, 2, 3, 4, 5];
+
+characterScores.forEach((num1, index) => {
+  const num2 = currentScore[index];
+  let newCharacterScore = (num1 + num2);
+  console.log(newCharacterScore);
+  let characterScores = document.getElementById("scoreboard");
+  characterScores.innerHTML = newCharacterScore;
+});
+}
+
+function handleNextButton() {
+  currentQuestionIndex++;
+  if(currentQuestionIndex < questions.length){
+    displayQuestion();
+  } else {
+    checkScores();
+  }
+}
+
+  nextButton.addEventListener ("click", ()=> {
+    if(currentQuestionIndex < questions.length){
+      handleNextButton();
+    } else {
+      startQuiz();
+    }
+  });
+    
+    // nextQuestion();
+  
+
+startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
 
 
-//   for (let i=0; i < chosenAnswerScore.length; i++) {
-//     forEach()
-//       (scoreBoard[0] + chosenAnswerScore[0])
-//     };
-//   };
+
+
+
+  
   
 //   function addScoreTest() {
 //     selectAnswer();
@@ -300,10 +326,7 @@ startQuiz(); //calls the startQuiz function to run the initialisation data and d
   
 // };
 
-// nextButton.addEventListener ("click", function() {
-//   addScore();
-//   nextQuestion();
-// });
+
 
 
 
