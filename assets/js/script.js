@@ -228,7 +228,9 @@ function selectAnswer(e) {
   questions[0].answers.forEach(answer => { 
     if (chosenAnswer.innerText === answer.text) {
       const chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
-      // console.log(chosenAnswerScore);
+      let currentScore = document.getElementById("chosen-answer-score");
+      currentScore.innerHTML = chosenAnswerScore;
+      console.log(chosenAnswerScore);
     }
   })
   
@@ -260,10 +262,10 @@ function changeAnswer() {
   changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
 } 
 
-function addScore() {
-  console.log(chosenAnswerScore);
-}
-
+// function addScore() {
+//   console.log(chosenAnswerScore);
+// }
+// addScore();
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
 // /*Adds the scores from the selected answer to the scoreBoard*/
