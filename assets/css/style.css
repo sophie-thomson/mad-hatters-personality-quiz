@@ -74,6 +74,7 @@ a {
   margin:15px auto;
 }
 
+
 /* Styling for all modals using class "modal" */
 .modal {
     display: none;
@@ -192,6 +193,12 @@ main {
   }
 
   .chosen-answer {
+    background-color: #4f0585;
+    color:#fcfcfc;
+    border-color: darkmagenta;
+  }
+
+  .chosen-answer:hover {
     background-color: #4f0585;
     color:#fcfcfc;
     border-color: darkmagenta;

@@ -183,16 +183,17 @@ let changeAnswerButton = document.getElementById("change-answer-button"); //decl
 
 let currentQuestionIndex = 0;
 // Scores for all characters need to be set at 0 for the start of the quiz
-let answerScores = [0, 0, 0, 0, 0, 0];
+let scoreBoard = [0, 0, 0, 0, 0, 0];
 
 /*Function to start the quiz takes the index of 0 and sets the content of the 'next button'*/
 function startQuiz() {
   currentQuestionIndex = 0;
-  answerScores = 0;
+  scoreBoard = [0, 0, 0, 0, 0, 0];
   nextButton.innerText = "Next Question";
   changeAnswerButton.innerText = "Change Answer";
   displayQuestion(); // calling function to to display the question text
 };
+
 /*Displays the questionData and answerData for the current question*/
 function displayQuestion() {
   let currentQuestion = questions[currentQuestionIndex]; //declares the current question as the question at most recent index used
@@ -209,6 +210,7 @@ function displayQuestion() {
     button.addEventListener("click", selectAnswer);
   })
 }
+
 /*Resets the page with initial displayQuestion data*/
 function resetState() {
   nextButton.style.display = "none"; // Next button not visible before question answered
@@ -216,15 +218,26 @@ function resetState() {
     answerData.removeChild(answerData.firstChild);
   }
 }
+
 /*Changes the css for the selected answer and disables other answers. Triggers the nextButton and changeAnswerButton to display*/
-function selectAnswer(x) {
-  const chosenAnswer = x.target;
-  chosenAnswer.classList.add("chosen-answer");
+function selectAnswer(e) {
+  const chosenAnswer = e.target; //Specifically targetting the answer button (x) that has been chosen to pass the subsequent code
+  chosenAnswer.classList.add("chosen-answer"); //Adds class of 'chosen-answer' to the selected button - used for CSS.
+  console.log(chosenAnswer.innerText); //testing that this is the expected data
+  // iterates through all answers in the questions data set to find the matching answer and answerScore
+  questions[0].answers.forEach(answer => { 
+    if (chosenAnswer.innerText === answer.text) {
+      const chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
+      // console.log(chosenAnswerScore);
+    }
+  })
+  
   Array.from(answerData.children).forEach(button => {
       button.disabled = true; 
   });
   Array.from(answerData.children).forEach(button => {
     button.classList.add("nohvr");
+    chosenAnswer.classList.remove("nohvr");
   });
 
   nextButton.style.display = "block";
@@ -237,8 +250,6 @@ function selectAnswer(x) {
   changeAnswerButton.addEventListener("click", changeAnswer);
 };
 
-
-
 /* Enables the user to change their mind and select a different answer.*/
 function changeAnswer() {
   Array.from(answerData.children).forEach(button => {
@@ -249,4 +260,48 @@ function changeAnswer() {
   changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
 } 
 
+function addScore() {
+  console.log(chosenAnswerScore);
+}
+
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+
+// /*Adds the scores from the selected answer to the scoreBoard*/
+// function addScore() {
+//   let chosenAnswer = document.getElementsByClassName("chosen-answer");
+//   let chosenAnswerScore = chosenAnswer.answerScore;  
+//   console.log("chosenAnswerScore");
+
+
+
+//   for (let i=0; i < chosenAnswerScore.length; i++) {
+//     forEach()
+//       (scoreBoard[0] + chosenAnswerScore[0])
+//     };
+//   };
+  
+//   function addScoreTest() {
+//     selectAnswer();
+//     let chosenAnswer = x.target;
+//     let chosenAnswerScore = chosenAnswer.answerScore;
+//     let oldScoreBoard = parseInt(document.getElementById("scoreboard").innerText); //collect the current score from the html content DOM
+//     document.getElementById("scoreboard").innerText = oldScoreBoard + scoreBoard[0,1,2,3,4,5]; //sends back the updated score to display in the DOM after the code has been executed.
+
+//     let currentAnswerScore = parseInt(document.getElementById("chosen-answer-score").innerText); //collect the current score from the html content DOM
+//     document.getElementById("chosen-answer-score").innerText = chosenAnswerScore[0,1,2,3,4,5]; //sends back the updated score to display in the DOM after the code has been executed.
+// };
+
+// addScoreTest();
+
+// /*Triggers the */
+// function nextQuestion() {
+  
+// };
+
+// nextButton.addEventListener ("click", function() {
+//   addScore();
+//   nextQuestion();
+// });
+
+
+
