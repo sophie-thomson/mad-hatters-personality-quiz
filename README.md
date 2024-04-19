@@ -85,22 +85,28 @@ This quiz will take the user on their own personal journey through Wonderland an
 
 ![Screenshot of Gallery page with responsive layout on tablet]()
 
-***Answer Options***
+***Answers and Scores***
 
  - A choice of 6 different fun answers for the user to select from.
  - When the user moves their mouse over an answer the colour changes to highlight the option they would select if they clicked on that option. This does not happen on mobile devices and tablets unless they use a stylus.
  - When an answer has been chosen (clicked on), the selected answer changes background colour and has a contrasting outline border. 
- - Each answer has an assigned value for a particular character from Alice in Wonderland. 
- - When an answer is selected, the character value of the chosen option is added to a score for that particular character.
+ - Each answer has been assigned an array of scores relating to each of 6 characters (personalities) from Alice in Wonderland [0, 0, 0, 0, 0, 0].
+ - The index of the selected answer score matches index of Alice in Wonderland characters: [Alice, Mad Hatter, White Rabbit, Cheshire Cat, Blue Caterpillar, Queen of Hearts]
+ - When an answer is selected, the scores of the chosen answer are added to a character scoreboard which for all characters.
  - The character score board is not visible to the user, but is used in the JavaScript to keep a tally of the scores from one question to the next.
- - There are 6 different characters or personality types that the user can be given based on their final score, so each character is assigned to only one answer on each question page.
+ - A score of 3 points is given to the character with the closest personality alignment to the answer, 2 points are given to the next closest, and 1 point to a character with a small connection. The other three characters are given a score of 0 for that answer.
 
 ***Next Question Button***
 
 - A button at the bottom of the page inviting the user to progress to the next question in the quiz.
-- This button will navigate to the next question page in the sequence.  
+- This button will navigate to the next question page in the sequence.
 
-### Final Question Layout and Functions
+***Wireframes***
+
+![Wireframe of question page on mobile](docs/readme-images/welcome-page-wireframe-mobile.png)
+![Wireframe of question page on tablet and up](docs/readme-images/welcome-page-wireframe-desktop.png)
+
+### Final Question (Q.10)
 
 ***Image***
 
@@ -109,28 +115,29 @@ This quiz will take the user on their own personal journey through Wonderland an
 - css and media queries used to ensure image is responsive and looks good on different device sizes.
 
 
-![Screenshot of question page on Galaxy Fold]()
-![Screenshot of question page on tablet and up]()
+![Screenshot of final question on Galaxy Fold]()
+![Screenshot of final question on tablet and up]()
 
 ***Question***
 
 - Heading 1 level styling used to make the question stand out as the most important thing on the page and follow assessibility guidelines.
 
-![Screenshot of Gallery page with responsive layout on tablet]()
+![Screenshot of final question page with responsive layout on tablet]()
 
-***Answer Options***
+***Answers and Scores***
 
  - A choice of 6 different fun answers for the user to select from.
  - When the user moves their mouse over an answer the colour changes to highlight the option they would select if they clicked on that option. This does not happen on mobile devices and tablets unless they use a stylus.
  - When an answer has been chosen (clicked on), the selected answer changes background colour and has a contrasting outline border. 
- - Each answer has an assigned value for a particular character from Alice in Wonderland. 
- - When an answer is selected, the character value of the chosen option is added to a score for that particular character.
+ - Each answer has been assigned an array of scores relating to each of 6 characters (personalities) from Alice in Wonderland [0, 0, 0, 0, 0, 0].
+ - The index of the selected answer score matches index of Alice in Wonderland characters: [Alice, Mad Hatter, White Rabbit, Cheshire Cat, Blue Caterpillar, Queen of Hearts]
+ - When an answer is selected, the scores of the chosen answer are added to a scoreboard for all characters.
  - The character score board is not visible to the user, but is used in the JavaScript to keep a tally of the scores from one question to the next.
- - There are 6 different characters or personality types that the user can be given based on their final score, so each character is assigned to only one answer on each question page.
+ - A score of 3 points is given to the character with the closest personality alignment to the answer, 2 points are given to the next closest, and 1 point to a character with a small connection. The other three characters are given a score of 0 for that answer.
 
 ***Results Button***
 
-- A button at the bottom of the page inviting the user to see which character they are most similar to.
+- A button at the bottom of the final question page inviting the user to see which character they are most similar to.
 - This button will have an event listener to trigger a set of functions to see which character has the highest score
 - Each character has a results page
 
@@ -181,7 +188,7 @@ To expand on this site, there are a number of features that could be added to pr
 
 - A visual mindmap was used to map out the different elements needed to create the initial structure of the site.
 
-![PScreenshot of initial planning Mindmap](docs/readme-images/mindmap.png)
+![Screenshot of initial planning Mindmap](docs/readme-images/mindmap.png)
 
 ***Psuedo Code***
 
