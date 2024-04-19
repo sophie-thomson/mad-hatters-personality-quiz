@@ -15,7 +15,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 ***Favicon***
 - A favicon of the recognisable hat of the Mad Hatter so it is easily identifiable among multiple tabs.
 
-![Screenshot of favicon image on a tab]()
+![Screenshot of favicon image on a tab](docs/readme-images/favicon-screenshot.png)
 
 ***Logo and Mad Hatter's Personality Quiz Heading***
 - Logo and h1 text for Mad Hatter's Personality Quiz visible on every page of the site.
@@ -23,8 +23,8 @@ This quiz will take the user on their own personal journey through Wonderland an
 - Link to index.html from h1 and logo makes it easy for the user to move back to the welcome page and re-start the quiz if they wish. 
 - Responsive design to work across devices of different sizes.
 
-![Screenshot of logo and heading on Galaxy Fold]()
-![Screenshot of logo and heading on tablet and up]()
+![Screenshot of logo and heading on Galaxy Fold](docs/readme-images/logo-heading-screenshot-mobile.png)
+![Screenshot of logo and heading on tablet and up](docs/readme-images/logo-heading-screenshot-tablet-desktop.png)
 
 
 ***Footer***
