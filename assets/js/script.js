@@ -240,11 +240,6 @@ function changeAnswer() {
   resetState();
   displayQuestion();
   changeAnswerButton.style.display = "none";
-}
-  
-
-  
-  
-
+} 
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData

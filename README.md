@@ -62,7 +62,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 - A button at the bottom of the page inviting the user to 'Enter the Rabbit Hole...' and start their quiz.
 - This button navigates to the Question One page and initialises the data for the first question.
 
-***Wireframes***
+***Welcome Page Wireframes***
 
 ![Wireframe of index.html on mobile](docs/readme-images/welcome-page-wireframe-mobile.png)
 ![Wireframe of index.html on tablet and up](docs/readme-images/welcome-page-wireframe-desktop.png)
@@ -89,19 +89,27 @@ This quiz will take the user on their own personal journey through Wonderland an
 
  - A choice of 6 different fun answers for the user to select from.
  - When the user moves their mouse over an answer the colour changes to highlight the option they would select if they clicked on that option. This does not happen on mobile devices and tablets unless they use a stylus.
- - When an answer has been chosen (clicked on), the selected answer changes background colour and has a contrasting outline border. 
+ - When an answer has been chosen (clicked on), the selected answer changes background colour and has a contrasting outline border and all other answers are disabled. 
  - Each answer has been assigned an array of scores relating to each of 6 characters (personalities) from Alice in Wonderland [0, 0, 0, 0, 0, 0].
  - The index of the selected answer score matches index of Alice in Wonderland characters: [Alice, Mad Hatter, White Rabbit, Cheshire Cat, Blue Caterpillar, Queen of Hearts]
- - When an answer is selected, the scores of the chosen answer are added to a character scoreboard which for all characters.
- - The character score board is not visible to the user, but is used in the JavaScript to keep a tally of the scores from one question to the next.
  - A score of 3 points is given to the character with the closest personality alignment to the answer, 2 points are given to the next closest, and 1 point to a character with a small connection. The other three characters are given a score of 0 for that answer.
 
 ***Next Question Button***
 
-- A button at the bottom of the page inviting the user to progress to the next question in the quiz.
-- This button will navigate to the next question page in the sequence.
+- Located below the answer buttons, this button invites the user to progress to the next question in the quiz.
+- Only visible once the user has selected an enswer to ensure that they answer all 10 questions.
+- When the user clicks the next question button, this triggers the addScore function which adds the scores of the current answer to the character scoreboard for all characters.
+- The character score board is not visible to the user, but is used in the JavaScript to keep a tally of the scores from one question to the next.
+- The addScore function then calls the nextQuestion function to replace the current question and answer data with the next set of data in the sequence.
+-  
 
-***Wireframes***
+***Change Answer Button***
+
+- A button at the bottom of the page inviting the user to change their chosen answer before moving on to the next question.
+- This improves user experience so that they don't have to go back to the beginning of the quiz if they change their mind or click the wrong thing by accident.
+- This button triggers the changeAnswer function which resets the current question data, effectively allowing the user to choose a different answer.
+
+***Question Page Wireframes***
 
 ![Wireframe of question page on mobile](docs/readme-images/welcome-page-wireframe-mobile.png)
 ![Wireframe of question page on tablet and up](docs/readme-images/welcome-page-wireframe-desktop.png)
@@ -138,8 +146,8 @@ This quiz will take the user on their own personal journey through Wonderland an
 ***Results Button***
 
 - A button at the bottom of the final question page inviting the user to see which character they are most similar to.
-- This button will have an event listener to trigger a set of functions to see which character has the highest score
-- Each character has a results page
+- An event listener triggers the checkScores function to get the characterScores as an array (60 points in total) e.g [12, 15, 8, 7, 10, 8]
+- Using a series of JS functions, the topScore Character and secondScore character are identified and pushed to the results page html.
 
 ### Character Result Page (results.html)
 
@@ -153,7 +161,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 
 ***Description***
 
-- A brief descrpition of the characteristics that make you like your character.
+- A brief description of the characteristics that make you like your character.
 
 ***Repeat Quiz Button***
 
