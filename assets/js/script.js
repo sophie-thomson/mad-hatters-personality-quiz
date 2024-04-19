@@ -185,7 +185,7 @@ let currentQuestionIndex = 0;
 // Scores for all characters need to be set at 0 for the start of the quiz
 let answerScores = [0, 0, 0, 0, 0, 0];
 
-// function to start the quiz takes the index of 0 and sets the content of the 'next button'
+/*Function to start the quiz takes the index of 0 and sets the content of the 'next button'*/
 function startQuiz() {
   currentQuestionIndex = 0;
   answerScores = 0;
@@ -193,14 +193,14 @@ function startQuiz() {
   changeAnswerButton.innerText = "Change Answer";
   displayQuestion(); // calling function to to display the question text
 };
-
+/*Displays the questionData and answerData for the current question*/
 function displayQuestion() {
   let currentQuestion = questions[currentQuestionIndex]; //declares the current question as the question at most recent index used
   let questionNumber = currentQuestionIndex + 1; //gets the question number for the current question and adds 1 because want 'Q1' to show not 'Q0' which is the index
   // Tells html to display question number in front of question text then a "." and then the question text 
   questionData.innerText = questionNumber + ". " + currentQuestion.question;
 
-  //gets 'answers' for the currentQuestion from the answerData 
+  /*Gets 'answers' for the currentQuestion from the answerData*/ 
   currentQuestion.answers.forEach(answer => { //forEach runs the script for each answer in the answersData for that question
     const button = document.createElement("button"); //creates an answerButton for each answer in the answerData
     button.innerText = answer.text; //displays the 'text' from the answers for that question
@@ -209,20 +209,24 @@ function displayQuestion() {
     button.addEventListener("click", selectAnswer);
   })
 }
-
+/*Resets the page with initial displayQuestion data*/
 function resetState() {
-  nextButton.style.display = "none";
-  while(answerData.firstChild) {
+  nextButton.style.display = "none"; // Next button not visible before question answered
+  while(answerData.firstChild) { // Removes previous elements
     answerData.removeChild(answerData.firstChild);
   }
 }
-
+/*Changes the css for the selected answer and disables other answers. Triggers the nextButton and changeAnswerButton to display*/
 function selectAnswer(x) {
   const chosenAnswer = x.target;
   chosenAnswer.classList.add("chosen-answer");
   Array.from(answerData.children).forEach(button => {
-      button.disabled = true;
+      button.disabled = true; 
   });
+  Array.from(answerData.children).forEach(button => {
+    button.classList.add("nohvr");
+  });
+
   nextButton.style.display = "block";
   nextButton.classList.add("button");
   nextButton.style.innerHTML = "Next Question";
@@ -233,13 +237,16 @@ function selectAnswer(x) {
   changeAnswerButton.addEventListener("click", changeAnswer);
 };
 
+
+
+/* Enables the user to change their mind and select a different answer.*/
 function changeAnswer() {
   Array.from(answerData.children).forEach(button => {
     button.disabled = false;
   })
-  resetState();
-  displayQuestion();
-  changeAnswerButton.style.display = "none";
+  resetState(); // resets the questions ready for them to choose a different answer
+  displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
+  changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
 } 
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData

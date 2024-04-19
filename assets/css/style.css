@@ -60,6 +60,19 @@ a {
     background-color:#fdd0d8;
     border-color: #AB63E0;
 }
+/* class designed to remove the appearance of hover function once an answer has been selected. */
+.nohvr:hover {
+  color:#5e5d5d;
+  text-align: center;
+  background-color: #fcfcfc;
+  border: solid 2px #a4e9b3;
+  border-radius: 5px;
+  font-family: 'Courier Prime', georgia, serif;
+  font-weight: 700;
+  padding: 5px;
+  box-shadow: 4px 4px 4px #787878;
+  margin:15px auto;
+}
 
 /* Styling for all modals using class "modal" */
 .modal {
