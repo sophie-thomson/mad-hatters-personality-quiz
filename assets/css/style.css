@@ -111,7 +111,7 @@ main {
     }
 
 /* quiz-box styling for the main box to be used on all pages */
-#quiz-box {
+.quiz-box {
     background-color: #708d74;
     width: 90vw;
     max-width: 700px;
@@ -121,7 +121,7 @@ main {
 }
 
 /* quiz-box hero image styling */
-#quiz-box img {    
+.quiz-box img {    
     width: 90vw;
     max-width: 700px;
     border-top-left-radius: 15px;
@@ -130,12 +130,12 @@ main {
     margin-bottom: 15px;
 }
 /* Used for the questions and any sub-headings inside the box */
-#quiz-box h2 {
+.quiz-box h2 {
     font-size: 125%;
     padding: 0 10px 15px 10px;
 }
 
-#quiz-box p {
+.quiz-box p {
     padding: 0 10px 15px 10px;
 }
 
@@ -232,6 +232,41 @@ main {
     color: #fcfcfc;
     font-weight: 400;
     display: none;  
+  }
+
+  /* RESULTS PAGE */
+
+  #results-box h2 {
+    margin-top: 20px;
+  }
+
+  #results {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-evenly;
+
+  }
+
+  #results img {
+    max-width: 325px;
+  }
+
+  #results-buttons {
+    display:flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+  }
+
+  #start-again {
+    justify-content: flex-start;
+    /* margin-right:60vw; */
+  }
+
+  #share {
+    justify-content: flex-end;
+    align-self: flex-end;
+    /* margin-left:60vw; */
   }
 
 /* Footer styling */
