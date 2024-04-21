@@ -189,16 +189,10 @@ let cheshireCatScore = 0;
 let blueCaterpillarScore = 0;
 let queenOfHeartsScore = 0;
 
-// let currentScore = Array.from(document.getElementById("chosen-answer-score").innerHTML).map(Number);
-//   console.log(currentScore);
-// let answerArray = currentScore.filter(function (value) {
-//   return !Number.isNaN(value);
-// });
-
 /*Function to start the quiz takes the index of 0 and sets the content of the 'next button'*/
 function startQuiz() {
   currentQuestionIndex = 0;
-  // Scores for all characters need to be set at 0 for the start of the quiz
+  // Scores for each character need to be set at 0 for the start of the quiz
   aliceScore = 0;
   madHatterScore = 0;
   whiteRabbitScore = 0;
@@ -206,7 +200,7 @@ function startQuiz() {
   blueCaterpillarScore = 0;
   queenOfHeartsScore = 0;
 
-  nextButton.innerText = "Next Question";
+  nextButton.innerHTML = "Next Question ";
   changeAnswerButton.innerText = "Change Answer";
   displayQuestion(); // calling function to to display the question text
 };
@@ -227,14 +221,21 @@ function displayQuestion() {
     answerData.appendChild(button); // Adds another button for each answer in sequence
     button.addEventListener("click", selectAnswer);
   })
+
 }
 
 /*Resets the page with initial displayQuestion data*/
 function resetState() {
   nextButton.style.display = "none"; // Next button not visible before question answered
-  while(answerData.firstChild) { // Removes previous elements
+  changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
+  while(answerData.firstChild) { // Removes previous answer button elements
     answerData.removeChild(answerData.firstChild);
   }
+  let currentScore = document.getElementById("chosen-answer-score");
+  while(currentScore.firstChild) { // Removes previous elements
+    currentScore.removeChild(currentScore.firstChild); 
+  }
+
 }
 
 /*Changes the css for the selected answer and disables other answers. Triggers the nextButton and changeAnswerButton to display*/
@@ -242,67 +243,51 @@ function selectAnswer(e) {
   const chosenAnswer = e.target; //Specifically targetting the answer button (x) that has been chosen to pass the subsequent code
   chosenAnswer.classList.add("chosen-answer"); //Adds class of 'chosen-answer' to the selected button - used for CSS.
   console.log(chosenAnswer.innerText); //testing that this is the expected data
+ 
   // iterates through all answers in the questions data set to find the matching answer and answerScore
   questions[0].answers.forEach(answer => { 
     if (chosenAnswer.innerText === answer.text) {
       const chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
       let currentScore = document.getElementById("chosen-answer-score");
       currentScore.innerHTML = chosenAnswerScore;
-    };
-      // let aliceScore = parseInt(document.getElementById("alice-score").innerText);
-      // document.getElementById("alice-score").innerText = aliceScore + chosenAnswerScore[0];
-      // console.log(aliceScore);
-      
-      // let madHatterScore = parseInt(document.getElementById("mad-hatter-score").innerText);
-      // document.getElementById("mad-hatter-score").innerText = aliceScore + chosenAnswerScore[1];
-      // console.log(madHatterScore);
-      
-      // let whiteRabbitScore = parseInt(document.getElementById("white-rabbit-score").innerText);
-      // document.getElementById("white-rabbit-score").innerText = aliceScore + chosenAnswerScore[2];
-      // console.log(whiteRabbitScore);
-      
-      // let cheshireCatScore = parseInt(document.getElementById("cheshire-cat-score").innerText);
-      // document.getElementById("cheshire-cat-score").innerText = aliceScore + chosenAnswerScore[3];
-      // console.log(cheshireCatScore);
-      
-      // let blueCaterpillarScore = parseInt(document.getElementById("blue-caterpillar-score").innerText);
-      // document.getElementById("blue-caterpillar-score").innerText = aliceScore + chosenAnswerScore[4];
-      // console.log(blueCaterpillarScore);
-      
-      // let queenOfHeartsScore = parseInt(document.getElementById("queen-of-hearts-score").innerText);
-      // document.getElementById("queen-of-hearts-score").innerText = aliceScore + chosenAnswerScore[5];
-      // console.log(queenOfHeartsScore);
-    Array.from(answerData.children).forEach(button => {
-      button.disabled = true; 
-    
-    });
-    Array.from(answerData.children).forEach(button => {
+    }});
+
+  Array.from(answerData.children).forEach(button => {
+      button.disabled = true;
+  });
+  Array.from(answerData.children).forEach(button => {
       button.classList.add("nohvr"); //Nohvr class added to each button so that hover effect is invisible to user
       chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
-    });
-  })
-    nextButton.style.display = "block"; //displays next button when an answer is selected
-    nextButton.classList.add("button"); //
-    nextButton.style.innerHTML = "Next Question";
+  });
+  nextButton.style.display = "block"; //displays next button when an answer is selected
+  nextButton.classList.add("button"); //
+  nextButton.style.innerHTML = "Next Question";
 
-    changeAnswerButton.style.display = "block";
-    changeAnswerButton.classList.add("button");
-    changeAnswerButton.style.innerHTML = "Change Answer";
-    changeAnswerButton.addEventListener("click", changeAnswer);
-
+  changeAnswerButton.style.display = "block";
+  changeAnswerButton.classList.add("button");
+  changeAnswerButton.style.innerHTML = "Change Answer";
+  changeAnswerButton.addEventListener("click", changeAnswer);
 }
+
 
 /* Enables the user to change their mind and select a different answer.*/
 function changeAnswer() {
+  resetState(); // resets the questions ready for them to choose a different answer
   Array.from(answerData.children).forEach(button => {
     button.disabled = false;
   })
-  resetState(); // resets the questions ready for them to choose a different answer
+  
   displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
-  changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
+  
 }
 
 function addScore() {
+  let currentScore = Array.from(document.getElementById("chosen-answer-score").innerHTML).map(Number);
+  console.log(currentScore);
+
+  let chosenAnswerScore = currentScore.filter(function (value) {
+  return !Number.isNaN(value);
+  });
 
   let aliceScore = parseInt(document.getElementById("alice-score").innerText);
   document.getElementById("alice-score").innerText = aliceScore + chosenAnswerScore[0];
@@ -327,26 +312,10 @@ function addScore() {
   let queenOfHeartsScore = parseInt(document.getElementById("queen-of-hearts-score").innerText);
   document.getElementById("queen-of-hearts-score").innerText = aliceScore + chosenAnswerScore[5];
   console.log(queenOfHeartsScore);
-    
-
-}
-// /*Adds the scores from the selected answer to the scoreBoard*/
-// function addScore() {
   
-//   let characterScores = Array.from(document.getElementById("scoreboard").innerText).map(Number);
-//   let newScoresArray = characterScores.filter(function (value) {
-//   return !Number.isNaN(value);
-//   });
-//   // const newScoreBoardArray = characterScores.filter( value => !Number.isNaN(value) );
-//   // console.log(newScoreBoardArray);
-
-//   newScoresArray.forEach((num1, index) => {
-//   let num2 = chosenAnswerScore[index];
-//   let newCharacterScore = (num1 + num2);
-//   console.log(newCharacterScore);
-//   characterScores.innerText = (newCharacterScore);
-// });
-// }
+  document.getElementById("chosen-answer-score")
+  currentScore.innerHTML = [0, 0, 0, 0, 0, 0];
+}
 
 function handleNextButton() {
   currentQuestionIndex++;
@@ -358,46 +327,16 @@ function handleNextButton() {
 }
 
   nextButton.addEventListener ("click", ()=> {
-  
+    addScore();
     if(currentQuestionIndex < questions.length){
-      // addScore();
       handleNextButton();
     } else {
       startQuiz();
     }
   })
   
-    
-    // nextQuestion();
-  
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
-
-
-
-
-
-
-  
-  
-//   function addScoreTest() {
-//     selectAnswer();
-//     let chosenAnswer = x.target;
-//     let chosenAnswerScore = chosenAnswer.answerScore;
-//     let oldScoreBoard = parseInt(document.getElementById("scoreboard").innerText); //collect the current score from the html content DOM
-//     document.getElementById("scoreboard").innerText = oldScoreBoard + scoreBoard[0,1,2,3,4,5]; //sends back the updated score to display in the DOM after the code has been executed.
-
-//     let currentAnswerScore = parseInt(document.getElementById("chosen-answer-score").innerText); //collect the current score from the html content DOM
-//     document.getElementById("chosen-answer-score").innerText = chosenAnswerScore[0,1,2,3,4,5]; //sends back the updated score to display in the DOM after the code has been executed.
-// };
-
-// addScoreTest();
-
-// /*Triggers the */
-// function nextQuestion() {
-  
-// };
-
 
 
 
