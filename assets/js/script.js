@@ -182,7 +182,12 @@ const changeAnswerButton = document.getElementById("change-answer-button"); //de
 // always starts from q1 (index 0)
 
 let currentQuestionIndex = 0;
-let characterScores = [];
+let aliceScore = 0;
+let madHatterScore = 0;
+let whiteRabbitScore = 0;
+let cheshireCatScore = 0;
+let blueCaterpillarScore = 0;
+let queenOfHeartsScore = 0;
 
 // let currentScore = Array.from(document.getElementById("chosen-answer-score").innerHTML).map(Number);
 //   console.log(currentScore);
@@ -194,7 +199,13 @@ let characterScores = [];
 function startQuiz() {
   currentQuestionIndex = 0;
   // Scores for all characters need to be set at 0 for the start of the quiz
-  characterScores = [0, 0, 0, 0, 0, 0];
+  aliceScore = 0;
+  madHatterScore = 0;
+  whiteRabbitScore = 0;
+  cheshireCatScore = 0;
+  blueCaterpillarScore = 0;
+  queenOfHeartsScore = 0;
+
   nextButton.innerText = "Next Question";
   changeAnswerButton.innerText = "Change Answer";
   displayQuestion(); // calling function to to display the question text
@@ -237,39 +248,48 @@ function selectAnswer(e) {
       const chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
       let currentScore = document.getElementById("chosen-answer-score");
       currentScore.innerHTML = chosenAnswerScore;
-    }
-  })
-
-  Array.from(answerData.children).forEach(button => {
+    };
+      // let aliceScore = parseInt(document.getElementById("alice-score").innerText);
+      // document.getElementById("alice-score").innerText = aliceScore + chosenAnswerScore[0];
+      // console.log(aliceScore);
+      
+      // let madHatterScore = parseInt(document.getElementById("mad-hatter-score").innerText);
+      // document.getElementById("mad-hatter-score").innerText = aliceScore + chosenAnswerScore[1];
+      // console.log(madHatterScore);
+      
+      // let whiteRabbitScore = parseInt(document.getElementById("white-rabbit-score").innerText);
+      // document.getElementById("white-rabbit-score").innerText = aliceScore + chosenAnswerScore[2];
+      // console.log(whiteRabbitScore);
+      
+      // let cheshireCatScore = parseInt(document.getElementById("cheshire-cat-score").innerText);
+      // document.getElementById("cheshire-cat-score").innerText = aliceScore + chosenAnswerScore[3];
+      // console.log(cheshireCatScore);
+      
+      // let blueCaterpillarScore = parseInt(document.getElementById("blue-caterpillar-score").innerText);
+      // document.getElementById("blue-caterpillar-score").innerText = aliceScore + chosenAnswerScore[4];
+      // console.log(blueCaterpillarScore);
+      
+      // let queenOfHeartsScore = parseInt(document.getElementById("queen-of-hearts-score").innerText);
+      // document.getElementById("queen-of-hearts-score").innerText = aliceScore + chosenAnswerScore[5];
+      // console.log(queenOfHeartsScore);
+    Array.from(answerData.children).forEach(button => {
       button.disabled = true; 
-  });
-  Array.from(answerData.children).forEach(button => {
-    button.classList.add("nohvr"); //Nohvr class added to each button so that hover effect is invisible to user
-    chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
-  });
-
-  nextButton.style.display = "block"; //displays next button when an answer is selected
-  nextButton.classList.add("button"); //
-  nextButton.style.innerHTML = "Next Question";
-
-  changeAnswerButton.style.display = "block";
-  changeAnswerButton.classList.add("button");
-  changeAnswerButton.style.innerHTML = "Change Answer";
-  changeAnswerButton.addEventListener("click", changeAnswer);
-};
-
-function addFirstScore() {
-  if(currentQuestionIndex == [0]) {
-    let characterScores = (document.getElementById("scoreboard").innerText);
-    let currentScore = Array.from(document.getElementById("chosen-answer-score").innerText).map(Number);
-    const newScoresArray = currentScore.filter(function (value) {
-    return !Number.isNaN(value);
+    
     });
-    currentScore.innerText = (newScoresArray);
-    characterScores.innerText = (newScoresArray);
-  } else {
-    // addScore();
-  }
+    Array.from(answerData.children).forEach(button => {
+      button.classList.add("nohvr"); //Nohvr class added to each button so that hover effect is invisible to user
+      chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
+    });
+  })
+    nextButton.style.display = "block"; //displays next button when an answer is selected
+    nextButton.classList.add("button"); //
+    nextButton.style.innerHTML = "Next Question";
+
+    changeAnswerButton.style.display = "block";
+    changeAnswerButton.classList.add("button");
+    changeAnswerButton.style.innerHTML = "Change Answer";
+    changeAnswerButton.addEventListener("click", changeAnswer);
+
 }
 
 /* Enables the user to change their mind and select a different answer.*/
@@ -282,7 +302,34 @@ function changeAnswer() {
   changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
 }
 
+function addScore() {
 
+  let aliceScore = parseInt(document.getElementById("alice-score").innerText);
+  document.getElementById("alice-score").innerText = aliceScore + chosenAnswerScore[0];
+  console.log(aliceScore);
+      
+  let madHatterScore = parseInt(document.getElementById("mad-hatter-score").innerText);
+  document.getElementById("mad-hatter-score").innerText = aliceScore + chosenAnswerScore[1];
+  console.log(madHatterScore);
+      
+  let whiteRabbitScore = parseInt(document.getElementById("white-rabbit-score").innerText);
+  document.getElementById("white-rabbit-score").innerText = aliceScore + chosenAnswerScore[2];
+  console.log(whiteRabbitScore);
+      
+  let cheshireCatScore = parseInt(document.getElementById("cheshire-cat-score").innerText);
+  document.getElementById("cheshire-cat-score").innerText = aliceScore + chosenAnswerScore[3];
+  console.log(cheshireCatScore);
+      
+  let blueCaterpillarScore = parseInt(document.getElementById("blue-caterpillar-score").innerText);
+  document.getElementById("blue-caterpillar-score").innerText = aliceScore + chosenAnswerScore[4];
+  console.log(blueCaterpillarScore);
+      
+  let queenOfHeartsScore = parseInt(document.getElementById("queen-of-hearts-score").innerText);
+  document.getElementById("queen-of-hearts-score").innerText = aliceScore + chosenAnswerScore[5];
+  console.log(queenOfHeartsScore);
+    
+
+}
 // /*Adds the scores from the selected answer to the scoreBoard*/
 // function addScore() {
   
