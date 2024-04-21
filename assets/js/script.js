@@ -238,14 +238,10 @@ function resetState() {
   
 }
 
-function resetChosenAnswer() {
-  let previousAnswer = document.getElementsByClassName("chosen-answer");
-  previousAnswer.classList.remove("chosen-answer");
-}
 
 /*Changes the css for the selected answer and disables other answers. Triggers the nextButton and changeAnswerButton to display*/
 function selectAnswer(e) {
-  const chosenAnswer = e.target; //Specifically targetting the answer button (x) that has been chosen to pass the subsequent code
+  const chosenAnswer = e.target; //Specifically targetting the answer button (e) that has been chosen to pass the subsequent code
   chosenAnswer.classList.add("chosen-answer"); //Adds class of 'chosen-answer' to the selected button - used for CSS.
   console.log(chosenAnswer.innerText); //testing that this is the expected data
  
@@ -264,6 +260,7 @@ function selectAnswer(e) {
       button.classList.add("nohvr"); //Nohvr class added to each button so that hover effect is invisible to user
       chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
   });
+  
   nextButton.style.display = "block"; //displays next button when an answer is selected
   nextButton.classList.add("button"); //
   nextButton.style.innerHTML = "Next Question";
@@ -273,8 +270,6 @@ function selectAnswer(e) {
   changeAnswerButton.style.innerHTML = "Change Answer";
   changeAnswerButton.addEventListener("click", changeAnswer);
 
-  document.getElementById("chosen-answer-score");
-      currentScore.innerHTML = chosenAnswerScore;
 }
 
 
@@ -321,14 +316,23 @@ function addScore() {
   document.getElementById("queen-of-hearts-score").innerText = aliceScore + chosenAnswerScore[5];
   console.log(queenOfHeartsScore);
   
-  document.getElementById("chosen-answer-score")
-  currentScore.innerHTML = [0, 0, 0, 0, 0, 0];
 }
+
+// function resetChosenAnswer() {
+//   resetState(); // resets the questions ready for them to choose a different answer
+
+//   Array.from(answerData.children).forEach(button => {
+//     button.classList.remove("chosen-answer");
+//   });
+
+//   displayQuestion();
+// }
 
 function handleNextButton() {
   currentQuestionIndex++;
   if(currentQuestionIndex < questions.length){
     displayQuestion();
+    // resetChosenAnswer()
   } else {
     checkScores();
   }
