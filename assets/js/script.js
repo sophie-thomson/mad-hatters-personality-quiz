@@ -172,22 +172,28 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
   ];
 
 // Get the question elements from the DOM by Id "question" and "answers" and "next button"
-// const used as these elements won't change 
+// const used as these elements won't change and need to be declared in multiple functions 
 const questionData = document.getElementById("question"); //Gets data from the DOM in the 
 const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
 const nextButton = document.getElementById("next-button");
-let changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
+const changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
 
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
 // always starts from q1 (index 0)
 
 let currentQuestionIndex = 0;
-// Scores for all characters need to be set at 0 for the start of the quiz
-let scoreBoard = [0, 0, 0, 0, 0, 0];
+let characterScores = [];
+
+// let currentScore = Array.from(document.getElementById("chosen-answer-score").innerHTML).map(Number);
+//   console.log(currentScore);
+// let answerArray = currentScore.filter(function (value) {
+//   return !Number.isNaN(value);
+// });
 
 /*Function to start the quiz takes the index of 0 and sets the content of the 'next button'*/
 function startQuiz() {
   currentQuestionIndex = 0;
+  // Scores for all characters need to be set at 0 for the start of the quiz
   characterScores = [0, 0, 0, 0, 0, 0];
   nextButton.innerText = "Next Question";
   changeAnswerButton.innerText = "Change Answer";
@@ -233,7 +239,7 @@ function selectAnswer(e) {
       currentScore.innerHTML = chosenAnswerScore;
     }
   })
-  
+
   Array.from(answerData.children).forEach(button => {
       button.disabled = true; 
   });
@@ -242,7 +248,7 @@ function selectAnswer(e) {
     chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
   });
 
-  nextButton.style.display = "block"; //displays nex button when an answer is selected
+  nextButton.style.display = "block"; //displays next button when an answer is selected
   nextButton.classList.add("button"); //
   nextButton.style.innerHTML = "Next Question";
 
@@ -251,6 +257,20 @@ function selectAnswer(e) {
   changeAnswerButton.style.innerHTML = "Change Answer";
   changeAnswerButton.addEventListener("click", changeAnswer);
 };
+
+function addFirstScore() {
+  if(currentQuestionIndex == [0]) {
+    let characterScores = (document.getElementById("scoreboard").innerText);
+    let currentScore = Array.from(document.getElementById("chosen-answer-score").innerText).map(Number);
+    const newScoresArray = currentScore.filter(function (value) {
+    return !Number.isNaN(value);
+    });
+    currentScore.innerText = (newScoresArray);
+    characterScores.innerText = (newScoresArray);
+  } else {
+    // addScore();
+  }
+}
 
 /* Enables the user to change their mind and select a different answer.*/
 function changeAnswer() {
@@ -262,22 +282,24 @@ function changeAnswer() {
   changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
 }
 
-// /*Adds the scores from the selected answer to the scoreBoard*/
-function addScore() {
-  // let currentScore = parseInt(document.getElementById("chosen-answer-score").innerHTML);
-  // let characterScores = parseInt(document.getElementById("scoreboard").innerHTML);
-  
-  var characterScores = [1, 2, 3, 5, 7, 8];
-  var currentScore = [0, 1, 2, 3, 4, 5];
 
-characterScores.forEach((num1, index) => {
-  const num2 = currentScore[index];
-  let newCharacterScore = (num1 + num2);
-  console.log(newCharacterScore);
-  let characterScores = document.getElementById("scoreboard");
-  characterScores.innerHTML = newCharacterScore;
-});
-}
+// /*Adds the scores from the selected answer to the scoreBoard*/
+// function addScore() {
+  
+//   let characterScores = Array.from(document.getElementById("scoreboard").innerText).map(Number);
+//   let newScoresArray = characterScores.filter(function (value) {
+//   return !Number.isNaN(value);
+//   });
+//   // const newScoreBoardArray = characterScores.filter( value => !Number.isNaN(value) );
+//   // console.log(newScoreBoardArray);
+
+//   newScoresArray.forEach((num1, index) => {
+//   let num2 = chosenAnswerScore[index];
+//   let newCharacterScore = (num1 + num2);
+//   console.log(newCharacterScore);
+//   characterScores.innerText = (newCharacterScore);
+// });
+// }
 
 function handleNextButton() {
   currentQuestionIndex++;
@@ -289,12 +311,15 @@ function handleNextButton() {
 }
 
   nextButton.addEventListener ("click", ()=> {
+  
     if(currentQuestionIndex < questions.length){
+      // addScore();
       handleNextButton();
     } else {
       startQuiz();
     }
-  });
+  })
+  
     
     // nextQuestion();
   
