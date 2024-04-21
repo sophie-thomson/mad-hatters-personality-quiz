@@ -235,7 +235,12 @@ function resetState() {
   while(currentScore.firstChild) { // Removes previous elements
     currentScore.removeChild(currentScore.firstChild); 
   }
+  
+}
 
+function resetChosenAnswer() {
+  let previousAnswer = document.getElementsByClassName("chosen-answer");
+  previousAnswer.classList.remove("chosen-answer");
 }
 
 /*Changes the css for the selected answer and disables other answers. Triggers the nextButton and changeAnswerButton to display*/
@@ -267,6 +272,9 @@ function selectAnswer(e) {
   changeAnswerButton.classList.add("button");
   changeAnswerButton.style.innerHTML = "Change Answer";
   changeAnswerButton.addEventListener("click", changeAnswer);
+
+  document.getElementById("chosen-answer-score");
+      currentScore.innerHTML = chosenAnswerScore;
 }
 
 
