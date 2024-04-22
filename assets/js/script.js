@@ -177,7 +177,7 @@ const questionData = document.getElementById("question"); //Gets data from the D
 const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
 const nextButton = document.getElementById("next-button");
 const changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
-
+const currentScore = document.getElementById("chosen-answer-score");
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
 // always starts from q1 (index 0)
 
@@ -219,7 +219,7 @@ function displayQuestion() {
     button.innerText = answer.text; //displays the 'text' from the answers for that question
     button.classList.add("button"); //adds the class "button" to the button for CSS
     answerData.appendChild(button); // Adds another button for each answer in sequence
-    button.addEventListener("click", selectAnswer);
+    button.addEventListener("click", selectAnswer);//Adds an event listener to each button which calls the selectAnswer function
   })
 
 }
@@ -232,13 +232,12 @@ function resetState() {
     answerData.removeChild(answerData.firstChild);
   }
   let currentScore = document.getElementById("chosen-answer-score");
-  while(currentScore.firstChild) { // Removes previous elements
-    currentScore.removeChild(currentScore.firstChild); 
-  }
-  let chosenAnswerButton = document.getElementsByClassName("chosen-answer");
-  while(chosenAnswerButton.classList) {
-    chosenAnswerButton.classList.removeClass("chosen-answer");
-  }
+    currentScore.innerHTML = [0, 0, 0, 0, 0, 0];
+  
+  // let chosenAnswerButton = document.getElementsByClassName("chosen-answer");
+  // while(chosenAnswerButton.classList) {
+  //   chosenAnswerButton.classList.remove("chosen-answer");
+  // }
 }
 
 
@@ -246,17 +245,19 @@ function resetState() {
 /*Changes the css for the selected answer and disables other answers. Triggers the nextButton and changeAnswerButton to display*/
 function selectAnswer(e) {
   const chosenAnswer = e.target; //Specifically targetting the answer button (e) that has been chosen to pass the subsequent code
-  chosenAnswer.classList.add("chosen-answer"); //Adds class of 'chosen-answer' to the selected button - used for CSS.
+  chosenAnswer.classList.add("chosen-answer"); //Adds class of 'chosen-answer' to the selected answer button
   console.log(chosenAnswer.innerText); //testing that this is the expected data
  
   // iterates through all answers in the questions data set to find the matching answer and answerScore
-  questions[0].answers.forEach(answer => { 
+  questions[currentQuestionIndex].answers.forEach(answer => { //checks each answer for the current question
     if (chosenAnswer.innerText === answer.text) {
-      const chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
-      let currentScore = document.getElementById("chosen-answer-score");
-      currentScore.innerHTML = chosenAnswerScore;
-    }});
-
+      console.log(answer.answerScore);
+    let chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
+    let currentScore = document.getElementById("chosen-answer-score");
+    currentScore.innerHTML = chosenAnswerScore;
+    }else {console.log("no score");}
+  });
+    
   Array.from(answerData.children).forEach(button => {
       button.disabled = true;
   });
@@ -279,59 +280,49 @@ function selectAnswer(e) {
 
 /* Enables the user to change their mind and select a different answer.*/
 function changeAnswer() {
-  resetState(); // resets the questions ready for them to choose a different answer
   Array.from(answerData.children).forEach(button => {
     button.disabled = false;
   })
-  
   displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
-  
 }
 
 function addScore() {
+  // let Answer = document.getElementsByClassName("chosen-answer");
+  // console.log(chosenAnswer.length);
+ 
+    
   let currentScore = Array.from(document.getElementById("chosen-answer-score").innerHTML).map(Number);
   console.log(currentScore);
 
   let chosenAnswerScore = currentScore.filter(function (value) {
   return !Number.isNaN(value);
   });
+  console.log(chosenAnswerScore)
 
   let aliceScore = parseInt(document.getElementById("alice-score").innerText);
-  document.getElementById("alice-score").innerText = aliceScore + chosenAnswerScore[0];
+  document.getElementById("alice-score").innerText = (aliceScore) + (chosenAnswerScore[0]);
   console.log(aliceScore);
       
   let madHatterScore = parseInt(document.getElementById("mad-hatter-score").innerText);
-  document.getElementById("mad-hatter-score").innerText = aliceScore + chosenAnswerScore[1];
+  document.getElementById("mad-hatter-score").innerText = madHatterScore + chosenAnswerScore[1];
   console.log(madHatterScore);
       
   let whiteRabbitScore = parseInt(document.getElementById("white-rabbit-score").innerText);
-  document.getElementById("white-rabbit-score").innerText = aliceScore + chosenAnswerScore[2];
+  document.getElementById("white-rabbit-score").innerText = whiteRabbitScore + chosenAnswerScore[2];
   console.log(whiteRabbitScore);
       
   let cheshireCatScore = parseInt(document.getElementById("cheshire-cat-score").innerText);
-  document.getElementById("cheshire-cat-score").innerText = aliceScore + chosenAnswerScore[3];
+  document.getElementById("cheshire-cat-score").innerText = cheshireCatScore + chosenAnswerScore[3];
   console.log(cheshireCatScore);
       
   let blueCaterpillarScore = parseInt(document.getElementById("blue-caterpillar-score").innerText);
-  document.getElementById("blue-caterpillar-score").innerText = aliceScore + chosenAnswerScore[4];
+  document.getElementById("blue-caterpillar-score").innerText = blueCaterpillarScore + chosenAnswerScore[4];
   console.log(blueCaterpillarScore);
       
   let queenOfHeartsScore = parseInt(document.getElementById("queen-of-hearts-score").innerText);
-  document.getElementById("queen-of-hearts-score").innerText = aliceScore + chosenAnswerScore[5];
+  document.getElementById("queen-of-hearts-score").innerText = queenOfHeartsScore + chosenAnswerScore[5];
   console.log(queenOfHeartsScore);
-  
-  currentScore = [0, 0, 0, 0, 0, 0];
-}
-
-// function resetChosenAnswer() {
-//   resetState(); // resets the questions ready for them to choose a different answer
-
-//   Array.from(answerData.children).forEach(button => {
-//     button.classList.remove("chosen-answer");
-//   });
-
-//   displayQuestion();
-// }
+};
 
 function handleNextButton() {
   currentQuestionIndex++;
