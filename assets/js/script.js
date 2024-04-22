@@ -331,20 +331,27 @@ function handleNextButton() {
   currentQuestionIndex++;
   if(currentQuestionIndex < questions.length){
     displayQuestion();
-  } else {
-    checkScores();
+  // } else {
+  //   checkScores();
   }
 }
 
-  nextButton.addEventListener ("click", ()=> {
-    addScore();
-    if(currentQuestionIndex < questions.length){
-      handleNextButton();
-    } else {
-      startQuiz();
-    }
-  })
+nextButton.addEventListener ("click", ()=> {
+  addScore();
+  if(currentQuestionIndex < questions.length){
+    handleNextButton();
+  } else {
+  startQuiz();
+  }
+})
   
+function checkScores() {
+  addScore(); 
+  findTopScore();
+  findSecondScore();
+  displayTopResult();
+  displaySecondResult();  
+}
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
