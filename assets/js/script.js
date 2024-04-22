@@ -272,19 +272,18 @@ function selectAnswer(e) {
   changeAnswerButton.style.innerHTML = "Change Answer";
   changeAnswerButton.addEventListener("click", changeAnswer);
 
-  if (currentQuestionIndex < 9) {
+  if (currentQuestionIndex < questions.length) {
   nextButton.style.display = "block"; //displays next button when an answer is selected
   nextButton.classList.add("button"); //
   } 
   else if (currentQuestionIndex == 9){
   resultsButton.style.display = "block";
   resultsButton.classList.add("button");
-  addScore();
-  } else {
-  resultsButton.addEventListener("click", checkScores);
-  }
+  // } else {
+  // resultsButton.addEventListener("click", checkScores);
+  // }
   
-}
+}};
 
 
 /* Enables the user to change their mind and select a different answer.*/
@@ -294,7 +293,7 @@ function changeAnswer() {
   })
   
   displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
-}
+};
 
 /**Gets currentScore data and adds the current answer score to each character score*/
 function addScore() {
@@ -338,9 +337,9 @@ function checkScores() {
   questionData.innerHTML = "Wow, you are one mixed up individual! Your main personality is ${topScoreName}, with a generous dose of ${secondScoreName} too.";
   nextButton.innerHTML = "Who Are You...?";
   nextButton.style.display = "block";
-  quizSection.style.display = "none";
+  // quizSection.style.display = "none";
 
-}
+};
 
 
 function handleNextButton() {
@@ -350,7 +349,7 @@ function handleNextButton() {
   } else {
     checkScores();
   }
-}
+};
 
 nextButton.addEventListener ("click", ()=> {
   addScore();
