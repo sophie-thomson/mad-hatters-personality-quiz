@@ -234,6 +234,18 @@ main {
     display: none;  
   }
 
+  #results-button {
+    background: #4f0585;
+    border-color: #AB63E0;
+    color: #fcfcfc;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: none;
+
+  }
   /* RESULTS PAGE */
 
   #results-box h2 {

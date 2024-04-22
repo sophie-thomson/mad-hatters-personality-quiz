@@ -177,7 +177,9 @@ const questionData = document.getElementById("question"); //Gets data from the D
 const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
 const nextButton = document.getElementById("next-button");
 const changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
+const resultsButton = document.getElementById("results-button");
 const currentScore = document.getElementById("chosen-answer-score");
+
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
 // always starts from q1 (index 0)
 
@@ -233,11 +235,6 @@ function resetState() {
   }
   let currentScore = document.getElementById("chosen-answer-score");
     currentScore.innerHTML = [0, 0, 0, 0, 0, 0];
-  
-  // let chosenAnswerButton = document.getElementsByClassName("chosen-answer");
-  // while(chosenAnswerButton.classList) {
-  //   chosenAnswerButton.classList.remove("chosen-answer");
-  // }
 }
 
 
@@ -268,6 +265,7 @@ function selectAnswer(e) {
   
   nextButton.style.display = "block"; //displays next button when an answer is selected
   nextButton.classList.add("button"); //
+  if (currentQuestionIndex = 9) {}
   nextButton.style.innerHTML = "Next Question";
 
   changeAnswerButton.style.display = "block";
@@ -286,11 +284,9 @@ function changeAnswer() {
   displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
 }
 
+/**Gets currentScore data and adds the current answer score to each character score*/
 function addScore() {
-  // let Answer = document.getElementsByClassName("chosen-answer");
-  // console.log(chosenAnswer.length);
- 
-    
+
   let currentScore = Array.from(document.getElementById("chosen-answer-score").innerHTML).map(Number);
   console.log(currentScore);
 
@@ -328,7 +324,6 @@ function handleNextButton() {
   currentQuestionIndex++;
   if(currentQuestionIndex < questions.length){
     displayQuestion();
-    // resetChosenAnswer()
   } else {
     checkScores();
   }
