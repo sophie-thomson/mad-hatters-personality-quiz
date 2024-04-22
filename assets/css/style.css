@@ -223,7 +223,7 @@ main {
   }
 
   #next-button i {
-    font-size: 125%;
+    /* font-size: 125%; */
   }
 
   #change-answer-button {

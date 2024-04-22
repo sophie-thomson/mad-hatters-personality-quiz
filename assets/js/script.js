@@ -230,6 +230,7 @@ function displayQuestion() {
 function resetState() {
   nextButton.style.display = "none"; // Next button not visible before question answered
   changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
+  resultsButton.style.display = "none"; //set results button to not visible on last question
   while(answerData.firstChild) { // Removes previous answer button elements
     answerData.removeChild(answerData.firstChild);
   }
@@ -262,17 +263,22 @@ function selectAnswer(e) {
       button.classList.add("nohvr"); //Nohvr class added to each button so that hover effect is invisible to user
       chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
   });
-  
-  nextButton.style.display = "block"; //displays next button when an answer is selected
-  nextButton.classList.add("button"); //
-  if (currentQuestionIndex = 9) {}
-  nextButton.style.innerHTML = "Next Question";
 
   changeAnswerButton.style.display = "block";
   changeAnswerButton.classList.add("button");
   changeAnswerButton.style.innerHTML = "Change Answer";
   changeAnswerButton.addEventListener("click", changeAnswer);
 
+  if (currentQuestionIndex < 9) {
+  nextButton.style.display = "block"; //displays next button when an answer is selected
+  nextButton.classList.add("button"); //
+  } 
+  else if (currentQuestionIndex == 9){
+  resultsButton.style.display = "block";
+  resultsButton.classList.add("button");
+  resultsButton.addEventListener("click", checkScores);
+  }
+  
 }
 
 
@@ -281,6 +287,7 @@ function changeAnswer() {
   Array.from(answerData.children).forEach(button => {
     button.disabled = false;
   })
+  
   displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
 }
 
