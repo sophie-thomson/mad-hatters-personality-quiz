@@ -42,7 +42,7 @@ const scheme = document.querySelector("h1");
 //   }
 // };
 
-// QUESTIONS AND ANSWERS
+// QUESTIONS AND ANSWERS -----------------
 
 /*index of answerScore matches index of Alice in Wonderland characters: 
 character_array [Alice, Mad Hatter, White Rabbit, Cheshire Cat, Blue Caterpillar, Queen of Hearts]*/
@@ -171,14 +171,16 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
     }
   ];
 
-// Get the question elements from the DOM by Id "question" and "answers" and "next button"
-// const used as these elements won't change and need to be declared in multiple functions 
-const questionData = document.getElementById("question"); //Gets data from the DOM in the 
+// Declare the specific question elements from the DOM by Id
+// const used as these elements won't change and need to be declared in multiple functions
+const quizSection = document.getElementById("quiz"); 
+const questionData = document.getElementById("question"); // with id='question" 
 const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
-const nextButton = document.getElementById("next-button");
+const nextButton = document.getElementById("next-button"); 
 const changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
 const resultsButton = document.getElementById("results-button");
 const currentScore = document.getElementById("chosen-answer-score");
+const characterArray = ["Alice", "Mad Hatter", "White Rabbit", "Cheshire Cat", "Blue Caterpillar", "Queen of Hearts"];
 
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
 // always starts from q1 (index 0)
@@ -231,10 +233,11 @@ function resetState() {
   nextButton.style.display = "none"; // Next button not visible before question answered
   changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
   resultsButton.style.display = "none"; //set results button to not visible on last question
-  while(answerData.firstChild) { // Removes previous answer button elements
-    answerData.removeChild(answerData.firstChild);
+  while(answerData.firstChild) { // Checks if there are firstChild nodes present in the answerData 
+    answerData.removeChild(answerData.firstChild); //Removes previous answer button firstChild nodes
   }
-  let currentScore = document.getElementById("chosen-answer-score");
+  //gets the currentScore from the DOM and resets it to 0
+  let currentScore = document.getElementById("chosen-answer-score"); //gets the currentScore from the DOM
     currentScore.innerHTML = [0, 0, 0, 0, 0, 0];
 }
 
@@ -276,6 +279,8 @@ function selectAnswer(e) {
   else if (currentQuestionIndex == 9){
   resultsButton.style.display = "block";
   resultsButton.classList.add("button");
+  addScore();
+  } else {
   resultsButton.addEventListener("click", checkScores);
   }
   
@@ -327,12 +332,23 @@ function addScore() {
   console.log(queenOfHeartsScore);
 };
 
+
+function checkScores() {
+  resetState();
+  questionData.innerHTML = "Wow, you are one mixed up individual! Your main personality is ${topScoreName}, with a generous dose of ${secondScoreName} too.";
+  nextButton.innerHTML = "Who Are You...?";
+  nextButton.style.display = "block";
+  quizSection.style.display = "none";
+
+}
+
+
 function handleNextButton() {
   currentQuestionIndex++;
   if(currentQuestionIndex < questions.length){
     displayQuestion();
-  // } else {
-  //   checkScores();
+  } else {
+    checkScores();
   }
 }
 
@@ -344,14 +360,39 @@ nextButton.addEventListener ("click", ()=> {
   startQuiz();
   }
 })
+
+
+function findTopScore() {
+  let characterScoreArray = Array.from(document.getElementById("character-scores").innerHTML).map(Number);
+  console.log(characterScoreArray);
+
+  let finalScores = characterScoreArray.filter(function (value) {
+  return !Number.isNaN(value);
+  });
+  console.log(finalScores);
+};
+
+// function findSecondScore() {
+
+// };
+
+// function displayTopResult() {
+
+// };
+
+// function displaySecondResult() {
   
-function checkScores() {
-  addScore(); 
-  findTopScore();
-  findSecondScore();
-  displayTopResult();
-  displaySecondResult();  
-}
+// };
+
+
+  
+  // questionData.innerHTML = `Wow, you are one mixed up individual! Your main personality is ${topScoreName}, with a generous dose of ${secondScoreName} too.`;
+  // nextButton.innerHTML 
+  // findTopScore();
+  // findSecondScore();
+  // displayTopResult();
+  // displaySecondResult();  
+// }
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
