@@ -235,8 +235,12 @@ function resetState() {
   while(currentScore.firstChild) { // Removes previous elements
     currentScore.removeChild(currentScore.firstChild); 
   }
-  
+  let chosenAnswerButton = document.getElementsByClassName("chosen-answer");
+  while(chosenAnswerButton.classList) {
+    chosenAnswerButton.classList.removeClass("chosen-answer");
+  }
 }
+
 
 
 /*Changes the css for the selected answer and disables other answers. Triggers the nextButton and changeAnswerButton to display*/
@@ -316,6 +320,7 @@ function addScore() {
   document.getElementById("queen-of-hearts-score").innerText = aliceScore + chosenAnswerScore[5];
   console.log(queenOfHeartsScore);
   
+  currentScore = [0, 0, 0, 0, 0, 0];
 }
 
 // function resetChosenAnswer() {
