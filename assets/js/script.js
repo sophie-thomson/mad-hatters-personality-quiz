@@ -354,52 +354,67 @@ function getFinalScores() {
 
   for (let i=0; i < characterScores.length; i++) {//loops through each paragraph one by one
     finalScoreArray.push(characterScores[i].innerText);//adds the innerText of each to the array
-    console.log("This is the", characterScores[i].innerText);//to check output is as expected
   }
   
   for (let i=0; i < finalScoreArray.length; i++) {//loops through each item in the array
     let arrayItem = parseInt(finalScoreArray[i]);//changes each item from a string to an integer 
     finalCharacterScores.push(arrayItem);//adds each integer to the finalCharacterScores array
   }
-  console.log(finalCharacterScores); //to check output is as expected
+  console.log("These are the final scores", finalCharacterScores); //to check output is as expected
 
   findTopScore(); //calls findTopScore function
 };
+
 /**Sorts finalCharacterScores array in descending order and compares index[0] with characterArray index*/
 function findTopScore() {
+  //creates a separate temporary array to ensure original finalCharacterScores maintains correct order 
+  let finalScoreArray = finalCharacterScores.map(Number);
   //sorting code adapted from W3Schools Tutorial(https://www.w3schools.com/js/js_array_sort.asp)
-  let sortedCharacterScores = finalCharacterScores.sort(function(a, b){return b - a});
-  console.log(sortedCharacterScores);
+  let sortedCharacterScores = finalScoreArray.sort(function(a, b){return b - a});
+  //finds the corresponding index of sortedCharacterScores[]0 in the original finalCharacterScore array
+  let topScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[0]);
 
-    if (sortedCharacterScores[0] === finalCharacterScores[0]) {
-      let topScoreCharacter = characterArray[0];
-      console.log(topScoreCharacter);
-      } 
-      else if 
-      (sortedCharacterScores[0] === finalCharacterScores[1]) {
-        topScoreCharacter = characterArray[1];
-        console.log(topScoreCharacter);
-      }
-      else if 
-      (sortedCharacterScores[0] === finalCharacterScores[2]) {
-        let topScoreCharacter = characterArray[2];
-        console.log(topScoreCharacter);
-      }
-      else if 
-      (sortedCharacterScores[0] === finalCharacterScores[3]) {
-        let topScoreCharacter = characterArray[3];
-        console.log(topScoreCharacter);
-      }
-      else if 
-      (sortedCharacterScores[0] === finalCharacterScores[4]) {
-        let topScoreCharacter = characterArray[4];
-        console.log(topScoreCharacter);
-      }
-      else {
-        let topScoreCharacter = characterArray[5];
-        console.log(topScoreCharacter);
-      }
-    };
+  console.log("These are the sorted final scores", sortedCharacterScores);
+  console.log(topScoreIndex);
+  console.log(finalCharacterScores[topScoreIndex]);
+
+  
+  
+  
+
+
+  // let newScoreArray = sortedCharacterScores.toString;
+  // let oldScoreArray = finalCharacterScores.toString;
+  // console.log(newScoreArray);
+  // console.log(oldScoreArray);
+  // let topScore = finalCharacterScores[0];
+  //   let topScoreIndex = 0;
+
+  //   for (let i = 0; i < finalCharacterScores.length; i++) {
+  //       if (finalCharacterScores[i] > topScore) {
+  //           topScoreIndex = i;
+  //           topScore = finalCharacterScores[i];
+  //       }
+  //   }
+
+  //   return topScoreIndex;
+}
+
+
+  // {
+  //   let topScore;
+  //   let topScoreIndex;
+
+  //   for (let i = 0; i < finalCharacterScores.length; i++) {
+  //     if (!topScore || finalCharacterScores[i] > topScore) {
+  //       topScore = finalCharacterScores[i];
+  //       topScoreIndex = i;
+  //     }
+  //   }
+  //   return topScoreIndex;
+  // }
+    
+// };
     
 
 // function findSecondScore() {
