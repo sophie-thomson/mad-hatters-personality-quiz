@@ -183,6 +183,7 @@ const resultsSection = document.getElementById("results-box");
 const resultsButton = document.getElementById("results-button");
 const currentScore = document.getElementById("chosen-answer-score");
 const characterArray = ["Alice", "Mad Hatter", "White Rabbit", "Cheshire Cat", "Blue Caterpillar", "Queen of Hearts"];
+const finalCharacterScores = []; 
 
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
 // always starts from q1 (index 0)
@@ -356,7 +357,7 @@ function getFinalScores() {
     console.log("This is the", characterScores[i].innerText);
   }
 
-  let finalCharacterScores = [] 
+  //----------------------------
   
   for (let i=0; i < finalScoreArray.length; i++) {
     let arrayItem = parseInt(finalScoreArray[i]);
@@ -364,10 +365,13 @@ function getFinalScores() {
   }
   console.log(finalCharacterScores);
 
+  findTopScore();
 };
-
+//Sorts finalCharacterScores array and compares index[0] with characterArray index
 function findTopScore() {
   
+  let sortedCharacterScores = finalCharacterScores.sort(function(a, b){return b - a});
+  console.log(sortedCharacterScores);
 };
 
 // function findSecondScore() {
