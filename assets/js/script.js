@@ -395,16 +395,12 @@ function findTopScore() {
         let topScoreCharacter = characterArray[4];
         console.log(topScoreCharacter);
       }
-      else if 
-      (sortedCharacterScores[0] === finalCharacterScores[5]) {
+      else {
         let topScoreCharacter = characterArray[5];
         console.log(topScoreCharacter);
       }
-      console.log(topScoreCharacter);
-    } 
-    }
-  
-};
+    };
+    
 
 // function findSecondScore() {
 
