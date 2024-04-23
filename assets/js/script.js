@@ -206,8 +206,6 @@ function startQuiz() {
   blueCaterpillarScore = 0;
   queenOfHeartsScore = 0;
 
-  nextButton.innerHTML = "Next Question ";
-  changeAnswerButton.innerText = "Change Answer";
   displayQuestion(); // calling function to to display the question text
 };
 
@@ -334,32 +332,20 @@ function addScore() {
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
-function handleNextButton() {
-  currentQuestionIndex++;
-  // if(currentQuestionIndex < questions.length){
-  displayQuestion();
- // } else {
-  //   displayResults();
-  // }
-};
 
 nextButton.addEventListener ("click", ()=> {
   addScore();
   if(currentQuestionIndex < questions.length){
-    handleNextButton();
+    currentQuestionIndex++;
+    displayQuestion();
   } else {
-  // startQuiz();
   displayResults();
   }
 });
 
 resultsButton.addEventListener ("click", ()=> {
-addScore();
-if(currentQuestionIndex == 9){
+  addScore();
   displayResults();
-} else {
-console.log("not displaying")
-}
 });
 
 // startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
@@ -367,7 +353,7 @@ console.log("not displaying")
 // RESULTS FUNCTIONS // 
 
 function displayResults() {
-  // resetState();
+  resetState();
   quizBox.style.display = "none";
   resultsSection.style.display = "block";
   // resultsButton.style.display = "none";
