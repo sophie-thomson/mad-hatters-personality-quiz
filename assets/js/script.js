@@ -268,21 +268,12 @@ function selectAnswer(e) {
   // makes change answer button visible and changes styling
   changeAnswerButton.style.display = "block";
   changeAnswerButton.classList.add("button");
-  // changeAnswerButton.style.innerText = "Change Answer";
   changeAnswerButton.addEventListener("click", changeAnswer);
 
-  // if (currentQuestionIndex < 9) {
-  //   console.log("choosing to display next button");
-    nextButton.style.display = "block"; //displays next button when an answer is selected
-    nextButton.classList.add("button"); 
-    nextButton.addEventListener("click", handleNextButton);
-  // } 
-  // else if (currentQuestionIndex == 9){
-  //   console.log("choosing to display results button")
-  //   resultsButton.style.display = "block";
-  //   resultsButton.classList.add("button");
-  //   resultsButton.addEventListener("click", handleResultsButton);
-  //}
+  nextButton.style.display = "block"; //displays next button when an answer is selected
+  nextButton.classList.add("button"); 
+  nextButton.addEventListener("click", handleNextButton);
+  
 };
 
 
@@ -339,46 +330,23 @@ function handleNextButton() {
     currentQuestionIndex++;//adds 1 to the current index
     displayQuestion();//runs the displayQuestion function
   } else if (currentQuestionIndex == 9) {
-    nextButton.style.innerHTML = "Submit Results";
     displayResults();
     console.log("have added q10 scores");
-    console.log();
   }
 };
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
-// nextButton.addEventListener ("click", ()=> {
-//   addScore();
-//   if(currentQuestionIndex < questions.length){
-//     currentQuestionIndex++;
-//     // displayQuestion();
-//   } else {
-//     displayResults();
-//   }
-// });
-
-function handleResultsButton() {
-  addScore();
-  displayResults();
-};
 
 // RESULTS FUNCTIONS // 
 
 function displayResults() {
-  // resetState();
   quizBox.style.display = "none";
   resultsSection.style.display = "block";
   // checkScores();
 }
 
-function checkScores() {
-  resultsButton.style.display = "block";
-  resultsButton.classList.add("button");
-
-};
-
-function findTopScore() {
+function getFinalScores() {
   let characterScoreArray = Array.from(document.getElementById("character-scores").innerHTML).map(Number);
   console.log(characterScoreArray);
 
@@ -386,6 +354,11 @@ function findTopScore() {
   return !Number.isNaN(value);
   });
   console.log(finalScores);
+
+};
+
+function findTopScore() {
+  
 };
 
 // function findSecondScore() {
