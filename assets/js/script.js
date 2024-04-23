@@ -362,31 +362,41 @@ function getFinalScores() {
   }
   console.log("These are the final scores", finalCharacterScores); //to check output is as expected
 
-  findTopScore(); //calls findTopScore function
+  findTopScores(); //calls findTopScores function
 };
 
 /**Sorts finalCharacterScores array in descending order and compares index[0] with characterArray index*/
-function findTopScore() {
+function findTopScores() {
+
   //creates a separate temporary array to ensure original finalCharacterScores maintains correct order 
   let finalScoreArray = finalCharacterScores.map(Number);
-  //sorting code adapted from W3Schools Tutorial(https://www.w3schools.com/js/js_array_sort.asp)
-  let sortedCharacterScores = finalScoreArray.sort(function(a, b){return b - a});
-  //finds the corresponding index of sortedCharacterScores[]0 in the original finalCharacterScore array
-  let topScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[0]);
 
+  //sorting code adapted from W3Schools Tutorial(https://www.w3schools.com/js/js_array_sort.asp) - CREDIT
+  //sorts finalCharacterScores in decending order - index [0] is highest score
+  let sortedCharacterScores = finalScoreArray.sort(function(a, b){return b - a});
+
+  //finds the corresponding index of sortedCharacterScores[0] in the original finalCharacterScore array
+  let topScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[0]);
+  
   console.log("These are the sorted final scores", sortedCharacterScores);
   console.log(topScoreIndex);
   console.log(finalCharacterScores[topScoreIndex]);
 
+  // finds the topScoreCharacter by matching characterArray index to topScoreIndex 
   let topScoreCharacter = characterArray[topScoreIndex];
-  console.log(topScoreCharacter);
+  console.log("This is the top character", topScoreCharacter);
+  //finds the corresponding index of sortedCharacterScores[1] in the original finalCharacterScore array
+  let secondScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[1]);
+
+  console.log(secondScoreIndex);
+  console.log(finalCharacterScores[secondScoreIndex]);
+
+  // finds the secondScoreCharacter by matching characterArray index to secondScoreIndex 
+  let secondScoreCharacter = characterArray[secondScoreIndex];
+  console.log("This is the second character", secondScoreCharacter);  
 
 }
     
-
-// function findSecondScore() {
-
-// };
 
 // function displayTopResult() {
 
@@ -399,13 +409,8 @@ function findTopScore() {
 
   
   // questionData.innerHTML = `Wow, you are one mixed up individual! Your main personality is ${topScoreName}, with a generous dose of ${secondScoreName} too.`;
-  // nextButton.innerHTML 
-  // findTopScore();
-  // findSecondScore();
-  // displayTopResult();
-  // displaySecondResult();  
-// }
-// startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+
+
 
 
 
