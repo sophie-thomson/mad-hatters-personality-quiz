@@ -378,43 +378,10 @@ function findTopScore() {
   console.log(topScoreIndex);
   console.log(finalCharacterScores[topScoreIndex]);
 
-  
-  
-  
+  let topScoreCharacter = characterArray[topScoreIndex];
+  console.log(topScoreCharacter);
 
-
-  // let newScoreArray = sortedCharacterScores.toString;
-  // let oldScoreArray = finalCharacterScores.toString;
-  // console.log(newScoreArray);
-  // console.log(oldScoreArray);
-  // let topScore = finalCharacterScores[0];
-  //   let topScoreIndex = 0;
-
-  //   for (let i = 0; i < finalCharacterScores.length; i++) {
-  //       if (finalCharacterScores[i] > topScore) {
-  //           topScoreIndex = i;
-  //           topScore = finalCharacterScores[i];
-  //       }
-  //   }
-
-  //   return topScoreIndex;
 }
-
-
-  // {
-  //   let topScore;
-  //   let topScoreIndex;
-
-  //   for (let i = 0; i < finalCharacterScores.length; i++) {
-  //     if (!topScore || finalCharacterScores[i] > topScore) {
-  //       topScore = finalCharacterScores[i];
-  //       topScoreIndex = i;
-  //     }
-  //   }
-  //   return topScoreIndex;
-  // }
-    
-// };
     
 
 // function findSecondScore() {
