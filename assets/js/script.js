@@ -206,7 +206,7 @@ function startQuiz() {
   blueCaterpillarScore = 0;
   queenOfHeartsScore = 0;
 
-  displayQuestion(); // calling function to to display the question text
+  displayQuestion(); // calling function to display the question and answer data
 };
 
 /*Displays the questionData and answerData for the current question*/
@@ -228,11 +228,11 @@ function displayQuestion() {
 
 }
 
+
 /*Resets the page with initial displayQuestion data*/
 function resetState() {
   nextButton.style.display = "none"; // Next button not visible before question answered
   changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
-  resultsButton.style.display = "none"; //set results button to not visible on last question
   while(answerData.firstChild) { // Checks if there are firstChild nodes present in the answerData 
     answerData.removeChild(answerData.firstChild); //Removes previous answer button firstChild nodes
   }
@@ -248,7 +248,7 @@ function selectAnswer(e) {
   chosenAnswer.classList.add("chosen-answer"); //Adds class of 'chosen-answer' to the selected answer button
   console.log(chosenAnswer.innerText); //testing that this is the expected data
  
-  // iterates through all answers in the questions data set to find the matching answer and answerScore
+  // iterates through all answers in the questions dataset to find the matching answer and answerScore
   questions[currentQuestionIndex].answers.forEach(answer => { //checks each answer for the current question
     if (chosenAnswer.innerText === answer.text) {
       console.log(answer.answerScore); //used to check expected score from answerData
@@ -263,8 +263,8 @@ function selectAnswer(e) {
   });
   // makes hover function invisible to user
   Array.from(answerData.children).forEach(button => {
-      button.classList.add("nohvr"); //Nohvr class added to each button so that hover effect is invisible to user
-      chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
+      button.classList.add("nohvr"); //nohvr class added to each button so that hover effect is invisible to user
+      chosenAnswer.classList.remove("nohvr"); // removed from chosen answer to maintain original CSS
   });
   // makes change answer button visible and changes styling
   changeAnswerButton.style.display = "block";
@@ -273,10 +273,12 @@ function selectAnswer(e) {
   changeAnswerButton.addEventListener("click", changeAnswer);
 
   if (currentQuestionIndex < 9) {
+    console.log("choosing to display next button");
     nextButton.style.display = "block"; //displays next button when an answer is selected
     nextButton.classList.add("button"); //
   } 
   else if (currentQuestionIndex == 9){
+    console.log("choosing to display results button")
     resultsButton.style.display = "block";
     resultsButton.classList.add("button");
     // resultsButton.addEventListener("click", displayResults);
@@ -292,6 +294,7 @@ function changeAnswer() {
   
   displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
 };
+
 
 
 /**Gets currentScore data and adds the current answer score to each character score*/
@@ -330,8 +333,6 @@ function addScore() {
   console.log(queenOfHeartsScore);
 };
 
-startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
-
 
 nextButton.addEventListener ("click", ()=> {
   addScore();
@@ -339,7 +340,7 @@ nextButton.addEventListener ("click", ()=> {
     currentQuestionIndex++;
     displayQuestion();
   } else {
-  displayResults();
+    displayResults();
   }
 });
 
@@ -348,7 +349,7 @@ resultsButton.addEventListener ("click", ()=> {
   displayResults();
 });
 
-// startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
 // RESULTS FUNCTIONS // 
 
@@ -356,7 +357,6 @@ function displayResults() {
   resetState();
   quizBox.style.display = "none";
   resultsSection.style.display = "block";
-  // resultsButton.style.display = "none";
   // checkScores();
 }
 
