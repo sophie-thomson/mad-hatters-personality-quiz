@@ -178,6 +178,7 @@ const questionData = document.getElementById("question"); // with id='question"
 const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
 const nextButton = document.getElementById("next-button"); 
 const changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
+const resultsSection = document.getElementById("results-box");
 const resultsButton = document.getElementById("results-button");
 const currentScore = document.getElementById("chosen-answer-score");
 const characterArray = ["Alice", "Mad Hatter", "White Rabbit", "Cheshire Cat", "Blue Caterpillar", "Queen of Hearts"];
@@ -329,24 +330,6 @@ function addScore() {
   console.log(queenOfHeartsScore);
 };
 
-function displayResults() {
-  resetState();
-  let resultsBox = document.getElementById("results-box");
-  resultsBox.style.display = "block";
-
-}
-
-function checkScores() {
-  resetState();
-  questionData.innerHTML = "The results are in...";
-  // nextButton.innerHTML = "Who Are You...?";
-  resultsButton.style.display = "block";
-  resultsButton.classList.add("button");
-  // quizSection.style.display = "none";
-
-};
-
-
 function handleNextButton() {
   currentQuestionIndex++;
   if(currentQuestionIndex < questions.length){
@@ -365,6 +348,23 @@ nextButton.addEventListener ("click", ()=> {
   }
 })
 
+startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+
+// RESULTS FUNCTIONS // 
+
+function displayResults() {
+  quizSection.style.display = "none";
+  resultsSection.style.display = "block";
+  
+  questionData.innerHTML = "The results are in...";
+  checkScores();
+}
+
+function checkScores() {
+  resultsButton.style.display = "block";
+  resultsButton.classList.add("button");
+
+};
 
 function findTopScore() {
   let characterScoreArray = Array.from(document.getElementById("character-scores").innerHTML).map(Number);
@@ -398,7 +398,7 @@ function findTopScore() {
   // displaySecondResult();  
 // }
 
-startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+
 
 
 
