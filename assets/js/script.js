@@ -173,6 +173,7 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
 
 // Declare the specific question elements from the DOM by Id
 // const used as these elements won't change and need to be declared in multiple functions
+const quizBox = document.getElementById("questions-box");
 const quizSection = document.getElementById("quiz"); 
 const questionData = document.getElementById("question"); // with id='question" 
 const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
@@ -243,8 +244,7 @@ function resetState() {
 }
 
 
-
-/*Changes the css for the selected answer and disables other answers. Triggers the nextButton and changeAnswerButton to display*/
+/*identifies answerScore array for the selected answer and disables other answers.*/
 function selectAnswer(e) {
   const chosenAnswer = e.target; //Specifically targetting the answer button (e) that has been chosen to pass the subsequent code
   chosenAnswer.classList.add("chosen-answer"); //Adds class of 'chosen-answer' to the selected answer button
@@ -253,21 +253,22 @@ function selectAnswer(e) {
   // iterates through all answers in the questions data set to find the matching answer and answerScore
   questions[currentQuestionIndex].answers.forEach(answer => { //checks each answer for the current question
     if (chosenAnswer.innerText === answer.text) {
-      console.log(answer.answerScore);
+      console.log(answer.answerScore); //used to check expected score from answerData
     let chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
     let currentScore = document.getElementById("chosen-answer-score");
     currentScore.innerHTML = chosenAnswerScore;
-    }else {console.log("no score");}
+    }
   });
-    
-  Array.from(answerData.children).forEach(button => {
-      button.disabled = true;
+  // disables all answer buttons so can't select any others 
+  Array.from(answerData.children).forEach(button => { //gets all the answerData Child nodes
+      button.disabled = true; //sets them to disabled
   });
+  // makes hover function invisible to user
   Array.from(answerData.children).forEach(button => {
       button.classList.add("nohvr"); //Nohvr class added to each button so that hover effect is invisible to user
       chosenAnswer.classList.remove("nohvr"); // Removed from chosen answer to maintain origina CSS
   });
-
+  // makes change answer button visible and changes styling
   changeAnswerButton.style.display = "block";
   changeAnswerButton.classList.add("button");
   changeAnswerButton.style.innerHTML = "Change Answer";
@@ -280,7 +281,7 @@ function selectAnswer(e) {
   else if (currentQuestionIndex == 9){
     resultsButton.style.display = "block";
     resultsButton.classList.add("button");
-    resultsButton.addEventListener("click", displayResults);  
+    // resultsButton.addEventListener("click", displayResults);
   
 }};
 
@@ -293,6 +294,7 @@ function changeAnswer() {
   
   displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
 };
+
 
 /**Gets currentScore data and adds the current answer score to each character score*/
 function addScore() {
@@ -330,13 +332,15 @@ function addScore() {
   console.log(queenOfHeartsScore);
 };
 
+startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+
 function handleNextButton() {
   currentQuestionIndex++;
-  if(currentQuestionIndex < questions.length){
-    displayQuestion();
-  } else {
-    checkScores();
-  }
+  // if(currentQuestionIndex < questions.length){
+  displayQuestion();
+ // } else {
+  //   displayResults();
+  // }
 };
 
 nextButton.addEventListener ("click", ()=> {
@@ -344,20 +348,30 @@ nextButton.addEventListener ("click", ()=> {
   if(currentQuestionIndex < questions.length){
     handleNextButton();
   } else {
-  startQuiz();
+  // startQuiz();
+  displayResults();
   }
-})
+});
 
-startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+resultsButton.addEventListener ("click", ()=> {
+addScore();
+if(currentQuestionIndex == 9){
+  displayResults();
+} else {
+console.log("not displaying")
+}
+});
+
+// startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
 // RESULTS FUNCTIONS // 
 
 function displayResults() {
-  quizSection.style.display = "none";
+  // resetState();
+  quizBox.style.display = "none";
   resultsSection.style.display = "block";
-  
-  questionData.innerHTML = "The results are in...";
-  checkScores();
+  // resultsButton.style.display = "none";
+  // checkScores();
 }
 
 function checkScores() {
@@ -397,7 +411,7 @@ function findTopScore() {
   // displayTopResult();
   // displaySecondResult();  
 // }
-
+// startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
 
 
