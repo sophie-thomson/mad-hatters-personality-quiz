@@ -325,6 +325,7 @@ function addScore() {
   console.log(queenOfHeartsScore);
 };
 
+/**code and functions to call when next button 'click' event listener triggered*/
 function handleNextButton() {
   addScore();
   if(currentQuestionIndex <= 8){//if current question index is 0-8(Q9)
@@ -339,14 +340,15 @@ function handleNextButton() {
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
 
 
-// RESULTS FUNCTIONS // 
+// RESULTS FUNCTIONS // ---------------------------
 
+/**calls functions to replace quiz content html with results content */
 function displayResults() {
   quizBox.style.display = "none";
   resultsSection.style.display = "block";
   getFinalScores();
 }
-
+/**gets data from the DOM to create an array of final scores for all characters */
 function getFinalScores() {
   //gets an array of all paragraphs with class "character-score"
   let characterScores = Array.from(document.getElementsByClassName("character-score"));
@@ -395,8 +397,15 @@ function findTopScores() {
   let secondScoreCharacter = characterArray[secondScoreIndex];
   console.log("This is the second character", secondScoreCharacter);  
 
+  let resultSummary = document.getElementById("results-summary");
+  resultSummary.style.innerText = (`You are most like ${topScoreCharacter} but with a healthy dose of ${secondScoreCharacter} too.`);
 }
-    
+
+function displaySummary() {
+  
+  
+  
+}
 
 // function displayTopResult() {
 
