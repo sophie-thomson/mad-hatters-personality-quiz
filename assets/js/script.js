@@ -228,7 +228,6 @@ function displayQuestion() {
 
 }
 
-
 /*Resets the page with initial displayQuestion data*/
 function resetState() {
   nextButton.style.display = "none"; // Next button not visible before question answered
@@ -269,21 +268,22 @@ function selectAnswer(e) {
   // makes change answer button visible and changes styling
   changeAnswerButton.style.display = "block";
   changeAnswerButton.classList.add("button");
-  changeAnswerButton.style.innerHTML = "Change Answer";
+  // changeAnswerButton.style.innerText = "Change Answer";
   changeAnswerButton.addEventListener("click", changeAnswer);
 
-  if (currentQuestionIndex < 9) {
-    console.log("choosing to display next button");
+  // if (currentQuestionIndex < 9) {
+  //   console.log("choosing to display next button");
     nextButton.style.display = "block"; //displays next button when an answer is selected
-    nextButton.classList.add("button"); //
-  } 
-  else if (currentQuestionIndex == 9){
-    console.log("choosing to display results button")
-    resultsButton.style.display = "block";
-    resultsButton.classList.add("button");
-    // resultsButton.addEventListener("click", displayResults);
-  
-}};
+    nextButton.classList.add("button"); 
+    nextButton.addEventListener("click", handleNextButton);
+  // } 
+  // else if (currentQuestionIndex == 9){
+  //   console.log("choosing to display results button")
+  //   resultsButton.style.display = "block";
+  //   resultsButton.classList.add("button");
+  //   resultsButton.addEventListener("click", handleResultsButton);
+  //}
+};
 
 
 /* Enables the user to change their mind and select a different answer.*/
@@ -333,28 +333,40 @@ function addScore() {
   console.log(queenOfHeartsScore);
 };
 
-
-nextButton.addEventListener ("click", ()=> {
+function handleNextButton() {
   addScore();
-  if(currentQuestionIndex < questions.length){
-    currentQuestionIndex++;
-    displayQuestion();
-  } else {
+  if(currentQuestionIndex <= 8){//if current question index is 0-8(Q9)
+    currentQuestionIndex++;//adds 1 to the current index
+    displayQuestion();//runs the displayQuestion function
+  } else if (currentQuestionIndex == 9) {
+    nextButton.style.innerHTML = "Submit Results";
     displayResults();
+    console.log("have added q10 scores");
+    console.log();
   }
-});
-
-resultsButton.addEventListener ("click", ()=> {
-  addScore();
-  displayResults();
-});
+};
 
 startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+
+// nextButton.addEventListener ("click", ()=> {
+//   addScore();
+//   if(currentQuestionIndex < questions.length){
+//     currentQuestionIndex++;
+//     // displayQuestion();
+//   } else {
+//     displayResults();
+//   }
+// });
+
+function handleResultsButton() {
+  addScore();
+  displayResults();
+};
 
 // RESULTS FUNCTIONS // 
 
 function displayResults() {
-  resetState();
+  // resetState();
   quizBox.style.display = "none";
   resultsSection.style.display = "block";
   // checkScores();
