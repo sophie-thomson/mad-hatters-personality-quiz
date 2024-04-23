@@ -329,10 +329,10 @@ function handleNextButton() {
   addScore();
   if(currentQuestionIndex <= 8){//if current question index is 0-8(Q9)
     currentQuestionIndex++;//adds 1 to the current index
-    displayQuestion();//runs the displayQuestion function
-  } else if (currentQuestionIndex == 9) {
-    displayResults();
-    console.log("have added q10 scores");
+    displayQuestion();//calls the displayQuestion function
+  } else if (currentQuestionIndex == 9) {//if current question is Q10
+    displayResults();//calls displayResults function
+    console.log("have added q10 scores");// to test that last scores have been added
   }
 };
 
@@ -352,26 +352,58 @@ function getFinalScores() {
   let characterScores = Array.from(document.getElementsByClassName("character-score"));
   let finalScoreArray = [];//sets up array to hold the final scores
 
-  for (let i=0; i < characterScores.length; i++) {
-    finalScoreArray.push(characterScores[i].innerText);
-    console.log("This is the", characterScores[i].innerText);
+  for (let i=0; i < characterScores.length; i++) {//loops through each paragraph one by one
+    finalScoreArray.push(characterScores[i].innerText);//adds the innerText of each to the array
+    console.log("This is the", characterScores[i].innerText);//to check output is as expected
   }
-
-  //----------------------------
   
-  for (let i=0; i < finalScoreArray.length; i++) {
-    let arrayItem = parseInt(finalScoreArray[i]);
-    finalCharacterScores.push(arrayItem);
+  for (let i=0; i < finalScoreArray.length; i++) {//loops through each item in the array
+    let arrayItem = parseInt(finalScoreArray[i]);//changes each item from a string to an integer 
+    finalCharacterScores.push(arrayItem);//adds each integer to the finalCharacterScores array
   }
-  console.log(finalCharacterScores);
+  console.log(finalCharacterScores); //to check output is as expected
 
-  findTopScore();
+  findTopScore(); //calls findTopScore function
 };
-//Sorts finalCharacterScores array and compares index[0] with characterArray index
+/**Sorts finalCharacterScores array in descending order and compares index[0] with characterArray index*/
 function findTopScore() {
-  
+  //sorting code adapted from W3Schools Tutorial(https://www.w3schools.com/js/js_array_sort.asp)
   let sortedCharacterScores = finalCharacterScores.sort(function(a, b){return b - a});
   console.log(sortedCharacterScores);
+
+    if (sortedCharacterScores[0] === finalCharacterScores[0]) {
+      let topScoreCharacter = characterArray[0];
+      console.log(topScoreCharacter);
+      } 
+      else if 
+      (sortedCharacterScores[0] === finalCharacterScores[1]) {
+        topScoreCharacter = characterArray[1];
+        console.log(topScoreCharacter);
+      }
+      else if 
+      (sortedCharacterScores[0] === finalCharacterScores[2]) {
+        let topScoreCharacter = characterArray[2];
+        console.log(topScoreCharacter);
+      }
+      else if 
+      (sortedCharacterScores[0] === finalCharacterScores[3]) {
+        let topScoreCharacter = characterArray[3];
+        console.log(topScoreCharacter);
+      }
+      else if 
+      (sortedCharacterScores[0] === finalCharacterScores[4]) {
+        let topScoreCharacter = characterArray[4];
+        console.log(topScoreCharacter);
+      }
+      else if 
+      (sortedCharacterScores[0] === finalCharacterScores[5]) {
+        let topScoreCharacter = characterArray[5];
+        console.log(topScoreCharacter);
+      }
+      console.log(topScoreCharacter);
+    } 
+    }
+  
 };
 
 // function findSecondScore() {
