@@ -247,6 +247,10 @@ main {
 
   }
   /* RESULTS PAGE */
+  #results-box {
+    display: none;
+  }
+
 
   #results-box h2 {
     margin-top: 20px;

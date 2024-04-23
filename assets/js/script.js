@@ -277,15 +277,9 @@ function selectAnswer(e) {
     nextButton.classList.add("button"); //
   } 
   else if (currentQuestionIndex == 9){
-    // nextButton.style.innerHTML = "Who Are You...";
-    nextButton.style.display = "block"; //displays next button when an answer is selected
     resultsButton.style.display = "block";
     resultsButton.classList.add("button");
-    nextButton.classList.add("button"); //
-    
-  // } else {
-  // resultsButton.addEventListener("click", checkScores);
-  // }
+    resultsButton.addEventListener("click", displayResults);  
   
 }};
 
@@ -335,11 +329,17 @@ function addScore() {
   console.log(queenOfHeartsScore);
 };
 
+function displayResults() {
+  resetState();
+  let resultsBox = document.getElementById("results-box");
+  resultsBox.style.display = "block";
+
+}
 
 function checkScores() {
   resetState();
-  questionData.innerHTML = "Wow, you are one mixed up individual! Your main personality is ${topScoreName}, with a generous dose of ${secondScoreName} too.";
-  nextButton.innerHTML = "Who Are You...?";
+  questionData.innerHTML = "The results are in...";
+  // nextButton.innerHTML = "Who Are You...?";
   resultsButton.style.display = "block";
   resultsButton.classList.add("button");
   // quizSection.style.display = "none";
