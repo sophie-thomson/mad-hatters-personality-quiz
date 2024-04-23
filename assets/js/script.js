@@ -343,17 +343,26 @@ startQuiz(); //calls the startQuiz function to run the initialisation data and d
 function displayResults() {
   quizBox.style.display = "none";
   resultsSection.style.display = "block";
-  // checkScores();
+  getFinalScores();
 }
 
 function getFinalScores() {
-  let characterScoreArray = Array.from(document.getElementById("character-scores").innerHTML).map(Number);
-  console.log(characterScoreArray);
+  //gets an array of all paragraphs with class "character-score"
+  let characterScores = Array.from(document.getElementsByClassName("character-score"));
+  let finalScoreArray = [];//sets up array to hold the final scores
 
-  let finalScores = characterScoreArray.filter(function (value) {
-  return !Number.isNaN(value);
-  });
-  console.log(finalScores);
+  for (let i=0; i < characterScores.length; i++) {
+    finalScoreArray.push(characterScores[i].innerText);
+    console.log("This is the", characterScores[i].innerText);
+  }
+
+  let finalCharacterScores = [] 
+  
+  for (let i=0; i < finalScoreArray.length; i++) {
+    let arrayItem = parseInt(finalScoreArray[i]);
+    finalCharacterScores.push(arrayItem);
+  }
+  console.log(finalCharacterScores);
 
 };
 
