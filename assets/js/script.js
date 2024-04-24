@@ -420,35 +420,57 @@ function findTopScores() {
   //finds the corresponding index of sortedCharacterScores[1] in the original finalCharacterScore array
   let secondScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[1]);
 
-  let secondIndex = document.getElementById("second-score-index");
-  secondIndex.innerText = secondScoreIndex;
-  console.log("secondIndex", secondIndex.innerText);
+  //checks in case first and second scores are the same value, and hence finding the same indexOf result
+  if (topScoreIndex === secondScoreIndex) {
+    //searches for the last index with a matching score in the finalCharacterScores array
+    let tiedTopIndex = finalCharacterScores.lastIndexOf(sortedCharacterScores[1]);
 
+    //identifies the html element with id second-score-index
+    let secondIndex = document.getElementById("second-score-index");
 
-  console.log("Index of second highest score", secondScoreIndex);
-  console.log("This is the second score", finalCharacterScores[secondScoreIndex]);
+    //writes tiedTopScore into secondIndex element instead of duplicate 
+    secondIndex.innerText = tiedTopIndex;
 
-  // finds the secondScoreCharacter by matching characterArray index to secondScoreIndex 
-  let secondScoreCharacter = characterArray[secondScoreIndex];
-  console.log("This is the second character", secondScoreCharacter);
+    // finds the tiedTopScoreCharacter by matching characterArray index to tiedTopIndex 
+    let tiedTopCharacter = characterArray[tiedTopIndex];
+    console.log("This is the tied top character", tiedTopCharacter);
 
-  // gets the results-summary text from html DOM 
-  let resultSummary = document.getElementById("results-summary");
+    // gets the results-summary text from html DOM 
+    let resultSummary = document.getElementById("results-summary");
+    resultSummary.innerText = (`Wow, you appear to have a split personality! You are 50% ${topScoreCharacter} and 50% ${tiedTopCharacter}.`);
 
-  //finds difference between two highest scores to define which summary sentance to use
-  let scoreDifference = (finalCharacterScores[topScoreIndex]) - (finalCharacterScores[secondScoreIndex]);
-  console.log(scoreDifference);
-  
-  // re-writes the innerText of the results-summary according to the scoreDifference
-  if (scoreDifference === 0) {
-    resultSummary.innerText = (`Wow, you appear to have a bit of a split personality! You are 50% ${topScoreCharacter} and 50% ${secondScoreCharacter}.`); 
-  } else if (scoreDifference <= 2) {
-    resultSummary.innerText = (`Just a couple of points in it! You are more like ${topScoreCharacter}, but you are a lot like ${secondScoreCharacter} too.`);
-  } else if (scoreDifference > 2 && scoreDifference < 6) {
-    resultSummary.innerText = (`You are most like ${topScoreCharacter}, but you have a generous dose of ${secondScoreCharacter} to provide balance.`)
   } else {
-    resultSummary.innerText = (`You are ${topScoreCharacter} through and through, with a bit of ${secondScoreCharacter} for good measure`);
-  }
+    //identifies the html element with id second-score-index
+    let secondIndex = document.getElementById("second-score-index");
+    secondIndex.innerText = secondScoreIndex;
+    console.log("secondIndex", secondIndex.innerText);
+
+
+    console.log("Index of second highest score", secondScoreIndex);
+    console.log("This is the second score", finalCharacterScores[secondScoreIndex]);
+
+    // finds the secondScoreCharacter by matching characterArray index to secondScoreIndex 
+    let secondScoreCharacter = characterArray[secondScoreIndex];
+    console.log("This is the second character", secondScoreCharacter);
+  
+    // gets the results-summary text from html DOM 
+    let resultSummary = document.getElementById("results-summary");
+
+    //finds difference between two highest scores to define which summary sentance to use
+    let scoreDifference = (finalCharacterScores[topScoreIndex]) - (finalCharacterScores[secondScoreIndex]);
+    console.log(scoreDifference);
+
+    // re-writes the innerText of the results-summary according to the scoreDifference
+    if (scoreDifference === 0) {
+      resultSummary.innerText = (`Wow, you appear to have a bit of a split personality! You are 50% ${topScoreCharacter} and 50% ${secondScoreCharacter}.`); 
+    } else if (scoreDifference <= 2) {
+      resultSummary.innerText = (`Just a couple of points in it! You are more like ${topScoreCharacter}, but you are a lot like ${secondScoreCharacter} too.`);
+    } else if (scoreDifference > 2 && scoreDifference < 6) {
+      resultSummary.innerText = (`You are most like ${topScoreCharacter}, but you have a generous dose of ${secondScoreCharacter} to provide balance.`)
+    } else {
+      resultSummary.innerText = (`You are ${topScoreCharacter} through and through, with a bit of ${secondScoreCharacter} for good measure`);
+    }
+  };
 
   displayCharacters();
 }
@@ -459,23 +481,23 @@ function displayCharacters() {
   let topIndex = parseInt(document.getElementById("top-score-index").innerText);
   let secondIndex = parseInt(document.getElementById("second-score-index").innerText);
   
-  
+  // identifies topScoreImage in html DOM and adds image src
   let topScoreImage = document.getElementById("top-score-image");
   topScoreImage.src = descriptions[topIndex].image;
-
+  // identifies topScoreTag in html DOM and adds descriptionTag
   let topScoreTag = document.getElementById("top-score-tag");
   topScoreTag.innerText = descriptions[topIndex].descriptionTag;
-
+  //identifies topScoreDescription in html and adds description
   let topScoreDescription = document.getElementById("top-score-description");
   topScoreDescription.innerText = descriptions[topIndex].text;
 
-
+  // identifies secondScoreImage in html DOM and adds image src
   let secondScoreImage = document.getElementById("second-score-image");
   secondScoreImage.src = descriptions[secondIndex].image; 
-  
+  // identifies secondScoreTag in html DOM and adds descriptionTag
   let secondScoreTag = document.getElementById("second-score-tag");
   secondScoreTag.innerText = descriptions[secondIndex].descriptionTag;
-
+  //identifies secondScoreDescription in html and adds description
   let secondScoreDescription = document.getElementById("second-score-description");
   secondScoreDescription.innerText = descriptions[secondIndex].text;
 }

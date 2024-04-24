@@ -222,10 +222,6 @@ main {
     display: none;
   }
 
-  #next-button i {
-    /* font-size: 125%; */
-  }
-
   #change-answer-button {
     background: #3b4b3d ;
     border-color: #a4e9b3;
@@ -234,18 +230,10 @@ main {
     display: none;  
   }
 
-  #results-button {
-    background: #4f0585;
-    border-color: #AB63E0;
-    color: #fcfcfc;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 10px;
-    margin-bottom: 20px;
-    margin-top: 10px;
+  #score-area {
     display: none;
-
   }
+
   /* RESULTS PAGE */
   #results-box {
     display: none;
@@ -272,21 +260,21 @@ main {
   #results-buttons {
     display:flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+   
   }
 
   #start-again {
     justify-content: flex-start;
-    /* margin-right:60vw; */
+    
   }
 
   #share {
     justify-content: flex-end;
     align-self: flex-end;
-    /* margin-left:60vw; */
+    
   }
 
-/* Footer styling */
+/* FOOTER SECTION */
 footer {
     color: #5e5d5d;
     font-size: 14px;
