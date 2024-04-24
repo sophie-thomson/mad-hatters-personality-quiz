@@ -440,13 +440,15 @@ function findTopScores() {
 
   // finds the secondScoreCharacter by matching characterArray index to secondScoreIndex 
   let secondScoreCharacter = characterArray[secondScoreIndex];
-  console.log("This is the second character", secondScoreCharacter);  
+  console.log("This is the second character", secondScoreCharacter);
+
   // gets the results-summary text from html DOM 
   let resultSummary = document.getElementById("results-summary");
+  
   //finds difference between two highest scores to define which summary sentance to use
   let scoreDifference = (finalCharacterScores[topScoreIndex]) - (finalCharacterScores[secondScoreIndex]);
   console.log(scoreDifference);
-  console.log(resultSummary.innerText);
+  
   // re-writes the innerText of the results-summary according to the scoreDifference
   if (scoreDifference === 0) {
     resultSummary.innerText = (`Wow, you appear to have a bit of a split personality! You are 50% ${topScoreCharacter} and 50% ${secondScoreCharacter}.`); 
@@ -457,7 +459,7 @@ function findTopScores() {
   } else {
     resultSummary.innerText = (`You are pretty much ${topScoreCharacter} through and through, with a bit of ${secondScoreCharacter} for good measure`);
   }
-  resultSummary.innerText = (`You are most like ${topScoreCharacter} but with a healthy dose of ${secondScoreCharacter} too.`);
+
 }
 
 function displaySummary() {
