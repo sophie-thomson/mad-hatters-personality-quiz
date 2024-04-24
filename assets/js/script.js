@@ -22,8 +22,7 @@ const scheme = document.querySelector("h1");
 // Basic format for question & answers structure adapted from tutorial 
 // How to Make Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8) CREDIT
 
-// index of each answerScore matches index of characterArray: 
-// [Alice, Mad Hatter, White Rabbit, Cheshire Cat, Blue Caterpillar, Queen of Hearts]*/
+// index of each answerScore matches index of characterArray*/
 
 const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
     // Question 1 (index [0])
@@ -196,15 +195,15 @@ const queenOfHeartsDescription = descriptions[5].text;
 // const used as these elements won't change and need to be declared in multiple functions
 const quizBox = document.getElementById("questions-box");
 const quizSection = document.getElementById("quiz"); 
-const questionData = document.getElementById("question"); // with id='question" 
-const answerData = document.getElementById("answer-buttons"); // Gets data from DOM in the 'answer-buttons' div
+const questionData = document.getElementById("question");  
+const answerData = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-button"); 
-const changeAnswerButton = document.getElementById("change-answer-button"); //declares button from 'change-answer-button in html
+const changeAnswerButton = document.getElementById("change-answer-button");
 const resultsSection = document.getElementById("results-box");
-const resultsButton = document.getElementById("results-button");
 const currentScore = document.getElementById("chosen-answer-score");
 const characterArray = ["Alice", "Mad Hatter", "White Rabbit", "Cheshire Cat", "Blue Caterpillar", "Queen of Hearts"];
 const finalCharacterScores = [];
+const restartButton = document.getElementById("restart-button");
 
 
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
@@ -348,7 +347,7 @@ function addScore() {
   console.log(queenOfHeartsScore);
 };
 
-/**code and functions to call when next button 'click' event listener triggered*/
+/**code to call when next button 'click' event listener triggered*/
 function handleNextButton() {
   addScore();
   if(currentQuestionIndex <= 8){//if current question index is 0-8(Q9)
@@ -370,10 +369,11 @@ function displayResults() {
   quizBox.style.display = "none";
   resultsSection.style.display = "block";
   getFinalScores();
-
 }
+
 /**gets data from the DOM to create an array of final scores for all characters */
 function getFinalScores() {
+
   //gets an array of all paragraphs with class "character-score"
   let characterScores = Array.from(document.getElementsByClassName("character-score"));
   let finalScoreArray = [];//sets up array to hold the final scores
@@ -484,9 +484,11 @@ function displayCharacters() {
   // identifies topScoreImage in html DOM and adds image src
   let topScoreImage = document.getElementById("top-score-image");
   topScoreImage.src = descriptions[topIndex].image;
+
   // identifies topScoreTag in html DOM and adds descriptionTag
   let topScoreTag = document.getElementById("top-score-tag");
   topScoreTag.innerText = descriptions[topIndex].descriptionTag;
+
   //identifies topScoreDescription in html and adds description
   let topScoreDescription = document.getElementById("top-score-description");
   topScoreDescription.innerText = descriptions[topIndex].text;
@@ -494,9 +496,11 @@ function displayCharacters() {
   // identifies secondScoreImage in html DOM and adds image src
   let secondScoreImage = document.getElementById("second-score-image");
   secondScoreImage.src = descriptions[secondIndex].image; 
+
   // identifies secondScoreTag in html DOM and adds descriptionTag
   let secondScoreTag = document.getElementById("second-score-tag");
   secondScoreTag.innerText = descriptions[secondIndex].descriptionTag;
+
   //identifies secondScoreDescription in html and adds description
   let secondScoreDescription = document.getElementById("second-score-description");
   secondScoreDescription.innerText = descriptions[secondIndex].text;

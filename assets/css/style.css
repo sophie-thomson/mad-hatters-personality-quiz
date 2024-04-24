@@ -259,11 +259,11 @@ main {
 
   #results-buttons {
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
    
   }
 
-  #start-again {
+  #restart-button {
     justify-content: flex-start;
     
   }
