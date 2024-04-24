@@ -215,7 +215,7 @@ const queenOfHeartsDescription = descriptions[5].text;
 
 
 
-// Declare the specific question elements from the DOM by Id
+// Declare global objects
 // const used as these elements won't change and need to be declared in multiple functions
 const quizBox = document.getElementById("questions-box");
 const quizSection = document.getElementById("quiz"); 
@@ -240,6 +240,7 @@ let whiteRabbitScore = 0;
 let cheshireCatScore = 0;
 let blueCaterpillarScore = 0;
 let queenOfHeartsScore = 0;
+
 
 /*Function to start the quiz takes the index of 0 and sets the content of the 'next button'*/
 function startQuiz() {
@@ -392,6 +393,7 @@ function displayResults() {
   quizBox.style.display = "none";
   resultsSection.style.display = "block";
   getFinalScores();
+
 }
 /**gets data from the DOM to create an array of final scores for all characters */
 function getFinalScores() {
@@ -412,6 +414,7 @@ function getFinalScores() {
   findTopScores(); //calls findTopScores function
 };
 
+
 /**Sorts finalCharacterScores array in descending order and compares index[0] with characterArray index*/
 function findTopScores() {
 
@@ -425,6 +428,11 @@ function findTopScores() {
   //finds the corresponding index of sortedCharacterScores[0] in the original finalCharacterScore array
   let topScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[0]);
   
+  //sends top score index to html so it can be used in later functions
+  let topIndex = document.getElementById("top-score-index");
+  topIndex.innerText = topScoreIndex;
+
+  console.log("topIndex", topIndex.innerText);
   console.log("These are the sorted final scores", sortedCharacterScores);
   console.log("Index of top score", topScoreIndex);
   console.log("This is the top score", finalCharacterScores[topScoreIndex]);
@@ -434,6 +442,11 @@ function findTopScores() {
   console.log("This is the top character", topScoreCharacter);
   //finds the corresponding index of sortedCharacterScores[1] in the original finalCharacterScore array
   let secondScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[1]);
+
+  let secondIndex = document.getElementById("second-score-index");
+  secondIndex.innerText = secondScoreIndex;
+  console.log("secondIndex", secondIndex.innerText);
+
 
   console.log("Index of second highest score", secondScoreIndex);
   console.log("This is the second score", finalCharacterScores[secondScoreIndex]);
@@ -465,27 +478,22 @@ function findTopScores() {
 
 function displayCharacters() {
 
-  let topScoreImage = document.getElementById("top-score-image");
-  console.log(topScoreImage.innerHTML);
-  topScoreImage.src = descriptions[0].image;
-
-
-
+  //gets index information from html DOM for top and second scores, parsing from string into integer
+  let topIndex = parseInt(document.getElementById("top-score-index").innerText);
+  let secondIndex = parseInt(document.getElementById("second-score-index").innerText);
   
+  
+  let topScoreImage = document.getElementById("top-score-image");
+  topScoreImage.src = descriptions[topIndex].image;
+
+  // let topScoreTag = ;
+  // let topScoreDescription = ;
+
+  let secondScoreImage = document.getElementById("second-score-image");
+  secondScoreImage.src = descriptions[secondIndex].image; 
   
 }
 
-// function displayTopResult() {
-
-// };
-
-// function displaySecondResult() {
-  
-// };
-
-
-  
-  // questionData.innerHTML = `Wow, you are one mixed up individual! Your main personality is ${topScoreName}, with a generous dose of ${secondScoreName} too.`;
 
 
 
