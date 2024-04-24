@@ -253,7 +253,7 @@ main {
 
 
   #results-box h2 {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
   #results {
@@ -265,7 +265,8 @@ main {
   }
 
   #results img {
-    max-width: 325px;
+    max-width: 300px;
+    border-radius: 15px;
   }
 
   #results-buttons {
