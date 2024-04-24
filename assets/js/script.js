@@ -18,36 +18,42 @@ const scheme = document.querySelector("h1");
 
 // WELCOME PAGE MODAL
 
-  //  Code adapted using W3schools tutorial to create a basic modal https://www.w3schools.com/howto/howto_css_modals.asp
+  //  Code adapted using W3schools tutorial to create a basic modal https://www.w3schools.com/howto/howto_css_modals.asp - CREDIT
 
-// let instructionsModal = document.getElementById("instructions-modal");
-// let instructionsButton = document.getElementById("instructions-button");
-// let span = document.getElementsByClassName("close")[0];
+const instructionsModal = document.getElementById("instructions-modal");
+const instructionsButton = document.getElementById("instructions-button");
+console.log(instructionsButton.innerText);
+
+instructionsButton.addEventListener("click", displayModal);
+let span = document.getElementsByClassName("close")[0];
 
 
 // // When the user clicks the button, display the modal 
-// instructionsButton.onclick = function displayModal() {
-//   instructionsModal.style.display = "block";
-// };
+
+function displayModal() {
+  instructionsModal.style.display = "block";
+};
 
 // // When the user clicks on <span> (x), close the modal
-// span.onclick = function(_close) {
-//   instructionsModal.style.display = "none";
-// };
+span.onclick = function(_close) {
+  instructionsModal.style.display = "none";
+};
 
 // // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == instructionsModal) {
-//     instructionsModal.style.display = "none";
-//   }
-// };
+window.onclick = function(event) {
+  if (event.target == instructionsModal) {
+    instructionsModal.style.display = "none";
+  }
+};
 
 // QUESTIONS AND ANSWERS -----------------
 
-/*index of answerScore matches index of Alice in Wonderland characters: 
-character_array [Alice, Mad Hatter, White Rabbit, Cheshire Cat, Blue Caterpillar, Queen of Hearts]*/
+// Basic format for question & answers structure adapted from tutorial 
+// How to Make Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8) CREDIT
 
-// Basic format for question & answers structure adapted from tutorial How to Make Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8)
+// index of each answerScore matches index of characterArray: 
+// [Alice, Mad Hatter, White Rabbit, Cheshire Cat, Blue Caterpillar, Queen of Hearts]*/
+
 const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
     // Question 1 (index [0])
     { 
@@ -486,12 +492,21 @@ function displayCharacters() {
   let topScoreImage = document.getElementById("top-score-image");
   topScoreImage.src = descriptions[topIndex].image;
 
-  // let topScoreTag = ;
-  // let topScoreDescription = ;
+  let topScoreTag = document.getElementById("top-score-tag");
+  topScoreTag.innerText = descriptions[topIndex].descriptionTag;
+
+  let topScoreDescription = document.getElementById("top-score-description");
+  topScoreDescription.innerText = descriptions[topIndex].text;
+
 
   let secondScoreImage = document.getElementById("second-score-image");
   secondScoreImage.src = descriptions[secondIndex].image; 
   
+  let secondScoreTag = document.getElementById("second-score-tag");
+  secondScoreTag.innerText = descriptions[secondIndex].descriptionTag;
+
+  let secondScoreDescription = document.getElementById("second-score-description");
+  secondScoreDescription.innerText = descriptions[secondIndex].text;
 }
 
 
