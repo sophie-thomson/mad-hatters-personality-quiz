@@ -1,20 +1,3 @@
-// COLOUR-CHANGING HEADING
-
-// Code from StackOverflow (https://stackoverflow.com/questions/69743873/continuous-rainbow-color-cycling-effect-in-js) 
-// Adapted to create colour changing effect on main heading element on all pages.
-const scheme = document.querySelector("h1");
-  const rainbow = ["#AB63E0","#C063E0","#D863E0","#E063D1","#E063B8","#E0639E","#E06389","#E0636E",
-    "#E06963","#E0636E","#E06389","#E0639E","#E063B8","#E063D1","#D863E0","#C063E0","#AB63E0",
-  ];
-  var currentColor = 0;
-  setInterval(() => {
-    scheme.style.color = `${rainbow[currentColor]}`;
-    scheme.style.borderColor = `${rainbow[currentColor]}`;
-    currentColor++; 
-    if (currentColor == rainbow.length-1) {
-    currentColor = 0;
-    }
-  }, 200);
 
 
 // QUESTIONS AND ANSWERS -----------------
@@ -147,7 +130,7 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
     }
   ];
 
- // Array of image, tag and description text for each character
+ // array of image, tag and description text dataset for each character
 const descriptions = [
     { //creative commons image from https://anime.goodfon.com/art-anime/wallpaper-download-1920x1200-alice-in-wonderland-alice-4136.html
       image: "assets/images/alice-image.webp",
@@ -205,10 +188,7 @@ const characterArray = ["Alice", "Mad Hatter", "White Rabbit", "Cheshire Cat", "
 const finalCharacterScores = [];
 const restartButton = document.getElementById("restart-button");
 
-
-// Create index structure for identifying the current question and enabling changes to the next question in sequence
-// always starts from q1 (index 0)
-
+//declare score area variables
 let currentQuestionIndex = 0;
 let aliceScore = 0;
 let madHatterScore = 0;
@@ -218,10 +198,11 @@ let blueCaterpillarScore = 0;
 let queenOfHeartsScore = 0;
 
 
-/*Function to start the quiz takes the index of 0 and sets the content of the 'next button'*/
+/**Function to start the quiz takes the index of 0*/
 function startQuiz() {
   currentQuestionIndex = 0;
-  // Scores for each character need to be set at 0 for the start of the quiz
+
+  // Scores for each character are set at 0 for the start of the quiz
   aliceScore = 0;
   madHatterScore = 0;
   whiteRabbitScore = 0;
@@ -229,11 +210,13 @@ function startQuiz() {
   blueCaterpillarScore = 0;
   queenOfHeartsScore = 0;
 
-  displayQuestion(); // calling function to display the question and answer data
+  // calling function to display the question and answer data
+  displayQuestion(); 
 };
 
 /*Displays the questionData and answerData for the current question*/
 function displayQuestion() {
+
   resetState();
   let currentQuestion = questions[currentQuestionIndex]; //declares the current question as the question at most recent index used
   let questionNumber = currentQuestionIndex + 1; //gets the question number for the current question and adds 1 because want 'Q1' to show not 'Q0' which is the index
