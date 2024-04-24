@@ -179,22 +179,27 @@ const descriptions = [
       text: "You love to travel and are open to new experiences. You are an excellent problem-solver, but sometimes easily distracted. You can get frustrated if things don't go your way.",
     },
     {
+      image: "",
       descriptionTag: "An Obsessive Creative",
       text: "Your approach might not be conventional and you can get fixated on things, but your creative flair & energy are your superpowers. You are great to be around, if a little bit bonkers!",
     },
     {
+      image: "",
       descriptionTag: "The Busy Bee",
       text: "Always on the go, you are super productive and always available to help a friend. You have a million things to do which can stress you out, but you love to unwind at the end of the day.",
     },
     {
+      image: "",
       descriptionTag: "A Font of Wisdom",
       text: "You love to learn and offer support and guidance, though this can change with your mood. People-watching is your favourite hobby, but sometimes you just need to get away from it all.",
     },
     {
+      image: "",
       descriptionTag: "The Cool Cat(erpillar)",
       text: "Your laid back confident attitude reflects your philosophical Zen-like approach to life, but it's all about balance - you love to let your hair down and party hard too!",
     },
     {
+      image: "",
       descriptionTag: "A Born Leader",
       text: "While your direct approach might sometimes be challenging to others, you know what you want and you get things done. Your motivation is infectious and everyone would like to have you on their team.",
     }
