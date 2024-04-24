@@ -1,13 +1,13 @@
 
 
-// QUESTIONS AND ANSWERS -----------------
+// ---------------QUESTIONS AND ANSWERS -----------------
 
 // Basic format for question & answers structure adapted from tutorial 
-// How to Make Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8) CREDIT
+// How to Make a Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8) ------------- CREDIT
 
-// index of each answerScore matches index of characterArray*/
-
-const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
+// Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
+// each index in each answerScore array matches index of corresponding character in characterArray
+const questions = [ 
     // Question 1 (index [0])
     { 
       question: "First things first - Would you like some tea?",
@@ -132,17 +132,17 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
 
  // array of image, tag and description text dataset for each character
 const descriptions = [
-    { //creative commons image from https://anime.goodfon.com/art-anime/wallpaper-download-1920x1200-alice-in-wonderland-alice-4136.html
+    { // creative commons image from https://anime.goodfon.com/art-anime/wallpaper-download-1920x1200-alice-in-wonderland-alice-4136.html
       image: "assets/images/alice-image.webp",
       descriptionTag: "Inquisitive & Curious",
       text: "You love to travel and are open to new experiences. You are an excellent problem-solver, but sometimes easily distracted. You can get frustrated if things don't go your way.",
     },
-    { //creative commons image from https://www.goodfon.com/films/wallpaper-download-1930x1080-alice-in-wonderland-mad-hatter-bezumnyi-shliapnik-alisa-v-st.html
+    { // creative commons image from https://www.goodfon.com/films/wallpaper-download-1930x1080-alice-in-wonderland-mad-hatter-bezumnyi-shliapnik-alisa-v-st.html
       image: "assets/images/mad-hatter-image.webp",
       descriptionTag: "An Obsessive Creative",
       text: "Your approach might not be conventional and you can get fixated on things, but your creative flair & energy are your superpowers. You are great to be around, if a little bit bonkers!",
     },
-    { //creative commons image from https://www.goodfon.com/films/wallpaper-download-1930x1080-alice-in-wonderland-mad-hatter-bezumnyi-shliapnik-alisa-v-st.html
+    { // creative commons image from https://www.goodfon.com/films/wallpaper-download-1930x1080-alice-in-wonderland-mad-hatter-bezumnyi-shliapnik-alisa-v-st.html
       image: "assets/images/white-rabbit-image.webp",
       descriptionTag: "The Busy Bee",
       text: "Always on the go, you are super productive and always available to help a friend. You have a million things to do which can stress you out, but you love to unwind at the end of the day.",
@@ -157,38 +157,25 @@ const descriptions = [
       descriptionTag: "The Cool Cat(erpillar)",
       text: "Your laid back confident attitude reflects your philosophical Zen-like approach to life, but it's all about balance - you love to let your hair down and party hard too!",
     },
-    { //creative commons image from https://www.goodfon.com/films/wallpaper-download-1920x1200-alice-through-the-looking-1639.html
+    { // creative commons image from https://www.goodfon.com/films/wallpaper-download-1920x1200-alice-through-the-looking-1639.html
       image: "assets/images/queen-of-hearts-image.webp",
       descriptionTag: "A Born Leader",
       text: "While your direct approach might sometimes be challenging to others, you know what you want and you get things done. Your motivation is infectious and everyone would like to have you on their team.",
     }
 ];
 
-//declaring the character description index for each character
-const aliceDescription = descriptions[0].text;
-const madHatterDescription = descriptions[1].text; 
-const whiteRabbitDescription = descriptions[2].text;
-const cheshireCatDescription = descriptions[3].text;
-const blueCaterpillarDescription = descriptions[4].text;
-const queenOfHeartsDescription = descriptions[5].text;
-
-
-
-// Declare global objects
+// declare global objects
 // const used as these elements won't change and need to be declared in multiple functions
 const quizBox = document.getElementById("questions-box");
-const quizSection = document.getElementById("quiz"); 
 const questionData = document.getElementById("question");  
 const answerData = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-button"); 
 const changeAnswerButton = document.getElementById("change-answer-button");
 const resultsSection = document.getElementById("results-box");
-const currentScore = document.getElementById("chosen-answer-score");
 const characterArray = ["Alice", "Mad Hatter", "White Rabbit", "Cheshire Cat", "Blue Caterpillar", "Queen of Hearts"];
 const finalCharacterScores = [];
-const restartButton = document.getElementById("restart-button");
 
-//declare score area variables
+// declare score area variables
 let currentQuestionIndex = 0;
 let aliceScore = 0;
 let madHatterScore = 0;
@@ -198,11 +185,14 @@ let blueCaterpillarScore = 0;
 let queenOfHeartsScore = 0;
 
 
-/**Function to start the quiz takes the index of 0*/
+//-------------QUIZ FUNCTIONS--------------
+
+/** Starts the quiz takes the index of 0 */
 function startQuiz() {
+
   currentQuestionIndex = 0;
 
-  // Scores for each character are set at 0 for the start of the quiz
+  // scores for each character are set at 0 for the start of the quiz
   aliceScore = 0;
   madHatterScore = 0;
   whiteRabbitScore = 0;
@@ -212,255 +202,360 @@ function startQuiz() {
 
   // calling function to display the question and answer data
   displayQuestion(); 
-};
+}
 
-/*Displays the questionData and answerData for the current question*/
+  // code for building question and creating answer buttons adapted from tutorial 
+  // How to Make a Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8) ---------------- CREDIT
+
+/** Displays the questionData and answerData for the current question */
 function displayQuestion() {
 
   resetState();
-  let currentQuestion = questions[currentQuestionIndex]; //declares the current question as the question at most recent index used
-  let questionNumber = currentQuestionIndex + 1; //gets the question number for the current question and adds 1 because want 'Q1' to show not 'Q0' which is the index
-  // Tells html to display question number in front of question text then a "." and then the question text 
+
+  // declares the current question as the question at most recent index used
+  let currentQuestion = questions[currentQuestionIndex];
+  
+  // gets the question number for the current question and adds 1 because want 'Q1' to show not 'Q0' which is the index
+  let questionNumber = currentQuestionIndex + 1;
+
+  // tells html to display question number in front of question text then a "." and then the question text 
   questionData.innerText = questionNumber + ". " + currentQuestion.question;
 
-  /*Gets 'answers' for the currentQuestion from the answerData*/ 
-  currentQuestion.answers.forEach(answer => { //forEach runs the script for each answer in the answersData for that question
-    const button = document.createElement("button"); //creates an answerButton for each answer in the answerData
-    button.innerText = answer.text; //displays the 'text' from the answers for that question
-    button.classList.add("button"); //adds the class "button" to the button for CSS
-    answerData.appendChild(button); // Adds another button for each answer in sequence
-    button.addEventListener("click", selectAnswer);//Adds an event listener to each button which calls the selectAnswer function
-  })
+
+  // gets 'answers' for the currentQuestion from the answerData*/ 
+  // forEach runs the script for each answer in the answersData for that question
+  currentQuestion.answers.forEach(answer => {
+
+    // creates an answerButton for each answer in the answerData
+    const button = document.createElement("button");
+
+    // displays the 'text' from the answers for that question
+    button.innerText = answer.text;
+    
+    // adds the class "button" to the button for CSS
+    button.classList.add("button");
+
+    // adds another button for each answer in sequence
+    answerData.appendChild(button);
+
+    // adds an event listener to each button which calls the selectAnswer function
+    button.addEventListener("click", selectAnswer);
+  });
 
 }
 
-/*Resets the page with initial displayQuestion data*/
+/** Resets the quiz content for current question data */
 function resetState() {
-  nextButton.style.display = "none"; // Next button not visible before question answered
-  changeAnswerButton.style.display = "none"; //set button to not visible until an answer has been selected
-  while(answerData.firstChild) { // Checks if there are firstChild nodes present in the answerData 
-    answerData.removeChild(answerData.firstChild); //Removes previous answer button firstChild nodes
+
+  // next button not visible before question answered
+  nextButton.style.display = "none";
+
+  // set button to not visible until an answer has been selected
+  changeAnswerButton.style.display = "none"; 
+
+    // code for while loop removing previous answer buttons adapted from tutorial 
+    // How to Make a Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8)  -----------------CREDIT
+
+  // checks if there are firstChild nodes present in the answerData
+  while(answerData.firstChild) {  
+
+    // removes previous answer button firstChild nodes
+    answerData.removeChild(answerData.firstChild); 
   }
-  //gets the currentScore from the DOM and resets it to 0
+
+  // gets the currentScore from the DOM and resets it to 0
   let currentScore = document.getElementById("chosen-answer-score"); //gets the currentScore from the DOM
     currentScore.innerHTML = [0, 0, 0, 0, 0, 0];
 }
 
+  // code to target chosen answer adapted from tutorial 
+  // How to Make a Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8) -----------------CREDIT 
 
-/*identifies answerScore array for the selected answer and disables other answers.*/
+/** Identifies answerScore array for the selected answer and disables other answers. */
 function selectAnswer(e) {
-  const chosenAnswer = e.target; //Specifically targetting the answer button (e) that has been chosen to pass the subsequent code
-  chosenAnswer.classList.add("chosen-answer"); //Adds class of 'chosen-answer' to the selected answer button
-  console.log(chosenAnswer.innerText); //testing that this is the expected data
+
+  // targets the answer button (e) that has been chosen to pass the subsequent code
+  const chosenAnswer = e.target;
+
+  // adds class of 'chosen-answer' to the selected answer button
+  chosenAnswer.classList.add("chosen-answer");
  
   // iterates through all answers in the questions dataset to find the matching answer and answerScore
-  questions[currentQuestionIndex].answers.forEach(answer => { //checks each answer for the current question
+  // checks each answer for the current question 
+  questions[currentQuestionIndex].answers.forEach(answer => { 
+
+    // checks if chosenAnswer text is same as answer text
     if (chosenAnswer.innerText === answer.text) {
-      console.log(answer.answerScore); //used to check expected score from answerData
-    let chosenAnswerScore = answer.answerScore; //declares the answerScore for the matching answer as the chosenAnswerScore
+
+    // declares the answerScore for the matching answer and writes into the html DOM
+    let chosenAnswerScore = answer.answerScore;
+
     let currentScore = document.getElementById("chosen-answer-score");
     currentScore.innerHTML = chosenAnswerScore;
     }
   });
-  // disables all answer buttons so can't select any others 
-  Array.from(answerData.children).forEach(button => { //gets all the answerData Child nodes
-      button.disabled = true; //sets them to disabled
+
+  // disables all answer buttons so can't select any others
+  // gets all the answerData Child nodes
+  Array.from(answerData.children).forEach(button => { 
+      // sets the children to disabled
+      button.disabled = true; 
   });
+
   // makes hover function invisible to user
   Array.from(answerData.children).forEach(button => {
-      button.classList.add("nohvr"); //nohvr class added to each button so that hover effect is invisible to user
-      chosenAnswer.classList.remove("nohvr"); // removed from chosen answer to maintain original CSS
+
+      // nohvr class added to each button so that hover effect is invisible to user
+      button.classList.add("nohvr");
+
+      // removed from chosen answer to maintain original CSS
+      chosenAnswer.classList.remove("nohvr"); 
   });
-  // makes change answer button visible and changes styling
+
+  // adds eventListener and styling
+  // button displays only once an answer is selected 
   changeAnswerButton.style.display = "block";
   changeAnswerButton.classList.add("button");
   changeAnswerButton.addEventListener("click", changeAnswer);
 
-  nextButton.style.display = "block"; //displays next button when an answer is selected
+  // adds eventListener and styling
+  // button displays only once an answer is selected 
+  nextButton.style.display = "block"; 
   nextButton.classList.add("button"); 
   nextButton.addEventListener("click", handleNextButton);
   
-};
+}
 
 
-/* Enables the user to change their mind and select a different answer.*/
+/** Enables the user to change their mind and select a different answer. */
 function changeAnswer() {
+
+  //iterates through each child of answerData and removes 'disable'
   Array.from(answerData.children).forEach(button => {
     button.disabled = false;
-  })
-  
-  displayQuestion(); // runs the displayQuestion function with refreshed questionData and answerData 
-};
+  });
+
+  // runs the displayQuestion function with refreshed questionData and answerData 
+  displayQuestion();
+}
 
 
 
-/**Gets currentScore data and adds the current answer score to each character score*/
+/** Gets currentScore data and adds the current answerScore to each character score*/
 function addScore() {
 
+  // creates an array from innerText of current score in scoreboard and maps to numbers or NaN items
   let currentScore = Array.from(document.getElementById("chosen-answer-score").innerHTML).map(Number);
-  console.log(currentScore);
+  
+    // code to filter currentScore array to remove all NaN adapted from StackOverflow discussion
+    //https://stackoverflow.com/questions/31925323/how-to-filter-out-nan-null-0-false-in-an-array-js-----------------CREDIT
 
   let chosenAnswerScore = currentScore.filter(function (value) {
   return !Number.isNaN(value);
   });
-  console.log(chosenAnswerScore)
 
+    //code for sending and receiving a score to the DOM adapted from Love Maths CI Walkthrough project ----------------CREDIT
+    
+  // gets old score data from html DOM and coverts string to number
   let aliceScore = parseInt(document.getElementById("alice-score").innerText);
+
+  // adds the value of index 0 to old alice-score value
   document.getElementById("alice-score").innerText = (aliceScore) + (chosenAnswerScore[0]);
-  console.log(aliceScore);
-      
+  
+  // gets old score data from html DOM and coverts string to number
   let madHatterScore = parseInt(document.getElementById("mad-hatter-score").innerText);
+
+  // adds the value of index 0 to old mad-hatter-score value
   document.getElementById("mad-hatter-score").innerText = madHatterScore + chosenAnswerScore[1];
-  console.log(madHatterScore);
-      
+  
+  // gets old score data from html DOM and coverts string to number
   let whiteRabbitScore = parseInt(document.getElementById("white-rabbit-score").innerText);
+
+  // adds the value of index 0 to old white-rabbit-score value
   document.getElementById("white-rabbit-score").innerText = whiteRabbitScore + chosenAnswerScore[2];
-  console.log(whiteRabbitScore);
-      
+ 
+  // gets old score data from html DOM and coverts string to number    
   let cheshireCatScore = parseInt(document.getElementById("cheshire-cat-score").innerText);
+
+  // adds the value of index 0 to old cheshire-cat-scoree value
   document.getElementById("cheshire-cat-score").innerText = cheshireCatScore + chosenAnswerScore[3];
-  console.log(cheshireCatScore);
-      
+  
+  // gets old score data from html DOM and coverts string to number    
   let blueCaterpillarScore = parseInt(document.getElementById("blue-caterpillar-score").innerText);
+
+  // adds the value of index 0 to old blue-caterpillar-score value
   document.getElementById("blue-caterpillar-score").innerText = blueCaterpillarScore + chosenAnswerScore[4];
-  console.log(blueCaterpillarScore);
-      
+  
+  // gets old score data from html DOM and coverts string to number    
   let queenOfHeartsScore = parseInt(document.getElementById("queen-of-hearts-score").innerText);
+
+  // adds the value of index 0 to old queen-of-hearts-score value
   document.getElementById("queen-of-hearts-score").innerText = queenOfHeartsScore + chosenAnswerScore[5];
-  console.log(queenOfHeartsScore);
-};
+  
+}
 
-/**code to call when next button 'click' event listener triggered*/
+/** Runs series of functions and checks when next button 'click' event listener triggered*/
 function handleNextButton() {
+  // calls addScore function 
   addScore();
-  if(currentQuestionIndex <= 8){//if current question index is 0-8(Q9)
-    currentQuestionIndex++;//adds 1 to the current index
-    displayQuestion();//calls the displayQuestion function
-  } else if (currentQuestionIndex == 9) {//if current question is Q10
-    displayResults();//calls displayResults function
-    console.log("have added q10 scores");// to test that last scores have been added
+  // checks if current question index is 0-8(Q9) before running subsequent code
+  if(currentQuestionIndex <= 8){
+    
+    // adds 1 to the current question index
+    currentQuestionIndex++;
+
+    // calls the displayQuestion function for the new question index
+    displayQuestion();
+
+    // checks if current question is Q10
+  } else if (currentQuestionIndex == 9) {
+
+    // calls displayResults function for question Q10
+    displayResults();
   }
-};
-
-startQuiz(); //calls the startQuiz function to run the initialisation data and display the relevant questionData
+}
 
 
-// RESULTS FUNCTIONS // ---------------------------
+// calls the startQuiz function to run the initialisation data and display the relevant questionData
+startQuiz(); 
 
-/**calls functions to replace quiz content html with results content */
+
+// ---------------RESULTS FUNCTIONS---------------------
+
+/** Replaces quiz content with results content*/
 function displayResults() {
+
+  // hides quizBox
   quizBox.style.display = "none";
+
+  // displays resultsSection
   resultsSection.style.display = "block";
+
+  // calls getFinalScores function
   getFinalScores();
 }
 
-/**gets data from the DOM to create an array of final scores for all characters */
+/** Gets data from the DOM to create an array of final scores for all characters */
 function getFinalScores() {
 
-  //gets an array of all paragraphs with class "character-score"
+  // gets an array of all elements (paragraphs) with class "character-score"
   let characterScores = Array.from(document.getElementsByClassName("character-score"));
-  let finalScoreArray = [];//sets up array to hold the final scores
 
-  for (let i=0; i < characterScores.length; i++) {//loops through each paragraph one by one
-    finalScoreArray.push(characterScores[i].innerText);//adds the innerText of each to the array
+  // sets up array to hold the final scores
+  let finalScoreArray = [];
+
+  // loops through each paragraph one by one
+  for (let i=0; i < characterScores.length; i++) {
+
+    // adds the innerText of each paragraph to the array
+    // code syntax to push an item into an array adapted from W3 Schools Tutorial: https://www.w3schools.com/jsref/jsref_push.asp ---------CREDIT
+    finalScoreArray.push(characterScores[i].innerText);
   }
-  
-  for (let i=0; i < finalScoreArray.length; i++) {//loops through each item in the array
-    let arrayItem = parseInt(finalScoreArray[i]);//changes each item from a string to an integer 
-    finalCharacterScores.push(arrayItem);//adds each integer to the finalCharacterScores array
+   // loops through each item in the array 
+  for (let i=0; i < finalScoreArray.length; i++) {
+
+    // changes each item from a string to an integer
+    let arrayItem = parseInt(finalScoreArray[i]);
+
+    // adds each integer to the finalCharacterScores array
+    finalCharacterScores.push(arrayItem);
   }
-  console.log("These are the final scores", finalCharacterScores); //to check output is as expected
 
-  findTopScores(); //calls findTopScores function
-};
+  //calls findTopScores function
+  findTopScores(); 
+}
 
-
-/**Sorts finalCharacterScores array in descending order and compares index[0] with characterArray index*/
+/** Sorts finalCharacterScores array in descending order and compares index[0] with characterArray index*/
 function findTopScores() {
 
-  //creates a separate temporary array to ensure original finalCharacterScores maintains correct order 
+  // creates a separate temporary array to ensure original finalCharacterScores maintains correct order 
   let finalScoreArray = finalCharacterScores.map(Number);
 
-  //sorting code adapted from W3Schools Tutorial(https://www.w3schools.com/js/js_array_sort.asp) - CREDIT
-  //sorts finalCharacterScores in decending order - index [0] is highest score
-  let sortedCharacterScores = finalScoreArray.sort(function(a, b){return b - a});
+  // sorting code adapted from W3Schools Tutorial(https://www.w3schools.com/js/js_array_sort.asp) -----------CREDIT
+  // sorts finalCharacterScores in decending order - index [0] is highest score
+  let sortedCharacterScores = finalScoreArray.sort(function(a, b){return b - a;});
 
-  //finds the corresponding index of sortedCharacterScores[0] in the original finalCharacterScore array
+  // finds the corresponding index of sortedCharacterScores[0] in the original finalCharacterScore array
   let topScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[0]);
   
-  //sends top score index to html so it can be used in later functions
+  // gets topIndex element in html
   let topIndex = document.getElementById("top-score-index");
-  topIndex.innerText = topScoreIndex;
 
-  console.log("topIndex", topIndex.innerText);
-  console.log("These are the sorted final scores", sortedCharacterScores);
-  console.log("Index of top score", topScoreIndex);
-  console.log("This is the top score", finalCharacterScores[topScoreIndex]);
+  // writes the topScoreIndex into html DOM topIndex
+  topIndex.innerText = topScoreIndex;
 
   // finds the topScoreCharacter by matching characterArray index to topScoreIndex 
   let topScoreCharacter = characterArray[topScoreIndex];
-  console.log("This is the top character", topScoreCharacter);
-  //finds the corresponding index of sortedCharacterScores[1] in the original finalCharacterScore array
+  
+  // finds the corresponding index of sortedCharacterScores[1] in the original finalCharacterScore array
   let secondScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[1]);
 
-  //checks in case first and second scores are the same value, and hence finding the same indexOf result
+  // checks in case first and second scores are the same value, and hence finding the same indexOf result
   if (topScoreIndex === secondScoreIndex) {
-    //searches for the last index with a matching score in the finalCharacterScores array
+
+      // method 'lastIndexOf' to find matching index searching from end of an array found on Stackoverflow: 
+      // https://stackoverflow.com/questions/52558924/how-can-i-find-an-array-element-starting-from-the-end-of-the-array ------------CREDIT 
+    // searches for the last index with a matching score in the finalCharacterScores array
     let tiedTopIndex = finalCharacterScores.lastIndexOf(sortedCharacterScores[1]);
 
-    //identifies the html element with id second-score-index
+    // identifies the html element with id second-score-index
     let secondIndex = document.getElementById("second-score-index");
 
-    //writes tiedTopScore into secondIndex element instead of duplicate 
+    // writes tiedTopScore into secondIndex element instead of duplicate 
     secondIndex.innerText = tiedTopIndex;
 
     // finds the tiedTopScoreCharacter by matching characterArray index to tiedTopIndex 
     let tiedTopCharacter = characterArray[tiedTopIndex];
-    console.log("This is the tied top character", tiedTopCharacter);
 
     // gets the results-summary text from html DOM 
     let resultSummary = document.getElementById("results-summary");
+
+    // writes summary sentence into html DOM results-summary adding template literals for each character
     resultSummary.innerText = (`Wow, you appear to have a split personality! You are 50% ${topScoreCharacter} and 50% ${tiedTopCharacter}.`);
 
   } else {
+
     //identifies the html element with id second-score-index
     let secondIndex = document.getElementById("second-score-index");
+
+    // writes secondScoreIndex into secondIndex element
     secondIndex.innerText = secondScoreIndex;
-    console.log("secondIndex", secondIndex.innerText);
-
-
-    console.log("Index of second highest score", secondScoreIndex);
-    console.log("This is the second score", finalCharacterScores[secondScoreIndex]);
 
     // finds the secondScoreCharacter by matching characterArray index to secondScoreIndex 
     let secondScoreCharacter = characterArray[secondScoreIndex];
-    console.log("This is the second character", secondScoreCharacter);
   
     // gets the results-summary text from html DOM 
     let resultSummary = document.getElementById("results-summary");
 
     //finds difference between two highest scores to define which summary sentance to use
     let scoreDifference = (finalCharacterScores[topScoreIndex]) - (finalCharacterScores[secondScoreIndex]);
-    console.log(scoreDifference);
 
     // re-writes the innerText of the results-summary according to the scoreDifference
     if (scoreDifference === 0) {
-      resultSummary.innerText = (`Wow, you appear to have a bit of a split personality! You are 50% ${topScoreCharacter} and 50% ${secondScoreCharacter}.`); 
+      // if difference is 0, writes this sentence into html adding template literals for each character
+      resultSummary.innerText = (`Wow, you appear to have a bit of a split personality! You are 50% ${topScoreCharacter} and 50% ${secondScoreCharacter}.`);
+
     } else if (scoreDifference <= 2) {
+      // if difference is not 0, but less than or equal to 2, writes this sentence into html adding template literals for each character
       resultSummary.innerText = (`Just a couple of points in it! You are more like ${topScoreCharacter}, but you are a lot like ${secondScoreCharacter} too.`);
+
     } else if (scoreDifference > 2 && scoreDifference < 6) {
-      resultSummary.innerText = (`You are most like ${topScoreCharacter}, but you have a generous dose of ${secondScoreCharacter} to provide balance.`)
+      // if difference is more than 2 and less than 6, writes this sentence into html adding template literals for each character
+      resultSummary.innerText = (`You are most like ${topScoreCharacter}, but you have a generous dose of ${secondScoreCharacter} to provide balance.`);
+
     } else {
+      // if difference is 6 or more, writes this sentence into html adding template literals for each character
       resultSummary.innerText = (`You are ${topScoreCharacter} through and through, with a bit of ${secondScoreCharacter} for good measure`);
     }
-  };
-
+  }
+  // calls displayCharacters function
   displayCharacters();
 }
 
+/** Drills down to correct data in character data sets to disply in results page */
 function displayCharacters() {
 
-  //gets index information from html DOM for top and second scores, parsing from string into integer
+  // gets index information from html DOM for top and second scores, parsing from string into integer
   let topIndex = parseInt(document.getElementById("top-score-index").innerText);
   let secondIndex = parseInt(document.getElementById("second-score-index").innerText);
   
@@ -488,11 +583,3 @@ function displayCharacters() {
   let secondScoreDescription = document.getElementById("second-score-description");
   secondScoreDescription.innerText = descriptions[secondIndex].text;
 }
-
-
-
-
-
-
-
-
