@@ -174,7 +174,7 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
  // Array of image, tag and description text for each character
 const descriptions = [
     {
-      image: {src: ""},
+      image: {src: "assets/images/alice-character-image.webp"},
       descriptionTag: "Inquisitive & Curious",
       text: "You love to travel and are open to new experiences. You are an excellent problem-solver, but sometimes easily distracted. You can get frustrated if things don't go your way.",
     },
@@ -426,8 +426,8 @@ function findTopScores() {
   let topScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[0]);
   
   console.log("These are the sorted final scores", sortedCharacterScores);
-  console.log(topScoreIndex);
-  console.log(finalCharacterScores[topScoreIndex]);
+  console.log("Index of top score", topScoreIndex);
+  console.log("This is the top score", finalCharacterScores[topScoreIndex]);
 
   // finds the topScoreCharacter by matching characterArray index to topScoreIndex 
   let topScoreCharacter = characterArray[topScoreIndex];
@@ -435,15 +435,29 @@ function findTopScores() {
   //finds the corresponding index of sortedCharacterScores[1] in the original finalCharacterScore array
   let secondScoreIndex = finalCharacterScores.indexOf(sortedCharacterScores[1]);
 
-  console.log(secondScoreIndex);
-  console.log(finalCharacterScores[secondScoreIndex]);
+  console.log("Index of second highest score", secondScoreIndex);
+  console.log("This is the second score", finalCharacterScores[secondScoreIndex]);
 
   // finds the secondScoreCharacter by matching characterArray index to secondScoreIndex 
   let secondScoreCharacter = characterArray[secondScoreIndex];
   console.log("This is the second character", secondScoreCharacter);  
-
+  // gets the results-summary text from html DOM 
   let resultSummary = document.getElementById("results-summary");
-  resultSummary.style.innerText = (`You are most like ${topScoreCharacter} but with a healthy dose of ${secondScoreCharacter} too.`);
+  //finds difference between two highest scores to define which summary sentance to use
+  let scoreDifference = (finalCharacterScores[topScoreIndex]) - (finalCharacterScores[secondScoreIndex]);
+  console.log(scoreDifference);
+  console.log(resultSummary.innerText);
+  // re-writes the innerText of the results-summary according to the scoreDifference
+  if (scoreDifference === 0) {
+    resultSummary.innerText = (`Wow, you appear to have a bit of a split personality! You are 50% ${topScoreCharacter} and 50% ${secondScoreCharacter}.`); 
+  } else if (scoreDifference <= 2) {
+    resultSummary.innerText = (`Just a couple of points in it! You are more like ${topScoreCharacter}, but you have a fair amount of ${secondScoreCharacter} too.`);
+  } else if (scoreDifference > 2 && scoreDifference < 6) {
+    resultSummary.innerText = (`You are most like ${topScoreCharacter}, but you have a generous dose of ${secondScoreCharacter} to provide balance.`)
+  } else {
+    resultSummary.innerText = (`You are pretty much ${topScoreCharacter} through and through, with a bit of ${secondScoreCharacter} for good measure`);
+  }
+  resultSummary.innerText = (`You are most like ${topScoreCharacter} but with a healthy dose of ${secondScoreCharacter} too.`);
 }
 
 function displaySummary() {
