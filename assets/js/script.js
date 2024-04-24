@@ -171,6 +171,45 @@ const questions = [ // Array of of 10 questions with index of 0 (Q1) to 9 (Q10)
     }
   ];
 
+ // Array of image, tag and description text for each character
+const descriptions = [
+    {
+      image: {src: ""},
+      descriptionTag: "Inquisitive & Curious",
+      text: "You love to travel and are open to new experiences. You are an excellent problem-solver, but sometimes easily distracted. You can get frustrated if things don't go your way.",
+    },
+    {
+      descriptionTag: "An Obsessive Creative",
+      text: "Your approach might not be conventional and you can get fixated on things, but your creative flair & energy are your superpowers. You are great to be around, if a little bit bonkers!",
+    },
+    {
+      descriptionTag: "The Busy Bee",
+      text: "Always on the go, you are super productive and always available to help a friend. You have a million things to do which can stress you out, but you love to unwind at the end of the day.",
+    },
+    {
+      descriptionTag: "A Font of Wisdom",
+      text: "You love to learn and offer support and guidance, though this can change with your mood. People-watching is your favourite hobby, but sometimes you just need to get away from it all.",
+    },
+    {
+      descriptionTag: "The Cool Cat(erpillar)",
+      text: "Your laid back confident attitude reflects your philosophical Zen-like approach to life, but it's all about balance - you love to let your hair down and party hard too!",
+    },
+    {
+      descriptionTag: "A Born Leader",
+      text: "While your direct approach might sometimes be challenging to others, you know what you want and you get things done. Your motivation is infectious and everyone would like to have you on their team.",
+    }
+];
+
+//declaring the character description index for each character
+const aliceDescription = descriptions[0].text;
+const madHatterDescription = descriptions[1].text; 
+const whiteRabbitDescription = descriptions[2].text;
+const cheshireCatDescription = descriptions[3].text;
+const blueCaterpillarDescription = descriptions[4].text;
+const queenOfHeartsDescription = descriptions[5].text;
+
+
+
 // Declare the specific question elements from the DOM by Id
 // const used as these elements won't change and need to be declared in multiple functions
 const quizBox = document.getElementById("questions-box");
@@ -183,7 +222,8 @@ const resultsSection = document.getElementById("results-box");
 const resultsButton = document.getElementById("results-button");
 const currentScore = document.getElementById("chosen-answer-score");
 const characterArray = ["Alice", "Mad Hatter", "White Rabbit", "Cheshire Cat", "Blue Caterpillar", "Queen of Hearts"];
-const finalCharacterScores = []; 
+const finalCharacterScores = [];
+
 
 // Create index structure for identifying the current question and enabling changes to the next question in sequence
 // always starts from q1 (index 0)
