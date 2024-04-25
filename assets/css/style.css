@@ -243,7 +243,6 @@ main {
     margin: 15px auto;
     box-shadow: 0 2px 2px #787878;
     border-radius: 15px;
-
   }
 
   #results-box h2 {
@@ -294,11 +293,9 @@ main {
     margin-bottom: 10px;
   }
 
-
   #results-buttons {
     display:flex;
     flex-direction: column;
-   
   }
 
   #restart-button {
@@ -339,7 +336,6 @@ footer li {
   #results {
     display:flex;
     flex-direction: row;
-    width: 700;
     margin: auto;  
   }
 
@@ -347,7 +343,7 @@ footer li {
     background-color: #fcfcfc;
     color:#494949;
     width: 300px;
-    margin: 15px auto;
+    /* margin: auto; */
     box-shadow: 0 2px 2px #787878;
     border-radius: 15px;
   }
