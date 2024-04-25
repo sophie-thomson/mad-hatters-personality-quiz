@@ -122,8 +122,8 @@ The live site can be found here: https://sophie-thomson.github.io/mad-hatters-pe
 
 - Simple heading to state 'The Results are In...' indicating to user that these are the quiz results.
 
-![Screenshot of results section on Galaxy Fold](docs/readme-images/questions-page-mobile.png)
-![Screenshot of results section on tablet and up](docs/readme-images/questions-page-tablet-laptop.png)
+![Screenshot of results section on Galaxy Fold](docs/readme-images/results-section-mobile.png)
+![Screenshot of results section on tablet and up](docs/readme-images/results-section-desktop.png)
 
 ***Results Summary***
 
@@ -159,20 +159,20 @@ EDIT: The iframe embedding code from Facebook caused multiple errors and warning
 
 ***Results Section Wireframes***
 
-![Wireframe of results section on mobile](docs/readme-images/questions-page-wireframe-mobile.png)
-![Wireframe of results section on tablet and up](docs/readme-images/questions-page-wireframe-desktop.png)
+![Wireframe of results section on mobile](docs/readme-images/results-page-wireframe-mobile.png)
+![Wireframe of results section on tablet and up](docs/readme-images/results-page-wireframe-desktop.png)
 
 ### 404 Error Page (404.html)
 
 - Branded 404 error page with button so the user can easily navigate back to the welcome page.
 - Same site-wide styling as other pages to improve user experience and consistency.
 
-![Screenshot of 404 error page]()
+![Screenshot of 404 error page](docs/readme-images/404-page-screenshot.png)
 
 ### Existing Features
 
-- Responsive hompepage with effective styling to look good on different sized devices.
-- Responsive header and footer with hidden elements to improve appearance on smaller devices.
+- Responsive pages with effective styling to look good on different sized devices.
+- Consistent heading using rainbow colour-changing JS visible on every page.
 
 ### Additional Features to Implement
 To expand on this site, there are a number of features that could be added to provide additional information and functionality:
@@ -218,67 +218,118 @@ To expand on this site, there are a number of features that could be added to pr
 
 ### Responsive Layout
 
-![Mobile wireframe design of homepage]()
-![Mobile wireframe design of homepage]()
-![Mobile wireframe design of homepage]()
-
 ## Testing
+
+### Responsiveness
+
+***Method of Testing***
+
+- Each page view has been tested to ensure that all content looks good on devices of different sizes.
+- Screenshots of each page / view are included in the above sections.
+- The devices / sizes are tested using Google Developer Tools
+
+- The different pages / displays tested are:
+    - Welcome Page (index.html)
+    - How to Play Modal (index.html)
+    - Questions Page (questions.html)
+    - Results Section Visible (questions.html)
+
+- The devices / sizes tested for each page/display are:
+    - iPhone SE
+    - iPhone XR
+    - iPhone 12 Pro
+    - Pixel 7
+    - Samsung Galaxy S8
+    - iPad Mini
+    - Galaxy Z Fold 5
+    - Tablet (768px)
+    - Laptop (1024px)
+
+***Results***
+
+- All pages worked well across all devices and sizes.
+- No images were distorted and all layouts were responsive to look good on each device.
 
 ### Links
 
 ***Method of Testing***
 
+- The links of all buttons and external links were tested on all pages.
+- External links were tested to ensure they open in a new tab and contain approapriate tags.
+
+- The different pages / displays tested are:
+    - Welcome Page - 'How to Play' button to open modal with How to Play Instructions
+    - Welcome Page - Links to GitHub and LinkedIn profiles in footer
+    - Questions Page - Links to GitHub and LinkedIn profiles in footer
+    - Results Section - Restart Button to link back to welcome page to restart quiz
+    - Results Section - Share Button external link to Facebook to enable user to share the quiz 
+    - Results Section - Links to GitHub and LinkedIn profiles in footer
+    - 404 Page - Back to Home button to take user back to home page
+
 ***Results***
 
-### Responsiveness
-Each page has been tested for responsive design on devices ranging from a minimum of 280px wide (Galaxy Fold), larger mobiles of 320, 350px and 425px and for tablets of 768px, laptops at 1024px and larger desktop screens.
+- All links work as expected and take the user to the expected url / location
+
+### Script Functionality
 
 ***Method of Testing***
+- Each page has been tested for functionality of the JS running in the background
 
-Once deployed in Github, each page has been viewed at each of the above marked out sizes within Google Developer Tools, and by clicking and dragging the screen size to the smallest and largest sizes.
+- Functionality tested for each page / view:
+    - Welcome Page
+        - Heading showing rainbow colour-changing effect - RESULT: As expected with no console errors
+        - Modal working - RESULT: Modal runs with CSS as expected and no console errors
+        - CSS showing all expected styling on buttons and quiz box display - RESULT: Styling as expected
+    
+    - Questions Page
+        - Heading showing rainbow colour-changing effect - RESULT: As expected with no console errors
+        - Questions displaying with correct question and answer data - RESULT: Displaying as expected with no console errors
+        - Questions changing colour with hover styling - RESULT: Colours changing as expected with no console errors
+        - Selected question changing colour with CSS - RESULT: Colour changes as expected with no console errors
+        - Other anser buttons disabled when one answer selected - RESULT: All other buttons disabled with no console errors
+        - Next Button displaying when answer selected - RESULT: Next button displays as expected with no console errors
+        - Change Answer Button displaying when answer selected - RESULT: Change Answer button displays as expected with no console errors
+        - Next Button triggers Question and Answer data for next question in sequence - RESULT: Next question data replaces existing question data with no console errors
+        - Change Answer Button enables answer options and resets question data for current question - RESULT: Button enables user to change answer as expected with no console errors
+        - Question 10 Next Button hides questions and answers data and displays Results Section - RESULT: Results section displays as expected and questions section is no longer visible with no console errors     
 
-To access Google Developer Tools:
-- Click on Google menu (three dots in top left corner)
-- Select 'More tools'
-- Select '<> Developer tools'
-- Opens the current page in an adaptive window where you can change size of device by clicking in different spaces in the top border above the screen preview
-
-***Results***
-
-
-
-### Form Inputs
-
-
-***Method of Testing***
-
-
-***Results***
+    - Results Section Visible (questions.html)
+        - Heading displaying 'The Results are In... displays at the top of the results box - RESULT: Heading displays as expected with no console errors
+        - Summary Result displays a summary including names of two top scoring characters - RESULT: Summary sentence displays as expected with no console errors
+        - Character image, tagline and description displayed - RESULT: Results for two different characters are displayed with responsive styling as expected 
+        - Summary Result changes depending on score difference between top two scores (tested by iterating through multiple versions of quiz selecting different answers calculated to result in the different summary sentences defined) - RESULT: All four summary sentences display for correct score differences with no console errors
+        - Above testing item also tests whether scoreing function is working correctly and tied top character funtions working correctly - RESULT: All scoring functions working as expected with no console errors
+        - Restart Button takes user back to Welcome page - RESULT: Link takes user to welcome page as expected with no console errors
+        - Share Button links to Facebook - RESULT: Links externally in new tab as expected
 
 ### Validator Testing
 
 - HTML
     - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/) 
-    - Full screenshots available in docs folder.
 
-![Index page HTML validation results]()
-![Gallery page HTML validation results]()
-![Contact page HTML validation results]()
-![Thank-you page HTML validation results]()
-![404 page HTML validation results]()
+![HTML validation results](docs/readme-images/html-validation.png)
 
 - CSS
     - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
 
-![CSS validation results]()
+![CSS validation results](docs/readme-images/CSS-validation.png)
 
 - Lighthouse Testing
-    - Good scores achieved for all pages. Full screenshots available in docs folder.
+    - Good scores achieved for all pages.
 
-![Summary of all lighthouse results]()
+![Summary of all lighthouse results](docs/readme-images/Lighthouse-validation.png)
+
+- JSHint Testing
+ - No errors or warning were found when passing JavaScrip through JSHint
+
+ ![Results of JSHint Checks for Welcome Page](docs/readme-images/JSHint-welcome-page.png)
+ ![Results of JSHint Checks for Questions Page](docs/readme-images/JSHint-questions-page.png)
 
 
 ### Unfixed Bugs
+
+- The share button on the results page includes only a link to Facebook homepage and not with active content.
+- No other bugs.
 
 ## Deployment
 
