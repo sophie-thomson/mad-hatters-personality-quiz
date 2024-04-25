@@ -321,7 +321,18 @@ The live link can be found here
 ***JavaScript***
 - Code from [StackOverflow] (https://stackoverflow.com/questions/69743873/continuous-rainbow-color-cycling-effect-in-js) was adapted to create colour changing effect on main heading element.
 - A tutorial on [w3Schools.com] (https://www.w3schools.com/howto/howto_css_modals.asp) was used to create and style a pop-up instructions modal on the welcome page.
-- A tutorial How to Make Quiz App Using JavaScript on [GreatStack] (https://www.youtube.com/watch?v=PBcqGxrr9g8) was referred to for the basic question & answers format in JS code.
+- A tutorial How to Make Quiz App Using JavaScript on [GreatStack] (https://www.youtube.com/watch?v=PBcqGxrr9g8) was referred to for 
+    - structuring the questions & answers datasets
+    - code for building questions and creating answer buttons
+    - code for while loop removing previous answer buttons
+    - code to target chosen answer
+    - code logic required to reset state of the page ready to build next question
+- Code for using .map(Number) adapted from [StackOverflow discussion](https://stackoverflow.com/questions/48343478/what-does-mapnumber-do-here#:~:text=map(Number)%20%2F%2F%20Calls%20Number,ever%20is%20passed%20to%20it)
+- Code from a discussion on [StackOverflow](https://stackoverflow.com/questions/31925323/how-to-filter-out-nan-null-0-false-in-an-array-js) was adpated to filter currentScore array to remove all NaN
+- Code from the CI Love Maths walkthrough was adapted for for sending and receiving a score to the html DOM
+- the syntax for using .push to add items to an array was adapted from examples on [W3Schools tutorial](https://www.w3schools.com/jsref/jsref_push.asp)
+- Code to sort an array in descending order adapted from [W3Schools Tutorial](https://www.w3schools.com/js/js_array_sort.asp)
+- Syntax for using 'lastIndexOf' to find matching index searching from end of an array found on [Stackoverflow](https://stackoverflow.com/questions/52558924/how-can-i-find-an-array-element-starting-from-the-end-of-the-array)
 
 ### Media
 - Welcome Page Hero Image downloaded from [Adobe Stock](https://stock.adobe.com/images/mad-hatter-s-tea-party-whimsical-wonderland-table/751113710)

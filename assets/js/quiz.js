@@ -204,7 +204,7 @@ function startQuiz() {
   displayQuestion(); 
 }
 
-  // code for building question and creating answer buttons adapted from tutorial 
+  // code for building questions and creating answer buttons adapted from tutorial 
   // How to Make a Quiz App Using JavaScript on GreatStack (https://www.youtube.com/watch?v=PBcqGxrr9g8) ---------------- CREDIT
 
 /** Displays the questionData and answerData for the current question */
@@ -340,15 +340,17 @@ function changeAnswer() {
 }
 
 
-
 /** Gets currentScore data and adds the current answerScore to each character score*/
 function addScore() {
 
+  // Code for using .map(Number) adapted from StackOverflow discussion:
+  //https://stackoverflow.com/questions/48343478/what-does-mapnumber-do-here#:~:text=map(Number)%20%2F%2F%20Calls%20Number,ever%20is%20passed%20to%20it -----CREDIT
+  
   // creates an array from innerText of current score in scoreboard and maps to numbers or NaN items
   let currentScore = Array.from(document.getElementById("chosen-answer-score").innerHTML).map(Number);
   
     // code to filter currentScore array to remove all NaN adapted from StackOverflow discussion
-    //https://stackoverflow.com/questions/31925323/how-to-filter-out-nan-null-0-false-in-an-array-js-----------------CREDIT
+    //https://stackoverflow.com/questions/31925323/how-to-filter-out-nan-null-0-false-in-an-array-js ----------CREDIT
 
   let chosenAnswerScore = currentScore.filter(function (value) {
   return !Number.isNaN(value);
@@ -471,7 +473,7 @@ function findTopScores() {
   // creates a separate temporary array to ensure original finalCharacterScores maintains correct order 
   let finalScoreArray = finalCharacterScores.map(Number);
 
-  // sorting code adapted from W3Schools Tutorial(https://www.w3schools.com/js/js_array_sort.asp) -----------CREDIT
+  // code to sort an array in descending order adapted from W3Schools Tutorial(https://www.w3schools.com/js/js_array_sort.asp) -----------CREDIT
   // sorts finalCharacterScores in decending order - index [0] is highest score
   let sortedCharacterScores = finalScoreArray.sort(function(a, b){return b - a;});
 
@@ -493,7 +495,7 @@ function findTopScores() {
   // checks in case first and second scores are the same value, and hence finding the same indexOf result
   if (topScoreIndex === secondScoreIndex) {
 
-      // method 'lastIndexOf' to find matching index searching from end of an array found on Stackoverflow: 
+      // syntax for using 'lastIndexOf' to find matching index searching from end of an array found on Stackoverflow: 
       // https://stackoverflow.com/questions/52558924/how-can-i-find-an-array-element-starting-from-the-end-of-the-array ------------CREDIT 
     // searches for the last index with a matching score in the finalCharacterScores array
     let tiedTopIndex = finalCharacterScores.lastIndexOf(sortedCharacterScores[1]);
