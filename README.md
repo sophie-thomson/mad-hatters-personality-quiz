@@ -8,7 +8,7 @@ This quiz will take the user on their own personal journey through Wonderland an
 
 The live site can be found here: https://sophie-thomson.github.io/mad-hatters-personality-quiz/
 
-![Multi-device mockup showing responsiveness]()
+![Multi-device mockup showing responsiveness](docs/readme-images/multi-device-mockup.png)
 
 ## Features
 
@@ -46,9 +46,8 @@ The live site can be found here: https://sophie-thomson.github.io/mad-hatters-pe
 - Image chosen and sized to work well with adjusted focus on different device sizes.
 
 
-![Screenshot of hero image Galaxy Fold]()
-![Screenshot of hero image on tablet and up]()
-![Screenshot of hero image on desktop]()
+![Screenshot of welcome page Galaxy Fold](docs/readme-images/welcome-page-galaxy-fold.png)
+![Screenshot of welcome page on tablet and up](docs/readme-images/welcome-page-tablet-laptop.png)
 
 ***Intro Text***
 - Introduction to the quiz, setting the scene and transporting user into the world of Alice in Wonderland
@@ -59,8 +58,8 @@ The live site can be found here: https://sophie-thomson.github.io/mad-hatters-pe
 - JS used to trigger a pop-up modal with the instructions and a 'x' to close the modal.
 - Clicking anywhere on the screen outside of the modal also closes the modal.
 
-![Screenshot of modal Galaxy Fold]()
-![Screenshot of modal image on tablet and up]()
+![Screenshot of modal Galaxy Fold](docs/readme-images/how-to-play-modal-mobile.png)
+![Screenshot of modal image on tablet and up](docs/readme-images/how-to-play-modal-desktop.png)
 
 ***Start Quiz Button***
 
@@ -72,23 +71,22 @@ The live site can be found here: https://sophie-thomson.github.io/mad-hatters-pe
 ![Wireframe of index.html on mobile](docs/readme-images/welcome-page-wireframe-mobile.png)
 ![Wireframe of index.html on tablet and up](docs/readme-images/welcome-page-wireframe-desktop.png)
 
-### Questions Page (Q1-9) (questions.html)
+### Questions Page (questions.html)
 
 ***Image***
 
 - Image relating to the nature of the question with a reference to Alice in Wonderland.
 - Image selected to work well on different device sizes.
 - css and media queries used to ensure image is responsive and looks good on different device sizes.
+- Contains hidden results section
 
 
-![Screenshot of question page on Galaxy Fold]()
-![Screenshot of question page on tablet and up]()
+![Screenshot of question page on Galaxy Fold](docs/readme-images/questions-page-mobile.png)
+![Screenshot of question page on tablet and up](docs/readme-images/questions-page-tablet-laptop.png)
 
 ***Question***
 
 - Heading 2 level styling used to make the question stand out at the top of the page and follow assessibility guidelines.
-
-![Screenshot of Gallery page with responsive layout on tablet]()
 
 ***Answers and Scores***
 
@@ -106,7 +104,6 @@ The live site can be found here: https://sophie-thomson.github.io/mad-hatters-pe
 - When the user clicks the next question button, this triggers the addScore function which adds the scores of the current answer to the character scoreboard for all characters.
 - The character score board is not visible to the user, but is used in the JavaScript to keep a tally of the scores from one question to the next.
 - The addScore function then calls the nextQuestion function to replace the current question and answer data with the next set of data in the sequence.
--  
 
 ***Change Answer Button***
 
@@ -119,54 +116,36 @@ The live site can be found here: https://sophie-thomson.github.io/mad-hatters-pe
 ![Wireframe of question page on mobile](docs/readme-images/questions-page-wireframe-mobile.png)
 ![Wireframe of question page on tablet and up](docs/readme-images/questions-page-wireframe-desktop.png)
 
-### Final Question (Q.10)
+### Character Results Section
 
-***Image***
+***Heading***
 
-- Image relating to the nature of the question with a reference to Alice in Wonderland.
-- Image selected to work well on different device sizes.
-- css and media queries used to ensure image is responsive and looks good on different device sizes.
+- Simple heading to state 'The Results are In...' indicating to user that these are the quiz results.
 
+![Screenshot of results section on Galaxy Fold](docs/readme-images/questions-page-mobile.png)
+![Screenshot of results section on tablet and up](docs/readme-images/questions-page-tablet-laptop.png)
 
-![Screenshot of final question on Galaxy Fold]()
-![Screenshot of final question on tablet and up]()
+***Results Summary***
 
-***Question***
+- Summary line telling the user who the top scoring character and the tied top scoring / second highest scoring characters are
+- Depending on the difference in top two character scores, the summary line is adapted to give the user more insight on the ratio of each character
 
-- Heading 1 level styling used to make the question stand out as the most important thing on the page and follow assessibility guidelines.
+***Character Images***
 
-![Screenshot of final question page with responsive layout on tablet]()
+- An image of each of the two top scoring characters is displayed within a character results box 'card'.
+- Images are sized and styled to work well across different device sizes.
 
-***Answers and Scores***
+***Character Tag Line***
 
- - A choice of 6 different fun answers for the user to select from.
- - When the user moves their mouse over an answer the colour changes to highlight the option they would select if they clicked on that option. This does not happen on mobile devices and tablets unless they use a stylus.
- - When an answer has been chosen (clicked on), the selected answer changes background colour and has a contrasting outline border. 
- - Each answer has been assigned an array of scores relating to each of 6 characters (personalities) from Alice in Wonderland [0, 0, 0, 0, 0, 0].
- - The index of the selected answer score matches index of Alice in Wonderland characters: [Alice, Mad Hatter, White Rabbit, Cheshire Cat, Blue Caterpillar, Queen of Hearts]
- - When an answer is selected, the scores of the chosen answer are added to a scoreboard for all characters.
- - The character score board is not visible to the user, but is used in the JavaScript to keep a tally of the scores from one question to the next.
- - A score of 3 points is given to the character with the closest personality alignment to the answer, 2 points are given to the next closest, and 1 point to a character with a small connection. The other three characters are given a score of 0 for that answer.
+- A tag line is displayed for each of the two top scoring characters below the corresponding image.
+- Tag line includes 2-3 words to highlight key characteristics.
+- h3 used to give the user a quick understanding of their character before reading in more detail. 
 
-***Results Button***
+***Character Descriptions***
 
-- A button at the bottom of the final question page inviting the user to see which character they are most similar to.
-- An event listener triggers the checkScores function to get the characterScores as an array (60 points in total) e.g [12, 15, 8, 7, 10, 8]
-- Using a series of JS functions, the topScore Character and secondScore character are identified and pushed to the results page html.
-
-### Character Result Page (results.html)
-
-***Image***
-
-- Image relating to the nature of the question with a reference to Alice in Wonderland.
-- Image selected to work well on different device sizes.
-- css and media queries used to ensure image is responsive and looks good on different device sizes.
-
-![Screenshot of character result page on mobile]()
-
-***Description***
-
-- A brief description of the characteristics that make you like your character.
+- A brief description of the characteristics that make the user like each of their top score characters.
+- displayed below character image and tag line within character 'card'.
+- Character cards are responsive across different devices.
 
 ***Repeat Quiz Button***
 
@@ -175,7 +154,13 @@ The live site can be found here: https://sophie-thomson.github.io/mad-hatters-pe
 ***Share Results Button***
 
 - A button has been included which takes the user to Facebook so that they can share the quiz with friends and followers.
-- The iframe embedding code from Facebook 
+
+EDIT: The iframe embedding code from Facebook caused multiple errors and warning in HTML W3C Validation so have been replaced with simple link to Facebook homepage.
+
+***Results Section Wireframes***
+
+![Wireframe of results section on mobile](docs/readme-images/questions-page-wireframe-mobile.png)
+![Wireframe of results section on tablet and up](docs/readme-images/questions-page-wireframe-desktop.png)
 
 ### 404 Error Page (404.html)
 
@@ -191,7 +176,7 @@ The live site can be found here: https://sophie-thomson.github.io/mad-hatters-pe
 
 ### Additional Features to Implement
 To expand on this site, there are a number of features that could be added to provide additional information and functionality:
-- A button inviting the user to share their quiz results on their social media profile.
+- A button with automated action for sharing tagline results for the quiz on social media profiles.
 - The option to download a recipe for an item to take to the Mad Hatter's Tea Party relating to their character.
  
 ## Design
