@@ -6,6 +6,8 @@ The adventures of Alice in Wonderland are well known and loved around the World.
 
 This quiz will take the user on their own personal journey through Wonderland and will compare their own personality traits with 6 of the best known characters that Lewis Carrol first created in 1865.
 
+The live site can be found here: https://sophie-thomson.github.io/mad-hatters-personality-quiz/
+
 ![Multi-device mockup showing responsiveness]()
 
 ## Features
@@ -170,9 +172,10 @@ This quiz will take the user on their own personal journey through Wonderland an
 
 - A button inviting the user to take the quiz again and see who they get next time.
 
-***Share Results Button????***
+***Share Results Button***
 
-
+- A button has been included which takes the user to Facebook so that they can share the quiz with friends and followers.
+- The iframe embedding code from Facebook 
 
 ### 404 Error Page (404.html)
 
@@ -310,15 +313,23 @@ The following commands were used througout development to push the code through 
   - Select Pages link in the left hand menu 
   - From the source section drop-down menu, select the Main Branch
   - Click 'Save'
-  - Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
-
-The live link can be found here 
+  - Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.  
 
 ## Credits
 
 ### Content
 
+***Logic & Approach***
+
+- [The Travel Personality Quiz Project](https://github.com/emmahewson/mp2_travel_quiz/tree/main) by Emma Hewson was referred to for guidance on:
+    - managing multiple scores for an array of characters
+    - comparing chosen answer data to questions and ansers dataset
+    - types of functions that may be required
+
+No code was taken from Emma's project, but it was useful for planning logical process and as a prompt for what might come next when I got stuck. 
+
 ***JavaScript***
+
 - Code from [StackOverflow] (https://stackoverflow.com/questions/69743873/continuous-rainbow-color-cycling-effect-in-js) was adapted to create colour changing effect on main heading element.
 - A tutorial on [w3Schools.com] (https://www.w3schools.com/howto/howto_css_modals.asp) was used to create and style a pop-up instructions modal on the welcome page.
 - A tutorial How to Make Quiz App Using JavaScript on [GreatStack] (https://www.youtube.com/watch?v=PBcqGxrr9g8) was referred to for 
@@ -334,15 +345,47 @@ The live link can be found here
 - Code to sort an array in descending order adapted from [W3Schools Tutorial](https://www.w3schools.com/js/js_array_sort.asp)
 - Syntax for using 'lastIndexOf' to find matching index searching from end of an array found on [Stackoverflow](https://stackoverflow.com/questions/52558924/how-can-i-find-an-array-element-starting-from-the-end-of-the-array)
 
+***Share on Facebook Button***
+
+- Code from the Facebook devlopers pages was used to embed an iframe for users to share their results and a link to the quiz as a post.
+
+EDIT: Unfortunately the embedded code triggered multiple warnings and errors during W3C HTML validation so the automated functionality was removed and the button now links to Facebook which should open up the profile for anyone already logged in to FB.
+
 ### Media
+
+***Hero Images***
+
 - Welcome Page Hero Image downloaded from [Adobe Stock](https://stock.adobe.com/images/mad-hatter-s-tea-party-whimsical-wonderland-table/751113710)
-- 
+- Questions Section creative commons Hero Image downloaded from [GoodFon.com](https://www.goodfon.com/films/wallpaper-download-1920x1200-alisa-v-strane-chudes-tim-7375.html)
+
+***Character Results Images***
+
+All character images were found using creative commons filters in Google Chrome:
+
+- Alice image downloaded from [GoodFon.com](https://anime.goodfon.com/art-anime/wallpaper-download-1920x1200-alice-in-wonderland-alice-4136.html)
+- Mad Hatter image downloaded from [GoodFon.com](https://www.goodfon.com/films/wallpaper-download-1930x1080-alice-in-wonderland-mad-hatter-bezumnyi-shliapnik-alisa-v-st.html)
+- White Rabbit Image dowloaded from [GoodFon](https://www.goodfon.com/films/wallpaper-download-1930x1080-alice-in-wonderland-mad-hatter-bezumnyi-shliapnik-alisa-v-st.html)
+- Cheshire Cat image downloaded from [picryl.com](https://picryl.com/media/alice-in-wonderland-1951-cheshire-cat-fb560c)
+- Blue Caterpillar image downloaded from [picryl.com](https://picryl.com/media/alice-in-wonderland-1951-caterpillar-df0bf9)
+- Queen of Hearts image downloaded from [GoodFon.com](https://www.goodfon.com/films/wallpaper-download-1920x1200-alice-through-the-looking-1639.html)
+
+***Icons***
+
+All icons are downloaded for free from [Font Awesome](https://fontawesome.com/)
+
+### README
+
+- This README was adapted from my own README document for CI PP1 project [Ace Dog Walks](https://github.com/sophie-thomson/ace-dog-walks). That README was created with reference to:
+    - CI Love Running README Template
+    - The README for [Tacos Travels Project](https://github.com/Gareth-McGirr/tacos-travels) by Gareth McGirr
 
 ## Code & Technology
  The following code, platforms and apps were used in the creation of this site:
  - HTML - The main language used to build the content of the webpages.
  - CSS - CSS styling is applied to all areas of the website from within an external file.
  - JS - Javascript code is applied throughout the site to enable interactive feedback with the user in response to their actions.
+ - [Stack Overflow](https://stackoverflow.com/) - used as a reference for possible syntax and uses for JS code.
+ - [W3 Schools](https://www.w3schools.com/) - used for JS tutorials and testing space to find correct syntax. 
  - Gitpod - Cloud development environment used to write and preview code before committing.
  - Github - Github hosts the Mad Hatter's Personality Quiz repository and is where the site is deployed.
  - Font Awesome - Free icons from font awesome are used in the footer and on a button. 
@@ -351,3 +394,4 @@ The live link can be found here
  - Favicon.io - The Mad Hatter's Personality Quiz favicon was generated using [Favicon.io](https://favicon.io/favicon-converter/) free generator.
  - Balsamiq - The responsive layout wireframes were designed and planned using [Balsamiq](https://balsamiq.com/).
  - FreeMind - The initial mindmapping process to plan out the various elements of the project was created using [FreeMind] (https://sourceforge.net/projects/freemind/) open source software.
+ - Excel (Microsoft Office) - Spreadsheet used to compile questions and answers data and character points values.
