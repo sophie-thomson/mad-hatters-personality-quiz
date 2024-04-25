@@ -353,6 +353,9 @@ EDIT: Unfortunately the embedded code triggered multiple warnings and errors dur
 
 ### Media
 
+***Logo***
+- The hat logo was downloaded from [Etsy](https://i.etsystatic.com/43268737/r/il/f5cd85/5522061497/il_794xN.5522061497_dhj8.jpg) 
+
 ***Hero Images***
 
 - Welcome Page Hero Image downloaded from [Adobe Stock](https://stock.adobe.com/images/mad-hatter-s-tea-party-whimsical-wonderland-table/751113710)
