@@ -44,7 +44,7 @@ a {
 }
 /* Styling for all buttons using class "button" */
 .button {
-    color:#5e5d5d;
+    color:#494949;
     text-align: center;
     background-color: #fcfcfc;
     border: solid 2px #a4e9b3;
@@ -62,7 +62,7 @@ a {
 }
 /* class designed to remove the appearance of hover function once an answer has been selected. */
 .nohvr:hover {
-  color:#5e5d5d;
+  color:#494949;
   text-align: center;
   background-color: #fcfcfc;
   border: solid 2px #a4e9b3;
@@ -141,7 +141,7 @@ main {
 
 /* Styling for the instructions modal on welcome page */
 #instructions-modal-content {
-    color: #5e5d5d;
+    color: #494949;
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -237,25 +237,63 @@ main {
   /* RESULTS PAGE */
   #results-box {
     display: none;
+    background-color: #708d74;
+    width: 90vw;
+    max-width: 700px;
+    margin: 15px auto;
+    box-shadow: 0 2px 2px #787878;
+    border-radius: 15px;
+
   }
 
-
   #results-box h2 {
-    margin-top: 40px;
+    margin-top: 30px;
+    color:#4f0585;
   }
 
   #results {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: auto;
     justify-content: space-evenly;
+  }
 
+  #results-summary {
+    font-size: 110%;
+    font-weight: 500;
+    color: #fcfcfc;
+  }
+
+  .character-description {
+    padding: 15px;
   }
 
   #results img {
-    max-width: 300px;
-    border-radius: 15px;
+    width: 80vw;
+    max-width: 500px;
+    margin: auto;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
   }
+
+  .character-results-box {
+    background-color: #fcfcfc;
+    color:#494949;
+    width: 80vw;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 2px 2px #787878;
+    border-radius: 15px;
+    gap: 20px;
+  }
+
+  .character-results-box h3 {
+    font-size: 125%;
+    font-weight: 700;
+    color: #4f0585;
+    margin-bottom: 10px;
+  }
+
 
   #results-buttons {
     display:flex;
@@ -265,18 +303,22 @@ main {
 
   #restart-button {
     justify-content: flex-start;
-    
+    background: #3b4b3d ;
+    border-color: #a4e9b3;
+    color: #fcfcfc;
+    font-weight: 400;
+    padding: 10px;
   }
 
-  #share {
+  #share-button {
     justify-content: flex-end;
     align-self: flex-end;
-    
+    border-color: #4f0585;    
   }
 
 /* FOOTER SECTION */
 footer {
-    color: #5e5d5d;
+    color: #494949;
     font-size: 14px;
     font-weight: 500;
 }
@@ -289,4 +331,28 @@ footer i {
 footer li {
     display: inline-block;
     margin: 5px 10px;
+}
+
+/* Media query for tablets and larger*/
+@media screen and (min-width: 768px) {
+
+  #results {
+    display:flex;
+    flex-direction: row;
+    width: 700;
+    margin: auto;  
+  }
+
+  .character-results-box {
+    background-color: #fcfcfc;
+    color:#494949;
+    width: 300px;
+    margin: 15px auto;
+    box-shadow: 0 2px 2px #787878;
+    border-radius: 15px;
+  }
+
+  #results img {
+    width: 300px;
+  }
 }

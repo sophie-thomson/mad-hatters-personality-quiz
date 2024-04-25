@@ -135,32 +135,32 @@ const descriptions = [
     { // creative commons image from https://anime.goodfon.com/art-anime/wallpaper-download-1920x1200-alice-in-wonderland-alice-4136.html
       image: "assets/images/alice-image.webp",
       descriptionTag: "Inquisitive & Curious",
-      text: "You love to travel and are open to new experiences. You are an excellent problem-solver, but sometimes easily distracted. You can get frustrated if things don't go your way.",
+      text: "You love to travel and are open to new experiences.\n\nYou are an excellent problem-solver, but sometimes easily distracted. You can get frustrated if things don't go your way.",
     },
     { // creative commons image from https://www.goodfon.com/films/wallpaper-download-1930x1080-alice-in-wonderland-mad-hatter-bezumnyi-shliapnik-alisa-v-st.html
       image: "assets/images/mad-hatter-image.webp",
       descriptionTag: "An Obsessive Creative",
-      text: "Your approach might not be conventional and you can get fixated on things, but your creative flair & energy are your superpowers. You are great to be around, if a little bit bonkers!",
+      text: "Your approach might not be conventional and you can get fixated on things, but your creative flair & energy are your superpowers.\n\nYou are great to be around, if a little bit bonkers!",
     },
     { // creative commons image from https://www.goodfon.com/films/wallpaper-download-1930x1080-alice-in-wonderland-mad-hatter-bezumnyi-shliapnik-alisa-v-st.html
       image: "assets/images/white-rabbit-image.webp",
       descriptionTag: "The Busy Bee",
-      text: "Always on the go, you are super productive and always available to help a friend. You have a million things to do which can stress you out, but you love to unwind at the end of the day.",
+      text: "Always on the go, you are super productive and always available to help a friend.\n\nYou have a million things to do which can stress you out, but you love to unwind at the end of the day.",
     },
     { // creative commons image from https://picryl.com/media/alice-in-wonderland-1951-cheshire-cat-fb560c
       image: "assets/images/cheshire-cat-image.webp",
       descriptionTag: "A Font of Wisdom",
-      text: "You love to learn and offer support and guidance, though this can change with your mood. People-watching is your favourite hobby, but sometimes you just need to get away from it all.",
+      text: "You love to learn and offer support and guidance, though this can change with your mood.\n\nPeople-watching is your favourite hobby, but sometimes you just need to get away from it all.",
     },
     { // creative commons image from https://picryl.com/media/alice-in-wonderland-1951-caterpillar-df0bf9
       image: "assets/images/blue-caterpillar-image.webp",
       descriptionTag: "The Cool Cat(erpillar)",
-      text: "Your laid back confident attitude reflects your philosophical Zen-like approach to life, but it's all about balance - you love to let your hair down and party hard too!",
+      text: "Your laid back confident attitude reflects your philosophical approach to life.\n\nYou can be a bit opinionated at times, but it's all about balance - you love to let your hair down and party hard too!",
     },
     { // creative commons image from https://www.goodfon.com/films/wallpaper-download-1920x1200-alice-through-the-looking-1639.html
       image: "assets/images/queen-of-hearts-image.webp",
       descriptionTag: "A Born Leader",
-      text: "While your direct approach might sometimes be challenging to others, you know what you want and you get things done. Your motivation is infectious and everyone would like to have you on their team.",
+      text: "While your direct approach might sometimes be challenging to others, you know what you want and you get things done.\n\nYour motivation is infectious and everyone would like to have you on their team.",
     }
 ];
 

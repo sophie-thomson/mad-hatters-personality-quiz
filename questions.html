@@ -23,6 +23,9 @@
     <title>Mad Hatter's Personality Quiz</title>
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0" nonce="034I8Wp2"></script>
+
     <!-- Header -->
     <header>
             <a href="index.html"><img id="logo" src="assets/images/logo.webp" alt="Mad Hatter's Personality Test Logo"></a>
@@ -69,20 +72,23 @@
     <h2 id="results-heading">The results are in...</h2>
     <p id="results-summary"></p>
     <div id="results">
-        <div id="top-score-character">
+        <div id="top-score-character" class="character-results-box">
             <img id="top-score-image" src="" alt="Image of the top scoring character">
-            <p id="top-score-tag" class="character-tag"></p>
-            <p id="top-score-description" class="character-description">top score description</p>
+
+            <h3 id="top-score-tag" class="character-tag"></h3>
+            <p id="top-score-description" class="character-description"></p>
         </div>
-        <div id="second-score-character">
+        <div id="second-score-character" class="character-results-box">
             <img id="second-score-image" src="" alt="Image of the top scoring character">
-            <p id="second-score-tag" class="character-tag"></p>
-            <p id="second-score-description" class="character-description">second score description</p>
+            <h3 id="second-score-tag" class="character-tag"></h3>
+            <p id="second-score-description" class="character-description"></p>
         </div>
     </div>
     <div id="results-buttons">
     <a href="index.html"><button id="restart-button" class="button">Take Quiz Again <i class="fa-solid fa-retweet"></i></button></a>
-    <button id="share-button" class="button">Share on Facebook <i class="fa-solid fa-share"></i></button>
+    <!-- <div class="fb-share-button" data-href="https://sophie-thomson.github.io/mad-hatters-personality-quiz/index.html" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsophie-thomson.github.io%2Fmad-hatters-personality-quiz%2Findex.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+     <i class="fa-solid fa-share"></i> -->
+    <button id="share-button" class="button" class="nohvr">Share on Facebook<br><iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fsophie-thomson.github.io%2Fmad-hatters-personality-quiz%2Findex.html&layout&size&width=77&height=20&appId" width="100" height="40" style="border:solid #4f0585;overflow:hidden;background-color:#fcfcfc;border-radius:5px;padding:10px;padding-left:10px;text-align:center"; scrolling="no" frameborder="2" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></button>
     </div>
 </div>
     
@@ -108,5 +114,8 @@
     <!-- Link to JS code -->
     <script src="assets/js/rainbow.js"></script>
     <script src="assets/js/quiz.js"></script>
+    <!-- javaScript SDK for sharing quiz on Facebook -->
+    <!-- <div id="fb-root"></div> -->
+    <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0" nonce="034I8Wp2"></script> -->
 </body>
 </html>
