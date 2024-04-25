@@ -51,7 +51,7 @@ a {
     border-radius: 5px;
     font-family: 'Courier Prime', georgia, serif;
     font-weight: 700;
-    padding: 5px;
+    padding: 10px;
     box-shadow: 4px 4px 4px #787878;
     margin:15px auto;
 }
@@ -324,7 +324,12 @@ main {
 
 #sorry h2 {
   font-size: 200%;
-  padding: 25px; 
+  padding: 25px;
+  color:#4f0585;
+}
+
+#sorry p {
+  color: #494949;
 }
 
 /* FOOTER SECTION */
